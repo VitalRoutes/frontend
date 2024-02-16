@@ -20,7 +20,7 @@
       2,
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     ],
-    "react/react-in-jsx-scope": "off" // react 17부턴 import 안해도돼서 기능 끔
+    "react/react-in-jsx-scope": "off"
   },
-  "ignorePatterns": ["node_modules/", "*.config.ts"]
+  "ignorePatterns": ["node_modules/", "*.config.ts", "dev-dist/"]
 }

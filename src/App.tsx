@@ -1,5 +1,5 @@
 function App() {
-  return <div>vital routes</div>;
+  return <div className="text-2xl">vital routes</div>;
 }
 
 export default App;

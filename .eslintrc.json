@@ -22,5 +22,5 @@
     ],
     "react/react-in-jsx-scope": "off"
   },
-  "ignorePatterns": ["node_modules/", "*.config.ts", "dev-dist/"]
+  "ignorePatterns": ["node_modules/", "*.config.ts", "*.config.js", "dev-dist/"]
 }

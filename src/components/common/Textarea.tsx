@@ -1,21 +1,21 @@
-import { ForwardedRef, InputHTMLAttributes, forwardRef, useId } from 'react';
+import { ForwardedRef, TextareaHTMLAttributes, forwardRef, useId } from 'react';
 import InputStyle from '@/utils/InputStyle';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   errorMessage?: string;
 }
 
-function Input(
+function Textarea(
   {
     placeholder,
     label,
-    type,
     errorMessage,
     disabled = false,
     className = '',
+    rows = 10,
   }: Props,
-  ref: ForwardedRef<HTMLInputElement>,
+  ref: ForwardedRef<HTMLTextAreaElement>,
 ) {
   const uniqueId = useId();
   const hasError = !disabled && !!errorMessage;
@@ -27,21 +27,23 @@ function Input(
           {label}
         </label>
       )}
-      <div className="relative">
-        <input
+      <div className="relative w-full">
+        <textarea
+          ref={ref}
           className={`
               ${InputStyle.default({ hasError })}
               ${InputStyle.hover({ disabled, hasError })}
               ${InputStyle.focus({ disabled, hasError })}
+              resize-none
               ${className}
             `}
-          type={type}
           id={uniqueId}
-          ref={ref}
           placeholder={placeholder}
           disabled={disabled}
+          rows={rows}
         />
       </div>
+
       {hasError && (
         <span className="mt-2 text-sm text-alert">{errorMessage}</span>
       )}
@@ -49,4 +51,4 @@ function Input(
   );
 }
 
-export default forwardRef(Input);
+export default forwardRef(Textarea);

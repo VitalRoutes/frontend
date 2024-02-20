@@ -1,3 +1,4 @@
+import { twMerge } from 'tailwind-merge';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 type ButtonVariants =
@@ -7,7 +8,8 @@ type ButtonVariants =
   | 'third-a'
   | 'third-b'
   | 'third-c'
-  | 'third-d';
+  | 'third-d'
+  | 'third-e';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariants;
@@ -29,6 +31,8 @@ const CLASSES = {
     'rounded-full bg-gray-1 text-gray-11 px-[1.6rem] py-5 hover:bg-green-1 hover:text-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
   'third-d':
     'rounded-full bg-gray-5 text-gray-1 px-[1.6rem] py-5 hover:bg-green-1 disabled:bg-gray-5 disabled:text-gray-3',
+  'third-e':
+    'rounded-full bg-gray-1/30 text-gray-11 px-[1.6rem] py-5 hover:bg-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
 };
 
 function Button({
@@ -42,7 +46,7 @@ function Button({
   return (
     <button
       type={type === 'button' ? 'button' : 'submit'}
-      className={`${CLASSES[variant]} ${className}`}
+      className={twMerge(CLASSES[variant], className)}
       disabled={disabled}
       onClick={onClick}
     >

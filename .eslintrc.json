@@ -11,16 +11,22 @@
   },
   "extends": [
     "airbnb",
+    "airbnb-typescript",
     "prettier",
-    "airbnb-typescript/base",
     "eslint-config-prettier"
   ],
   "rules": {
-    "react/jsx-filename-extension": [
-      2,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": ["off"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   "ignorePatterns": ["node_modules/", "*.config.ts", "*.config.js", "dev-dist/"]
 }

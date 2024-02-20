@@ -1,20 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './pages/App';
-import CommonComponentTestPage from './pages/CommonComponentTestPage';
-import Layout from './components/units/Layout';
+import TestPage from './pages/test/page';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <Layout>
-        <App />
-      </Layout>
-    ),
+    element: <App />,
     children: [
       {
         path: 'test',
-        element: <CommonComponentTestPage />,
+        element: <TestPage />,
       },
     ],
   },

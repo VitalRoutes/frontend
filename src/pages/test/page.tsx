@@ -2,7 +2,7 @@ import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import Textarea from '@/components/common/Textarea';
 
-function CommonComponentTestPage() {
+function TestPage() {
   return (
     <div className="flex flex-col items-center gap-4 px-24 py-24">
       <Button>primary Button</Button>
@@ -43,4 +43,4 @@ function CommonComponentTestPage() {
   );
 }
 
-export default CommonComponentTestPage;
+export default TestPage;

@@ -7,7 +7,7 @@ const InputStyle = {
   hover: ({ disabled, hasError }: Props) => {
     if (disabled) return '';
     if (hasError) return '';
-    return 'hover:shadow-[0_0_0_3px_#D7FF0066]';
+    return 'hover:shadow-[0_0_0_3px_#EAFF78]';
   },
   focus: ({ disabled, hasError }: Props) => {
     if (disabled) return '';

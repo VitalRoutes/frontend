@@ -1,4 +1,4 @@
-import CommonComponentTestPage from './CommonComponentTest';
+import CommonComponentTestPage from './CommonComponentTestPage';
 
 function App() {
   return <CommonComponentTestPage />;

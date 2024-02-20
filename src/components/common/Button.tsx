@@ -16,9 +16,9 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const CLASSES = {
   primary:
-    'w-full rounded-xl bg-gray-1 py-6 text-gray-50 hover:bg-green-1 hover:text-black disabled:bg-gray-2 disabled:text-gray-4',
+    'w-full rounded-xl bg-gray-1 py-6 text-gray-11 hover:bg-green-1 hover:text-black disabled:bg-gray-2 disabled:text-gray-4',
   'secondary-a':
-    'w-full rounded-full bg-gray-1 py-7 text-gray-50 hover:bg-green-1 hover:text-black disabled:bg-gray-2 disabled:text-gray-4',
+    'w-full rounded-full bg-gray-1 py-7 text-gray-11 hover:bg-green-1 hover:text-black disabled:bg-gray-2 disabled:text-gray-4',
   'secondary-b':
     'w-full rounded-full border  border-gray-5 bg-gray-11 py-7 text-gray-1 hover:bg-gray-1 hover:text-gray-11 disabled:bg-gray-2 disabled:text-gray-4 ',
   'third-a':

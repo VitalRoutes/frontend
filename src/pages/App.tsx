@@ -1,7 +1,5 @@
-import CommonComponentTestPage from './CommonComponentTestPage';
-
 function App() {
-  return <CommonComponentTestPage />;
+  return <div>app</div>;
 }
 
 export default App;

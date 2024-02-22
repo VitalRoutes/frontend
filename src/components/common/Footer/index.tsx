@@ -1,4 +1,4 @@
-import { UpArrow, VrLine } from '@/components/icons';
+import { UpArrowIcon, VrLineIcon } from '@/components/icons';
 import Button from '../Button';
 
 function Footer() {
@@ -10,16 +10,16 @@ function Footer() {
           <img src="src/assets/images/main_logo_black.png" alt="logo" />
           <div className="flex items-center gap-4">
             <span className={SPAN_CLASS}>서비스 이용약관</span>
-            <VrLine className="fill-gray-1" />
+            <VrLineIcon className="fill-gray-1" />
             <span className={SPAN_CLASS}>개인정보 처리방침</span>
-            <VrLine className="fill-gray-1" />
+            <VrLineIcon className="fill-gray-1" />
             <span className={SPAN_CLASS}>위치기반 서비스</span>
           </div>
           <Button
             variant="third-e"
             className="flex h-10 w-10 items-center justify-center p-0"
           >
-            <UpArrow />
+            <UpArrowIcon />
           </Button>
         </div>
         <div className="text-sm text-gray-1">

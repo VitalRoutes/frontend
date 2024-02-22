@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge';
+
 interface Props {
   className?: string;
 }
@@ -14,7 +16,9 @@ function VideoSection({ className = '' }: Props) {
         <h1 className={TITLE_CLASS.h1}>Move,</h1>
         <h1 className={TITLE_CLASS.h1}>Connect,</h1>
         <h1 className={TITLE_CLASS.h1}>Thrive</h1>
-        <h2 className={TITLE_CLASS.h2}>With VitalRoutes</h2>
+        <h2 className={twMerge(TITLE_CLASS.h2, 'mt-[16px]')}>
+          With VitalRoutes
+        </h2>
       </div>
     </div>
   );

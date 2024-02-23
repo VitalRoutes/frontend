@@ -1,3 +1,4 @@
+import HealthCareSection from './components/HealthCareSection';
 import IntroSection from './components/IntroSection';
 import RegisterSection from './components/RegisterSection';
 import SlideSection from './components/SlideSection';
@@ -10,6 +11,7 @@ function HomePage() {
       <IntroSection className="mt-[200px]" />
       <SlideSection className="mt-[160px]" />
       <RegisterSection className="mt-[160px]" />
+      <HealthCareSection className="my-[160px]" />
     </div>
   );
 }

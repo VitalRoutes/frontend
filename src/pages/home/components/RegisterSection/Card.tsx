@@ -6,7 +6,7 @@ interface Props {
 
 function Card({ imgSrc, title, desc }: Props) {
   return (
-    <div className="flex flex-col items-center gap-[62px]">
+    <div className="flex flex-col items-center  gap-[62px] ">
       <img src={imgSrc} alt="registration_img" />
       <div className="h-[24px] w-[24px] rounded-full bg-gray-5" />
       <div className="flex flex-col gap-[21px]">

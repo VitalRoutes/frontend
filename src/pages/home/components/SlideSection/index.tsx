@@ -26,6 +26,7 @@ function SlideSection({ className }: Props) {
         title="챌린지에 참여해보세요."
         subTitle="challenge"
         href="/"
+        className="mb-[130px]"
       />
       <div className="relative flex w-screen flex-nowrap gap-6">
         <div className={twMerge('flex gap-6', ANIMATE_CLASS.left)}>{cards}</div>

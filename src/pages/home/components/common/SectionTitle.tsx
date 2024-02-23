@@ -6,13 +6,14 @@ interface Props {
   title: string;
   subTitle: string;
   href: string;
+  className?: string;
 }
 
-function SectionTitle({ title, subTitle, href }: Props) {
+function SectionTitle({ title, subTitle, href, className }: Props) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className={className}>
       <h3 className="text-center text-lg font-bold uppercase leading-[150%] text-gray-4">
         {subTitle}
       </h3>

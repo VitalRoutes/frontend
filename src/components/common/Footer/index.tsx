@@ -1,30 +1,44 @@
 import { UpArrowIcon, VrLineIcon } from '@/components/icons';
 import Button from '../Button';
+import { BASE_IMG_SCR } from '@/constants/src';
+import useWindowSize from '@/hooks/useWindowSize';
+import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
 
 function Footer() {
   const SPAN_CLASS = 'text-gray-1 text-sm hover:cursor-pointer hover:underline';
+
+  const { width } = useWindowSize();
+  const isDesktop = width > MOBILE_BOUND_WIDTH;
+
   return (
-    <footer className="bg-gray-6 px-[360px] pb-16 pt-8">
-      <div>
-        <div className="mx-auto mb-5 flex items-center justify-between gap-[40.5px]">
-          <img src="src/assets/images/main_logo_black.png" alt="logo" />
-          <div className="flex items-center gap-4">
-            <span className={SPAN_CLASS}>서비스 이용약관</span>
-            <VrLineIcon className="fill-gray-1" />
-            <span className={SPAN_CLASS}>개인정보 처리방침</span>
-            <VrLineIcon className="fill-gray-1" />
-            <span className={SPAN_CLASS}>위치기반 서비스</span>
+    <footer className=" bg-gray-6 px-[21px] pb-16 pt-8">
+      <div className="mx-auto flex max-w-[1200px] justify-between">
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col items-start justify-between gap-[20px] sm:flex-row sm:items-end sm:gap-[40.5px]">
+            <img
+              width={155}
+              src={`${BASE_IMG_SCR}/main_logo_black.png`}
+              alt="logo"
+            />
+            <div className="flex flex-col gap-2 text-[14px] sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <span className={SPAN_CLASS}>서비스 이용약관</span>
+              {isDesktop && <VrLineIcon className="fill-gray-1" />}
+              <span className={SPAN_CLASS}>개인정보 처리방침</span>
+              {isDesktop && <VrLineIcon className="fill-gray-1" />}
+              <span className={SPAN_CLASS}>위치기반 서비스</span>
+            </div>
           </div>
-          <Button
-            variant="third-e"
-            className="flex h-10 w-10 items-center justify-center p-0"
-          >
-            <UpArrowIcon />
-          </Button>
+
+          <div className="grid-row text-[13px] font-normal text-gray-2 sm:text-sm">
+            Copyright © 2024 VitalRouts Co., Ltd. All rights reserved.
+          </div>
         </div>
-        <div className="text-sm text-gray-1">
-          Copyright © 2024 VitalRouts Co., Ltd. All rights reserved.
-        </div>
+        <Button
+          variant="third-e"
+          className="flex h-10 w-10 items-center justify-center p-0"
+        >
+          <UpArrowIcon />
+        </Button>
       </div>
     </footer>
   );

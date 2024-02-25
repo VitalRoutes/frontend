@@ -10,7 +10,9 @@ function Layout({ children }: Props) {
   return (
     <>
       <Header />
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen w-screen overflow-x-hidden  ">
+        {children}
+      </main>
       <Footer />
     </>
   );

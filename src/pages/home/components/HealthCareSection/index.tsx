@@ -32,13 +32,12 @@ interface Props {
 
 function HealthCareSection({ className = '' }: Props) {
   return (
-    <section
-      className={twMerge('flex flex-col items-center gap-[62px]', className)}
-    >
+    <section className={twMerge('flex flex-col items-center ', className)}>
       <SectionTitle
         subTitle="wellness"
         title="건강 관리에 관심이 많으신가요?"
         href="/"
+        className="mb-[32px] sm:mb-[130px]"
       />
       <div className="grid w-fit grid-cols-2 gap-4">
         {MOCK_DATA.map(({ imgSrc, title, desc }) => (

@@ -14,11 +14,11 @@ function SectionTitle({ title, subTitle, href, className }: Props) {
 
   return (
     <div className={className}>
-      <h3 className="text-center text-lg font-bold uppercase leading-[150%] text-gray-4">
+      <h3 className="text-center text-sm font-bold uppercase leading-[150%] text-gray-4 sm:text-lg">
         {subTitle}
       </h3>
       <div className="flex items-center justify-center gap-4">
-        <h1 className="text-center text-[42px] font-bold leading-[140%]">
+        <h1 className="text-center text-xl font-bold leading-[140%] sm:text-[42px]">
           {title}
         </h1>
         <Button

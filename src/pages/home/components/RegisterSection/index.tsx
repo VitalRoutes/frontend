@@ -31,12 +31,11 @@ function RegisterSection({ className = '' }: Props) {
         title="신규 챌린지를 등록해보세요."
         subTitle="register route"
         href="/"
-        className="mb-[130px]"
+        className="mb-[32px] sm:mb-[130px]"
       />
 
-      <div className="relative flex items-center justify-center gap-[105px]">
-        <hr className="absolute bottom-[152px] h-[6px] w-full border-none bg-gradient-to-r from-gray-5/0 via-gray-5 to-gray-5/0" />
-
+      <div className="relative flex items-center justify-center gap-6 sm:gap-[105px]">
+        <hr className="absolute bottom-[112px] hidden h-[6px] w-full border-none bg-gradient-to-r from-gray-5/0 via-gray-5 to-gray-5/0 sm:block" />
         {CARDS_INFO.map(({ imgSrc, title, desc }) => (
           <Card imgSrc={imgSrc} title={title} desc={desc} />
         ))}

@@ -6,14 +6,14 @@ interface Props {
 
 function Card({ imgSrc, title, desc }: Props) {
   return (
-    <div className="flex flex-col items-center  gap-[62px] ">
+    <div className="flex w-[300px] flex-col items-center gap-[32px] sm:gap-[62px] ">
       <img src={imgSrc} alt="registration_img" />
-      <div className="h-[24px] w-[24px] rounded-full bg-gray-5" />
-      <div className="flex flex-col gap-[21px]">
-        <h1 className="text-center text-[26px] font-bold leading-[140%]">
+      <div className="flex flex-col items-center gap-2 sm:gap-[21px]">
+        <div className=" hidden h-[24px] w-[24px] rounded-full bg-gray-5 sm:block" />
+        <h1 className="text-center text-base font-bold leading-[140%] sm:text-[26px]">
           {title}
         </h1>
-        <div className="text-center text-[18px] font-medium text-gray-2">
+        <div className="text-center text-sm font-medium text-gray-2 sm:text-[18px]">
           {desc}
         </div>
       </div>

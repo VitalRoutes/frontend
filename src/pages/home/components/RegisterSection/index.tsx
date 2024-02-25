@@ -37,7 +37,7 @@ function RegisterSection({ className = '' }: Props) {
       <div className="relative flex items-center justify-center gap-6 xl:gap-[105px]">
         <hr className="absolute bottom-[108px] hidden h-[6px] w-full border-none bg-gradient-to-r from-gray-5/0 via-gray-5 to-gray-5/0 xl:block" />
         {CARDS_INFO.map(({ imgSrc, title, desc }) => (
-          <Card imgSrc={imgSrc} title={title} desc={desc} />
+          <Card key={title} imgSrc={imgSrc} title={title} desc={desc} />
         ))}
       </div>
     </section>

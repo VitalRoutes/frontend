@@ -6,7 +6,7 @@ import VideoSection from './components/VideoSection';
 
 function HomePage() {
   return (
-    <div className="flex flex-col items-center gap-[62px]">
+    <div className="mb-[160px] flex flex-col items-center gap-[62px] xl:mb-[62px]">
       <VideoSection />
       <IntroSection />
       <SlideSection />

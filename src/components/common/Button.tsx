@@ -24,15 +24,15 @@ const CLASSES = {
   'secondary-b':
     'w-full rounded-full border  border-gray-5 bg-gray-11 py-7 text-gray-1 hover:bg-gray-1 hover:text-gray-11 disabled:bg-gray-2 disabled:text-gray-4 ',
   'third-a':
-    'rounded-full font-bold bg-gray-6 px-4 py-2 sm:text-base text-sm sm:px-9 sm:py-5 text-gray-1 hover:bg-green-1 disabled:bg-gray-6 disabled:text-gray-3',
+    'rounded-full font-bold bg-gray-6 px-4 py-2 xl:text-base text-sm xl:px-9 xl:py-5 text-gray-1 hover:bg-green-1 disabled:bg-gray-6 disabled:text-gray-3',
   'third-b':
-    'rounded-full bg-gray-6 px-4 py-2 sm:text-base text-sm sm:px-9 sm:py-5 text-gray-1 hover:bg-gray-1 hover:text-green-1 disabled:bg-gray-6 disabled:text-gray-3',
+    'rounded-full bg-gray-6 px-4 py-2 xl:text-base text-sm xl:px-9 xl:py-5 text-gray-1 hover:bg-gray-1 hover:text-green-1 disabled:bg-gray-6 disabled:text-gray-3',
   'third-c':
-    'rounded-full font-bold bg-gray-1 px-4 py-2 sm:text-base text-sm text-gray-11  sm:px-6 sm:py-4 hover:bg-green-1 hover:text-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
+    'rounded-full font-bold bg-gray-1 px-4 py-2 xl:text-base text-sm text-gray-11  xl:px-6 xl:py-4 hover:bg-green-1 hover:text-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
   'third-d':
-    'rounded-full font-bold bg-gray-5 px-4 py-2 sm:text-base text-sm text-gray-1 sm:px-6 sm:py-4 hover:bg-green-1 disabled:bg-gray-5 disabled:text-gray-3',
+    'rounded-full font-bold bg-gray-5 px-4 py-2 xl:text-base text-sm text-gray-1 xl:px-6 xl:py-4 hover:bg-green-1 disabled:bg-gray-5 disabled:text-gray-3',
   'third-e':
-    'rounded-full font-bold bg-gray-1/30 px-4 py-2 sm:text-base text-sm text-gray-11  sm:px-6 sm:py-4 hover:bg-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
+    'rounded-full font-bold bg-gray-1/30 px-4 py-2 xl:text-base text-sm text-gray-11  xl:px-6 xl:py-4 hover:bg-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
 };
 
 function Button({

@@ -14,19 +14,19 @@ function SectionTitle({ title, subTitle, href, className }: Props) {
 
   return (
     <div className={className}>
-      <h3 className="text-center text-sm font-bold uppercase leading-[150%] text-gray-4 sm:text-lg">
+      <h3 className="text-center text-sm font-bold uppercase leading-[150%] text-gray-4 xl:text-lg">
         {subTitle}
       </h3>
       <div className="flex items-center justify-center gap-4">
-        <h1 className="text-center text-xl font-bold leading-[140%] sm:text-[42px]">
+        <h1 className="text-center text-xl font-bold leading-[140%] xl:text-[42px]">
           {title}
         </h1>
         <Button
           variant="third-d"
-          className="flex h-[48px] w-[48px] items-center justify-center p-0"
+          className="flex h-[30px] w-[30px] items-center justify-center p-0 xl:h-[48px] xl:w-[48px] xl:p-0"
           onClick={() => navigate(href)}
         >
-          <RightArrowIcon />
+          <RightArrowIcon className="size-[23px]" />
         </Button>
       </div>
     </div>

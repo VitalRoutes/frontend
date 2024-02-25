@@ -14,13 +14,13 @@ function Footer() {
     <footer className=" bg-gray-6 px-[21px] pb-16 pt-8">
       <div className="mx-auto flex max-w-[1200px] justify-between">
         <div className="flex flex-col gap-5">
-          <div className="flex flex-col items-start justify-between gap-[20px] sm:flex-row sm:items-end sm:gap-[40.5px]">
+          <div className="flex flex-col items-start justify-between gap-[20px] xl:flex-row xl:items-end xl:gap-[40.5px]">
             <img
               width={155}
               src={`${BASE_IMG_SCR}/main_logo_black.png`}
               alt="logo"
             />
-            <div className="flex flex-col gap-2 text-[14px] sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <div className="flex flex-col gap-2 text-[14px] xl:flex-row xl:items-center xl:justify-between xl:gap-4">
               <span className={SPAN_CLASS}>서비스 이용약관</span>
               {isDesktop && <VrLineIcon className="fill-gray-1" />}
               <span className={SPAN_CLASS}>개인정보 처리방침</span>
@@ -29,13 +29,13 @@ function Footer() {
             </div>
           </div>
 
-          <div className="grid-row text-[13px] font-normal text-gray-2 sm:text-sm">
+          <div className="grid-row text-[13px] font-normal text-gray-2 xl:text-sm">
             Copyright © 2024 VitalRouts Co., Ltd. All rights reserved.
           </div>
         </div>
         <Button
           variant="third-e"
-          className="flex h-10 w-10 items-center justify-center sm:p-0"
+          className="flex h-10 w-10 items-center justify-center xl:p-0"
         >
           <UpArrowIcon />
         </Button>

@@ -37,9 +37,9 @@ function HealthCareSection({ className = '' }: Props) {
         subTitle="wellness"
         title="건강 관리에 관심이 많으신가요?"
         href="/"
-        className="mb-[32px] sm:mb-[130px]"
+        className="mb-[32px] xl:mb-[130px]"
       />
-      <div className="grid w-fit grid-cols-2 gap-4">
+      <div className="grid w-fit grid-cols-1 gap-4 md:grid-cols-2">
         {MOCK_DATA.map(({ imgSrc, title, desc }) => (
           <HealthCareCard
             key={title}

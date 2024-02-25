@@ -3,7 +3,7 @@ import SlideCard from './SlideCard';
 import SectionTitle from '../common/SectionTitle';
 
 interface Props {
-  className: string;
+  className?: string;
 }
 
 function SlideSection({ className }: Props) {

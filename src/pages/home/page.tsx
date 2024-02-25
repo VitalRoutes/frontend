@@ -6,12 +6,12 @@ import VideoSection from './components/VideoSection';
 
 function HomePage() {
   return (
-    <div>
+    <div className="flex flex-col items-center gap-[62px]">
       <VideoSection />
-      <IntroSection className="mt-[200px]" />
-      <SlideSection className="mt-[160px]" />
-      <RegisterSection className="mt-[160px]" />
-      <HealthCareSection className="my-[160px]" />
+      <IntroSection />
+      <SlideSection />
+      <RegisterSection />
+      <HealthCareSection />
     </div>
   );
 }

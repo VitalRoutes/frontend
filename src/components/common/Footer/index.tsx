@@ -35,7 +35,7 @@ function Footer() {
         </div>
         <Button
           variant="third-e"
-          className="flex h-10 w-10 items-center justify-center p-0"
+          className="flex h-10 w-10 items-center justify-center sm:p-0"
         >
           <UpArrowIcon />
         </Button>

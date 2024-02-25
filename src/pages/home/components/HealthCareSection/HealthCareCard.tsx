@@ -16,7 +16,7 @@ function HealthCareCard({ title, desc, imgSrc }: Props) {
         <h1 className="line-clamp-2 break-keep text-[24px] font-bold leading-[140%] ">
           {title}
         </h1>
-        <p className="hidden break-keep leading-[150%] md:line-clamp-3 ">
+        <p className="hidden break-keep leading-[150%] xl:line-clamp-3 ">
           {desc}
         </p>
       </div>

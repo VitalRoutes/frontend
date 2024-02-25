@@ -39,7 +39,7 @@ function HealthCareSection({ className = '' }: Props) {
         href="/"
         className="mb-[32px] xl:mb-[130px]"
       />
-      <div className="grid w-fit grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid w-fit grid-cols-1 gap-4 sm:grid-cols-2">
         {MOCK_DATA.map(({ imgSrc, title, desc }) => (
           <HealthCareCard
             key={title}

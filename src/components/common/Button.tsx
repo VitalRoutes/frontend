@@ -9,7 +9,10 @@ type ButtonVariants =
   | 'third-b'
   | 'third-c'
   | 'third-d'
-  | 'third-e';
+  | 'third-e'
+  | 'tab-a'
+  | 'tag-a'
+  | 'tag-b';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariants;
@@ -33,6 +36,12 @@ const CLASSES = {
     'rounded-full font-bold bg-gray-5 px-4 py-2 xl:text-base text-sm text-gray-1 xl:px-6 xl:py-4 hover:bg-green-1 disabled:bg-gray-5 disabled:text-gray-3',
   'third-e':
     'rounded-full font-bold bg-gray-1/30 px-4 py-2 xl:text-base text-sm text-gray-11  xl:px-6 xl:py-4 hover:bg-gray-1 disabled:bg-gray-2 disabled:text-gray-4',
+  'tab-a':
+    'rounded-full font-bold inline-flex py-[12px] px-[20px] justify-center items-center bg-gray-6 hover:bg-gray-1 hover:text-gray-5 disabled:bg-gray-5 disabled:text-gray-3 text-[14px] xl:text-[20px] xl:px-[24px] xl:py-[14px]',
+  'tag-a':
+    'rounded-full font-bold px-[12px] py-[12] inline-flex h-[40px] justify-center items-center shrink-0 bg-gray-6 hover:bg-green-1 disabled:bg-gray-5 disabled:text-gray-3 text-[14px]',
+  'tag-b':
+    'rounded-full font-bold px-[12px] py-[8px] inline-flex h-[40px] justify-center items-center shrink-0 bg-gray-6 hover:bg-gray-1 hover:text-green-1 disabled:bg-gray-5 disabled:text-gray-3 text-[14px]',
 };
 
 function Button({

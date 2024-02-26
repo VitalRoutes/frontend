@@ -1,5 +1,5 @@
 import { BASE_IMG_SCR } from '@/constants/src';
-import SectionTitle from '../common/SectionTitle';
+import SectionTitle from '../../../../components/common/SectionTitle';
 import Card from './Card';
 
 interface Props {

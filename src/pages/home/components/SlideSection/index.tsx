@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge';
 import SlideCard from './SlideCard';
-import SectionTitle from '../common/SectionTitle';
+import SectionTitle from '../../../../components/common/SectionTitle';
 
 interface Props {
   className?: string;

@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import SectionTitle from '../common/SectionTitle';
+import SectionTitle from '../../../../components/common/SectionTitle';
 import HealthCareCard from './HealthCareCard';
 import { BASE_IMG_SCR } from '@/constants/src';
 

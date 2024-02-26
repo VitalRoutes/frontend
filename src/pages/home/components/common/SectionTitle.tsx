@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '@/components/common/Button';
-import { RightArrowIcon } from '@/components/icons';
+import Icon from '@/components/icons';
 
 interface Props {
   title: string;
@@ -26,7 +26,7 @@ function SectionTitle({ title, subTitle, href, className }: Props) {
           className="flex h-[30px] w-[30px] items-center justify-center p-0 xl:h-[48px] xl:w-[48px] xl:p-0"
           onClick={() => navigate(href)}
         >
-          <RightArrowIcon className="size-[23px]" />
+          <Icon.RightArrow className="size-[23px]" />
         </Button>
       </div>
     </div>

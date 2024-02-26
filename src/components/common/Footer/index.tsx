@@ -1,8 +1,8 @@
-import { UpArrowIcon, VrLineIcon } from '@/components/icons';
 import Button from '../Button';
 import { BASE_IMG_SCR } from '@/constants/src';
 import useWindowSize from '@/hooks/useWindowSize';
 import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
+import Icon from '@/components/icons';
 
 function Footer() {
   const SPAN_CLASS = 'text-gray-1 text-sm hover:cursor-pointer hover:underline';
@@ -22,9 +22,9 @@ function Footer() {
             />
             <div className="flex flex-col gap-2 text-[14px] xl:flex-row xl:items-center xl:justify-between xl:gap-4">
               <span className={SPAN_CLASS}>서비스 이용약관</span>
-              {isDesktop && <VrLineIcon className="fill-gray-1" />}
+              {isDesktop && <Icon.VrLine className="fill-gray-1" />}
               <span className={SPAN_CLASS}>개인정보 처리방침</span>
-              {isDesktop && <VrLineIcon className="fill-gray-1" />}
+              {isDesktop && <Icon.VrLine className="fill-gray-1" />}
               <span className={SPAN_CLASS}>위치기반 서비스</span>
             </div>
           </div>
@@ -35,9 +35,9 @@ function Footer() {
         </div>
         <Button
           variant="third-e"
-          className="flex h-10 w-10 items-center justify-center xl:p-0"
+          className="flex h-10 w-10 items-center justify-center p-0 xl:p-0"
         >
-          <UpArrowIcon />
+          <Icon.UpArrow />
         </Button>
       </div>
     </footer>

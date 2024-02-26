@@ -6,9 +6,10 @@ interface Props {
   href: string;
   children: ReactNode;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-function NavButton({ className, href, children }: Props) {
+function NavButton({ className, href, children, onClick }: Props) {
   return (
     <Link
       className={twMerge(
@@ -16,6 +17,7 @@ function NavButton({ className, href, children }: Props) {
         className,
       )}
       to={href}
+      onClick={onClick}
     >
       {children}
     </Link>

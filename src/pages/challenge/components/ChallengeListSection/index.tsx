@@ -12,16 +12,18 @@ function ChallengeListSection() {
     );
 
   return (
-    <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
-      {TEMP_DATA.map((val) => (
-        <ChallengeCard
-          key={val}
-          imgSrc={`${BASE_IMG_SCR}/intro_1.png`}
-          title="봄의 전령, 튤립 거리 탐방 챌린지 참여하고 봄맞이 하세요!"
-          people={10}
-          onClick={() => navigate(`/challenge/${val}`)}
-        />
-      ))}
+    <div>
+      <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
+        {TEMP_DATA.map((val) => (
+          <ChallengeCard
+            key={val}
+            imgSrc={`${BASE_IMG_SCR}/intro_1.png`}
+            title="봄의 전령, 튤립 거리 탐방 챌린지 참여하고 봄맞이 하세요!"
+            people={10}
+            onClick={() => navigate(`/challenge/${val}`)}
+          />
+        ))}
+      </div>
     </div>
   );
 }

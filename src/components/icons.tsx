@@ -5,6 +5,7 @@ import RightArrow from '@/assets/icons/right_arrow.svg?react';
 import Kebab from '@/assets/icons/kebab.svg?react';
 import Heart from '@/assets/icons/heart.svg?react';
 import Bookmark from '@/assets/icons/bookmark.svg?react';
+import DownArrow from '@/assets/icons/down_arrow.svg?react';
 
 const Icon = {
   Close,
@@ -14,6 +15,7 @@ const Icon = {
   Kebab,
   Heart,
   Bookmark,
+  DownArrow,
 };
 
 export default Icon;

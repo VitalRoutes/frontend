@@ -1,13 +1,19 @@
-import CloseIcon from '@/assets/icons/close.svg?react';
-import VrLineIcon from '@/assets/icons/vr_line.svg?react';
-import UpArrowIcon from '@/assets/icons/up_arrow.svg?react';
-import RightArrowIcon from '@/assets/icons/right_arrow.svg?react';
+import Close from '@/assets/icons/close.svg?react';
+import VrLine from '@/assets/icons/vr_line.svg?react';
+import UpArrow from '@/assets/icons/up_arrow.svg?react';
+import RightArrow from '@/assets/icons/right_arrow.svg?react';
+import Kebab from '@/assets/icons/kebab.svg?react';
+import Heart from '@/assets/icons/heart.svg?react';
+import Bookmark from '@/assets/icons/bookmark.svg?react';
 
 const Icon = {
-  Close: CloseIcon,
-  VrLine: VrLineIcon,
-  UpArrow: UpArrowIcon,
-  RightArrow: RightArrowIcon,
+  Close,
+  VrLine,
+  UpArrow,
+  RightArrow,
+  Kebab,
+  Heart,
+  Bookmark,
 };
 
 export default Icon;

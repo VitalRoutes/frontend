@@ -14,7 +14,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'challenge-list',
+        path: 'challenge',
         element: <ChallengeListPage />,
       },
       {

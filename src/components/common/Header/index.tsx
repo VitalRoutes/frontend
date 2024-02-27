@@ -6,6 +6,7 @@ import { NAVIGATION } from '@/constants/navigation';
 import Button from '../Button';
 import HambergerNavigation from './HambergerNavigation';
 import NavButton from './common/NavButton';
+import { BASE_IMG_SCR } from '@/constants/src';
 
 function Header() {
   const { width } = useWindowSize();
@@ -25,7 +26,7 @@ function Header() {
         <Link to="/">
           <img
             width={isDesktop ? 'auto' : 141}
-            src="src/assets/images/main_logo_white.png"
+            src={`${BASE_IMG_SCR}/logo/main_logo_white.png`}
             alt="logo"
           />
         </Link>

@@ -11,21 +11,9 @@ function IntroSection() {
       </div>
 
       <div className="mx-auto flex flex-col items-center justify-center gap-[40px] xl:flex-row xl:gap-0">
-        <IntroCard
-          imgSrc={INTRO_CARD[1].imgSrc}
-          title={INTRO_CARD[1].title}
-          desc={INTRO_CARD[1].desc}
-        />
-        <IntroCard
-          imgSrc={INTRO_CARD[2].imgSrc}
-          title={INTRO_CARD[2].title}
-          desc={INTRO_CARD[2].desc}
-        />
-        <IntroCard
-          imgSrc={INTRO_CARD[3].imgSrc}
-          title={INTRO_CARD[3].title}
-          desc={INTRO_CARD[3].desc}
-        />
+        {INTRO_CARD.map(({ imgSrc, title, desc }) => (
+          <IntroCard key={title} imgSrc={imgSrc} title={title} desc={desc} />
+        ))}
       </div>
     </>
   );

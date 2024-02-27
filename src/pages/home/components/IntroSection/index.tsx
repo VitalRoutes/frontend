@@ -10,7 +10,7 @@ function IntroSection() {
         <div>서로 소통할 수 있는 독특한 커뮤니티 서비스입니다.</div>
       </div>
 
-      <div className="mx-auto flex w-[318px] flex-col items-center justify-center gap-[40px] xl:w-[1520px] xl:flex-row xl:gap-0">
+      <div className="mx-auto flex flex-col items-center justify-center gap-[40px] xl:flex-row xl:gap-0">
         <IntroCard
           imgSrc={INTRO_CARD[1].imgSrc}
           title={INTRO_CARD[1].title}

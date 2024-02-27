@@ -1,8 +1,8 @@
-import { Suspense } from 'react';
 import Banner from '@/components/common/Banner';
 import TagSection from './components/TagSection';
 import SectionTitle from '@/components/common/SectionTitle';
 import ChallengeListSection from './components/ChallengeListSection';
+import { BASE_IMG_SCR } from '@/constants/src';
 
 function ChallengeListPage() {
   return (
@@ -10,12 +10,11 @@ function ChallengeListPage() {
       <Banner
         title={`Share,\nParticipate,\nTalk`}
         subTitle="With VitalRoutes"
+        imgSrc={`${BASE_IMG_SCR}/banner/cycling.png`}
       />
       <TagSection />
       <SectionTitle title="신규 챌린지" subTitle="New Chanllenge" />
-      <Suspense>
-        <ChallengeListSection />
-      </Suspense>
+      <ChallengeListSection />
     </div>
   );
 }

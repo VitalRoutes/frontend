@@ -31,7 +31,7 @@ function RegisterSection({ className = '' }: Props) {
         title="신규 챌린지를 등록해보세요."
         subTitle="register route"
         href="/"
-        className="mb-[32px] xl:mb-[130px]"
+        className="mb-[32px] xl:mb-[62px]"
       />
 
       <div className="relative flex items-center justify-center gap-6 xl:gap-[105px]">

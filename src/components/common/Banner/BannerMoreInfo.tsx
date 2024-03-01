@@ -42,12 +42,20 @@ function BannerMoreInfo({
         </div>
 
         <div className="flex gap-[16px]">
-          <div>
-            <Icon.Bookmark />
-          </div>
-          <div>
-            <Icon.Like />
-          </div>
+          <button
+            className="group rounded-full bg-gray-1/30 p-[12px] hover:bg-gray-11"
+            type="button"
+            aria-label="bookmark"
+          >
+            <Icon.Bookmark className="h-[40px] w-[40px] fill-gray-11 group-hover:fill-gray-1" />
+          </button>
+          <button
+            className="group rounded-full bg-gray-1/30 p-[12px] hover:bg-gray-11"
+            type="button"
+            aria-label="bookmark"
+          >
+            <Icon.Like className="h-[40px] w-[40px] fill-gray-11 group-hover:fill-gray-1" />
+          </button>
         </div>
       </div>
     </div>

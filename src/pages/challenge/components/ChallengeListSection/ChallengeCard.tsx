@@ -40,15 +40,19 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
             {people}명이 참가중
           </span>
           <div className="flex gap-[8px]">
-            <button type="button" aria-label="like">
-              <Icon.Bookmark />
+            <button
+              className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
+              type="button"
+              aria-label="like"
+            >
+              <Icon.Bookmark className="h-[32px] w-[32px]  fill-gray-50 group-hover:fill-gray-1" />
             </button>
             <button
-              className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-gray-900/30 backdrop-blur"
+              className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
               type="button"
               aria-label="book mark"
             >
-              <Icon.Like />
+              <Icon.Like className="h-[32px] w-[32px]  fill-gray-50  group-hover:fill-gray-1" />
             </button>
           </div>
         </div>

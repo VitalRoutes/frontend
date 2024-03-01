@@ -9,6 +9,7 @@ import Like from '@/assets/icons/like.svg?react';
 import Heart from '@/assets/icons/heart.svg?react';
 import Comment from '@/assets/icons/comment.svg?react';
 import View from '@/assets/icons/view.svg?react';
+import Camera from '@/assets/icons/camera.svg?react';
 
 const Icon = {
   Close,
@@ -22,6 +23,7 @@ const Icon = {
   View,
   Bookmark,
   Like,
+  Camera,
 };
 
 export default Icon;

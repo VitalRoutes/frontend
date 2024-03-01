@@ -34,7 +34,9 @@ function Header() {
           <>
             <nav className="flex gap-5">
               {NAVIGATION.map(({ href, title }) => (
-                <NavButton href={href}>{title}</NavButton>
+                <NavButton key={title} href={href}>
+                  {title}
+                </NavButton>
               ))}
             </nav>
             <Button variant="third-a">Login</Button>

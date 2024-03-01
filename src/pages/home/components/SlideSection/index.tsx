@@ -9,10 +9,16 @@ interface Props {
 
 function SlideSection({ className }: Props) {
   const cards1 = [0, 1, 2, 3, 4, 5].map((index) => (
-    <SlideCard imgSrc={`${BASE_IMG_SCR}/slide/challenge_1_${index}.png`} />
+    <SlideCard
+      key={index}
+      imgSrc={`${BASE_IMG_SCR}/slide/challenge_1_${index}.png`}
+    />
   ));
   const cards2 = [0, 1, 2, 3, 4, 5].map((index) => (
-    <SlideCard imgSrc={`${BASE_IMG_SCR}/slide/challenge_2_${index}.png`} />
+    <SlideCard
+      key={index}
+      imgSrc={`${BASE_IMG_SCR}/slide/challenge_2_${index}.png`}
+    />
   ));
   const ANIMATE_CLASS = {
     left: `animate-[slide-left_40s_linear_infinite]`,

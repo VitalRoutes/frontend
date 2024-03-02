@@ -1,11 +1,11 @@
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map } from 'react-kakao-maps-sdk';
+import CustomMarker from './CustomMarker';
 
 function KaKaoMap() {
   return (
     <Map className="h-full w-full" center={{ lat: 33.5563, lng: 126.79581 }}>
-      <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-        <div style={{ color: '#000' }}>Hello World!</div>
-      </MapMarker>
+      <CustomMarker label="spot1" lat={33.55635} lng={126.795841} />
+      <CustomMarker label="spot2" lat={33.55638} lng={126.798041} />
     </Map>
   );
 }

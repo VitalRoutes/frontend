@@ -19,9 +19,6 @@ export default {
         'gray-2': '#666666',
         'gray-1': '#111111',
       },
-      zIndex: {
-        header: '9999',
-      },
     },
   },
   plugins: [],

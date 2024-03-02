@@ -1,7 +1,12 @@
-import CommonComponentTestPage from './CommonComponentTestPage';
+import { Outlet } from 'react-router-dom';
+import Layout from '@/components/units/Layout';
 
 function App() {
-  return <CommonComponentTestPage />;
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  );
 }
 
 export default App;

@@ -1,7 +1,8 @@
 import Banner from '@/components/common/Banner';
 import KaKaoMap from './components/KakaoMap';
-import Spot from '@/components/common/Spot';
 import ImageSection from './components/ImageSection';
+import DescSection from './components/DescSection';
+import TagSection from './components/TagSection';
 
 function ChallengeDetailPage() {
   const MORE_INFO = {
@@ -25,6 +26,8 @@ function ChallengeDetailPage() {
           <KaKaoMap />
         </div>
         <ImageSection />
+        <DescSection />
+        <TagSection />
       </div>
     </>
   );

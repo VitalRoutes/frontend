@@ -1,6 +1,7 @@
 import Banner from '@/components/common/Banner';
 import KaKaoMap from './components/KakaoMap';
 import Spot from '@/components/common/Spot';
+import ImageSection from './components/ImageSection';
 
 function ChallengeDetailPage() {
   const MORE_INFO = {
@@ -19,12 +20,11 @@ function ChallengeDetailPage() {
         imgSrc="#"
         moreInfo={MORE_INFO}
       />
-      <div className="mt-[120px] flex flex-col items-center gap-[52px] ">
-        <div className="h-[360px] w-[940px] overflow-hidden rounded-[30px]">
+      <div className="mx-auto mt-[120px] flex w-[940px] flex-col items-center  gap-[52px]">
+        <div className="h-[360px] w-full overflow-hidden rounded-[30px]">
           <KaKaoMap />
         </div>
-        <Spot camera label="Spot 1" />
-        <Spot label="Spot 1" />
+        <ImageSection />
       </div>
     </>
   );

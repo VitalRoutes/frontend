@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BASE_IMG_SCR } from '@/constants/src';
+import { BASE_IMG_SRC } from '@/constants/src';
 import ChallengeCard from './ChallengeCard';
 
 function ChallengeListSection() {
@@ -9,7 +9,7 @@ function ChallengeListSection() {
   if (!TEMP_DATA)
     return (
       <img
-        src={`${BASE_IMG_SCR}/picture/none_contents.png`}
+        src={`${BASE_IMG_SRC}/picture/none_contents.png`}
         alt="none-contents"
       />
     );
@@ -20,7 +20,7 @@ function ChallengeListSection() {
         {TEMP_DATA.map((val) => (
           <ChallengeCard
             key={val}
-            imgSrc={`${BASE_IMG_SCR}/intro/intro_1.png`}
+            imgSrc={`${BASE_IMG_SRC}/intro/intro_1.png`}
             title="봄의 전령, 튤립 거리 탐방 챌린지 참여하고 봄맞이 하세요!"
             people={10}
             onClick={() => navigate(`/challenge/${val}`)}

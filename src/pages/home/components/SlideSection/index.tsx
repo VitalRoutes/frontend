@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 import SlideCard from './SlideCard';
 import SectionTitle from '../../../../components/common/SectionTitle';
-import { BASE_IMG_SCR } from '@/constants/src';
+import { BASE_IMG_SRC } from '@/constants/src';
 
 interface Props {
   className?: string;
@@ -11,13 +11,13 @@ function SlideSection({ className }: Props) {
   const cards1 = [0, 1, 2, 3, 4, 5].map((index) => (
     <SlideCard
       key={index}
-      imgSrc={`${BASE_IMG_SCR}/slide/challenge_1_${index}.png`}
+      imgSrc={`${BASE_IMG_SRC}/slide/challenge_1_${index}.png`}
     />
   ));
   const cards2 = [0, 1, 2, 3, 4, 5].map((index) => (
     <SlideCard
       key={index}
-      imgSrc={`${BASE_IMG_SCR}/slide/challenge_2_${index}.png`}
+      imgSrc={`${BASE_IMG_SRC}/slide/challenge_2_${index}.png`}
     />
   ));
   const ANIMATE_CLASS = {

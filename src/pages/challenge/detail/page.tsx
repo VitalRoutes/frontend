@@ -3,6 +3,8 @@ import KaKaoMap from './components/KakaoMap';
 import ImageSection from './components/ImageSection';
 import DescSection from './components/DescSection';
 import TagSection from './components/TagSection';
+import ButtonSection from './components/ButtonSection';
+import CommentSection from './components/CommentSection';
 
 function ChallengeDetailPage() {
   const MORE_INFO = {
@@ -21,13 +23,17 @@ function ChallengeDetailPage() {
         imgSrc="#"
         moreInfo={MORE_INFO}
       />
-      <div className="mx-auto mt-[120px] flex w-[940px] flex-col items-center  gap-[52px]">
-        <div className="h-[360px] w-full overflow-hidden rounded-[30px]">
-          <KaKaoMap />
+      <div className="mx-auto flex w-[940px] flex-col items-center">
+        <div className=" my-[120px] flex flex-col items-center  gap-[52px]">
+          <div className="h-[360px] w-full overflow-hidden rounded-[30px]">
+            <KaKaoMap />
+          </div>
+          <ImageSection />
+          <DescSection />
+          <TagSection />
         </div>
-        <ImageSection />
-        <DescSection />
-        <TagSection />
+        <ButtonSection />
+        <CommentSection className="my-[120px]" />
       </div>
     </>
   );

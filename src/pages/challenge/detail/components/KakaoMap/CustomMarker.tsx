@@ -1,5 +1,5 @@
 import { CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
-import { BASE_IMG_SCR } from '@/constants/src';
+import { BASE_IMG_SRC } from '@/constants/src';
 import Spot from '@/components/common/Spot';
 
 interface Props {
@@ -13,7 +13,7 @@ function CustomMarker({ lat, lng, label }: Props) {
     <>
       <MapMarker
         image={{
-          src: `${BASE_IMG_SCR}/picture/camera.png`,
+          src: `${BASE_IMG_SRC}/picture/camera.png`,
           size: {
             width: 38,
             height: 38,

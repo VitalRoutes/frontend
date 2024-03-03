@@ -1,5 +1,5 @@
 import Button from '../Button';
-import { BASE_IMG_SCR } from '@/constants/src';
+import { BASE_IMG_SRC } from '@/constants/src';
 import useWindowSize from '@/hooks/useWindowSize';
 import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
 import Icon from '@/components/icons';
@@ -17,7 +17,7 @@ function Footer() {
           <div className="flex flex-col items-start justify-between gap-[20px] xl:flex-row xl:items-end xl:gap-[40.5px]">
             <img
               width={155}
-              src={`${BASE_IMG_SCR}/logo/main_logo_black.png`}
+              src={`${BASE_IMG_SRC}/logo/main_logo_black.png`}
               alt="logo"
             />
             <div className="flex flex-col gap-2 text-[14px] xl:flex-row xl:items-center xl:justify-between xl:gap-4">

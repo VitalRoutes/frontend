@@ -3,8 +3,8 @@ import KaKaoMap from './components/KakaoMap';
 import ImageSection from './components/ImageSection';
 import DescSection from './components/DescSection';
 import TagSection from './components/TagSection';
-import ButtonSection from './components/ButtonSection';
 import CommentSection from './components/CommentSection';
+import JoinOrCommentSection from './components/JoinOrCommentSection';
 
 function ChallengeDetailPage() {
   const MORE_INFO = {
@@ -32,7 +32,7 @@ function ChallengeDetailPage() {
           <DescSection />
           <TagSection />
         </div>
-        <ButtonSection />
+        <JoinOrCommentSection />
         <CommentSection className="my-[120px]" />
       </div>
     </>

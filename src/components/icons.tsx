@@ -18,12 +18,12 @@ const Icon = {
   RightArrow,
   Kebab,
   DownArrow,
-  Heart: Close,
-  Comment: Close,
-  View: Close,
-  Bookmark: Close,
-  Like: Close,
-  Camera: Close,
+  Heart,
+  Comment,
+  View,
+  Bookmark,
+  Like,
+  Camera,
 };
 
 export default Icon;

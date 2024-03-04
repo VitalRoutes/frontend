@@ -45,14 +45,22 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
               type="button"
               aria-label="like"
             >
-              <Icon.Bookmark className="h-[32px] w-[32px]  fill-gray-50 group-hover:fill-gray-1" />
+              <Icon.Bookmark
+                className="fill-gray-50 group-hover:fill-gray-1"
+                width={32}
+                height={32}
+              />
             </button>
             <button
               className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
               type="button"
               aria-label="book mark"
             >
-              <Icon.Like className="h-[32px] w-[32px]  fill-gray-50  group-hover:fill-gray-1" />
+              <Icon.Like
+                className="fill-gray-50  group-hover:fill-gray-1"
+                width={32}
+                height={32}
+              />
             </button>
           </div>
         </div>

@@ -47,14 +47,22 @@ function BannerMoreInfo({
             type="button"
             aria-label="bookmark"
           >
-            <Icon.Bookmark className="h-[40px] w-[40px] fill-gray-11 group-hover:fill-gray-1" />
+            <Icon.Bookmark
+              className="fill-gray-11 group-hover:fill-gray-1"
+              width={40}
+              height={40}
+            />
           </button>
           <button
             className="group rounded-full bg-gray-1/30 p-[12px] hover:bg-gray-11"
             type="button"
             aria-label="bookmark"
           >
-            <Icon.Like className="h-[40px] w-[40px] fill-gray-11 group-hover:fill-gray-1" />
+            <Icon.Like
+              className="fill-gray-11 group-hover:fill-gray-1"
+              width={40}
+              height={40}
+            />
           </button>
         </div>
       </div>

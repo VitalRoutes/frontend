@@ -32,7 +32,7 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
         <h1 className=" line-clamp-2 w-[228px] break-keep text-[24px] font-bold  leading-[160%] text-white">
           {title}
         </h1>
-        <Icon.Kebab className="h-[40px] w-[40px] fill-gray-11" />
+        <Icon.Kebab className="fill-gray-11" width={40} height={40} />
       </div>
       {isHover && (
         <div className="flex items-center justify-between self-stretch p-[24px]">

@@ -20,7 +20,11 @@ function Comment({ profileImgSrc, nickname, content, date }: Props) {
           <div className="flex items-center gap-4">
             <span className="font-bold">{nickname}</span>
             <span className="text-[13px] text-gray-2">{date}시간 전</span>
-            <Icon.Kebab className="ml-auto mr-0 h-[32px] w-[32px] fill-gray-1" />
+            <Icon.Kebab
+              className="ml-auto mr-0 fill-gray-1"
+              height={32}
+              width={32}
+            />
           </div>
           <p className="text-sm">{content}</p>
         </div>

@@ -14,7 +14,7 @@ function HambergerNavigation() {
             {title}
           </NavButton>
         ))}
-        <NavButton className="mt-[46px] text-base" href="/login">
+        <NavButton className="mt-[46px] text-base" href="/">
           LOGIN
         </NavButton>
       </nav>

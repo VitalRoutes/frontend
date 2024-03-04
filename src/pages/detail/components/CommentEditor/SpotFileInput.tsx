@@ -17,7 +17,7 @@ function SpotFileInput({ spotIdx, previewImgSrc }: FileInputProps) {
     <div key={spotIdx} className="flex flex-col items-center gap-[16px]">
       <Spot label={spotIdx} />
       <label
-        className="flex h-[121px] w-[175px] items-center justify-center rounded-[16px] bg-gray-3"
+        className="flex h-[121px] w-[175px] items-center justify-center overflow-hidden rounded-[16px] bg-gray-3"
         htmlFor={id}
       >
         {previewImgSrc ? (

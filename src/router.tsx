@@ -4,6 +4,7 @@ import TestPage from './pages/test/page';
 import HomePage from './pages/home/page';
 import ChallengeListPage from './pages/challenge/page';
 import ChallengeDetailPage from './pages/challenge/detail/page';
+import RegistrationPage from './pages/registration/page';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: 'challenge/:id',
         element: <ChallengeDetailPage />,
+      },
+      {
+        path: 'registration',
+        element: <RegistrationPage />,
       },
       {
         path: 'test',

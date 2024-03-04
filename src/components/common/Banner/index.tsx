@@ -4,9 +4,9 @@ import BannerMoreInfo from './BannerMoreInfo';
 
 interface Props {
   className?: string;
-  title: string;
-  subTitle: string;
-  imgSrc: string;
+  title?: string;
+  subTitle?: string;
+  imgSrc?: string;
   moreInfo?: MoreInfo;
 }
 function Banner({ className = '', title, subTitle, imgSrc, moreInfo }: Props) {
@@ -21,16 +21,21 @@ function Banner({ className = '', title, subTitle, imgSrc, moreInfo }: Props) {
         className,
       )}
     >
-      <img
-        className="absolute -z-10 h-full w-full object-cover"
-        src={imgSrc}
-        alt="banner"
-      />
+      {imgSrc && (
+        <img
+          className="absolute -z-10 h-full w-full object-cover"
+          src={imgSrc}
+          alt="banner"
+        />
+      )}
+
       <div className="relative mx-auto h-full xl:w-[1000px]">
-        <div className="absolute xl:top-[420px]">
-          <h1 className={TITLE_CLASS.h1}>{title}</h1>
-          <h2 className={twMerge(TITLE_CLASS.h2, 'mt-[16px]')}>{subTitle} </h2>
-        </div>
+        {title && subTitle && (
+          <div className="absolute xl:top-[420px]">
+            <h1 className={TITLE_CLASS.h1}>{title}</h1>
+            <h2 className={twMerge(TITLE_CLASS.h2, 'mt-[16px]')}>{subTitle}</h2>
+          </div>
+        )}
         {moreInfo && (
           <BannerMoreInfo
             className="absolute bottom-[182px] w-full"

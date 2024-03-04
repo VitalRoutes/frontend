@@ -4,9 +4,11 @@ import ImageSection from './components/ImageSection';
 import DescSection from './components/DescSection';
 import TagSection from './components/TagSection';
 import CommentSection from './components/CommentSection';
-import JoinOrCommentSection from './components/JoinOrCommentSection';
+import JoinButton from './components/JoinButton';
+import CommentEditor from './components/CommentEditor';
 
 function ChallengeDetailPage() {
+  const isLogin = true;
   const MORE_INFO = {
     profileImge: 'test',
     nickname: 'test',
@@ -32,7 +34,12 @@ function ChallengeDetailPage() {
           <DescSection />
           <TagSection />
         </div>
-        <JoinOrCommentSection />
+        <div className="flex w-full flex-col items-end gap-[56px]">
+          <button type="button" className="text-gray-3 hover:underline">
+            게시글 신고하기
+          </button>
+          {isLogin ? <CommentEditor /> : <JoinButton />}
+        </div>
         <CommentSection className="my-[120px]" />
       </div>
     </>

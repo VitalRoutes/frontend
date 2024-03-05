@@ -1,15 +1,30 @@
 import { useFormContext } from 'react-hook-form';
+import { ChangeEvent } from 'react';
 import KaKaoMap from '@/components/units/KakaoMap';
 import SpotFileInput from '@/components/units/SpotFileInput';
 import { ChallengeRegisterationForm } from '@/types/posts';
+import { getGpsFromImg } from '@/utils/ExifReader';
 
 function MapSection() {
-  const { register, watch } = useFormContext<ChallengeRegisterationForm>();
+  const { register, watch, setValue } =
+    useFormContext<ChallengeRegisterationForm>();
+
+  const spots = watch('spots');
+  const spotGps = spots
+    .map((spot) => {
+      const lat = spot?.lat;
+      const lng = spot?.lng;
+      return { lat, lng };
+    })
+    .filter(
+      (spot): spot is { lat: number; lng: number } =>
+        spot?.lat !== undefined && spot?.lng !== undefined,
+    );
 
   return (
-    <section>
+    <>
       <div className="h-[450px] w-full">
-        <KaKaoMap spots={undefined} />
+        <KaKaoMap spots={spotGps} />
       </div>
 
       <div className="flex justify-between">
@@ -19,17 +34,28 @@ function MapSection() {
           const file = spot?.files?.item(0);
           const previewImgSrc = file ? URL.createObjectURL(file) : undefined;
 
+          const spotRegister = register(`spots.${index}.files`, {
+            onChange: async (e: ChangeEvent<HTMLInputElement>) => {
+              const { files } = e.target;
+              const targetFile = files?.item(0);
+              if (!targetFile) return;
+              const { lat, lng } = await getGpsFromImg(targetFile);
+              setValue(`spots.${index}.lat`, lat);
+              setValue(`spots.${index}.lng`, lng);
+            },
+          });
+
           return (
             <SpotFileInput
               key={key}
               previewImgSrc={previewImgSrc}
               spotKey={spotLabel}
-              {...register(`spots.${index}.files`)}
+              {...spotRegister}
             />
           );
         })}
       </div>
-    </section>
+    </>
   );
 }
 

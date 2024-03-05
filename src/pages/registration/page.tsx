@@ -23,7 +23,7 @@ function RegistrationPage() {
     <div>
       <FormProvider {...methods}>
         <BannerInput />
-        <div className="mx-auto flex w-[940px] flex-col gap-[62px]">
+        <div className="mx-auto my-[120px] flex w-[940px] flex-col gap-[62px]">
           <EditorSection />
           <TransportSection />
           <TagSection />

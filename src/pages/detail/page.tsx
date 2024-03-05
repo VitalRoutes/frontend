@@ -1,5 +1,5 @@
 import Banner from '@/components/common/Banner';
-import KaKaoMap from './components/KakaoMap';
+import KaKaoMap from '../../components/units/KakaoMap';
 import ImageSection from './components/ImageSection';
 import DescSection from './components/DescSection';
 import TagSection from './components/TagSection';
@@ -17,6 +17,11 @@ function ChallengeDetailPage() {
     like: 0,
   };
 
+  const SPOTS = [
+    { lat: 33.450701, lng: 126.570667 },
+    { lat: 33.450901, lng: 126.570967 },
+  ];
+
   return (
     <>
       <Banner
@@ -28,7 +33,7 @@ function ChallengeDetailPage() {
       <div className="mx-auto flex w-[940px] flex-col items-center">
         <div className=" my-[120px] flex flex-col items-center  gap-[52px]">
           <div className="h-[360px] w-full overflow-hidden rounded-[30px]">
-            <KaKaoMap />
+            <KaKaoMap spots={SPOTS} />
           </div>
           <ImageSection />
           <DescSection />

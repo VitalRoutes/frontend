@@ -7,3 +7,18 @@ export interface CommentForm {
   spot5: FileList;
   comment: string;
 }
+
+interface Spot {
+  files: FileList | undefined;
+  lat: number;
+  lng: number;
+}
+
+export interface ChallengeRegisterationForm {
+  title: string;
+  writer: string;
+  contents: string;
+  transportation: 0 | 1;
+  titleImg: FileList;
+  spots: Array<Spot | undefined>;
+}

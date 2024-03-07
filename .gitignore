@@ -25,3 +25,5 @@ dev-dist/
 *.sln
 *.sw?
 
+.env
+

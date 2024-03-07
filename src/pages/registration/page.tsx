@@ -5,6 +5,7 @@ import MapSection from './components/MapSection';
 import TagSection from './components/TagSection';
 import TransportSection from './components/TransportSection';
 import { ChallengeRegisterationForm } from '@/types/posts';
+import Button from '@/components/common/Button';
 
 function RegistrationPage() {
   const methods = useForm<ChallengeRegisterationForm>({
@@ -20,7 +21,7 @@ function RegistrationPage() {
   });
 
   return (
-    <div>
+    <form>
       <FormProvider {...methods}>
         <BannerInput />
         <div className="mx-auto my-[120px] flex w-[940px] flex-col gap-[62px]">
@@ -28,9 +29,10 @@ function RegistrationPage() {
           <TransportSection />
           <TagSection />
           <MapSection />
+          <Button>등록하기</Button>
         </div>
       </FormProvider>
-    </div>
+    </form>
   );
 }
 

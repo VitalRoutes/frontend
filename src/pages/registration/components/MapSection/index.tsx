@@ -23,37 +23,42 @@ function MapSection() {
 
   return (
     <>
-      <div className="h-[450px] w-full">
+      <div className="h-[450px] w-full overflow-hidden rounded-[30px]">
         <KaKaoMap spots={spotGps} />
       </div>
+      <div className="flex flex-col gap-[32px]">
+        <div className="font-bold leading-[150%] ">
+          사진을 촬영해주세요. (최소 2개, 최대 5개 까지 가능)
+        </div>
 
-      <div className="flex justify-between">
-        {[1, 2, 3, 4, 5].map((key, index) => {
-          const spotLabel = `Spot ${key}`;
-          const spot = watch('spots')[index];
-          const file = spot?.files?.item(0);
-          const previewImgSrc = file ? URL.createObjectURL(file) : undefined;
+        <div className="flex justify-between">
+          {[1, 2, 3, 4, 5].map((key, index) => {
+            const spotLabel = `Spot ${key}`;
+            const spot = watch('spots')[index];
+            const file = spot?.files?.item(0);
+            const previewImgSrc = file ? URL.createObjectURL(file) : undefined;
 
-          const spotRegister = register(`spots.${index}.files`, {
-            onChange: async (e: ChangeEvent<HTMLInputElement>) => {
-              const { files } = e.target;
-              const targetFile = files?.item(0);
-              if (!targetFile) return;
-              const { lat, lng } = await getGpsFromImg(targetFile);
-              setValue(`spots.${index}.lat`, lat);
-              setValue(`spots.${index}.lng`, lng);
-            },
-          });
+            const spotRegister = register(`spots.${index}.files`, {
+              onChange: async (e: ChangeEvent<HTMLInputElement>) => {
+                const { files } = e.target;
+                const targetFile = files?.item(0);
+                if (!targetFile) return;
+                const { lat, lng } = await getGpsFromImg(targetFile);
+                setValue(`spots.${index}.lat`, lat);
+                setValue(`spots.${index}.lng`, lng);
+              },
+            });
 
-          return (
-            <SpotFileInput
-              key={key}
-              previewImgSrc={previewImgSrc}
-              spotKey={spotLabel}
-              {...spotRegister}
-            />
-          );
-        })}
+            return (
+              <SpotFileInput
+                key={key}
+                previewImgSrc={previewImgSrc}
+                spotKey={spotLabel}
+                {...spotRegister}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );

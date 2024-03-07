@@ -1,12 +1,12 @@
 import Spot from '@/components/common/Spot';
-import { BASE_IMG_SRC } from '@/constants/src';
+import { getImageUrl } from '@/utils/getImageUrl';
 
 const TEMP_DATA = [
-  `${BASE_IMG_SRC}/intro/intro_1.png`,
-  `${BASE_IMG_SRC}/intro/intro_1.png`,
-  `${BASE_IMG_SRC}/intro/intro_1.png`,
-  `${BASE_IMG_SRC}/intro/intro_1.png`,
-  `${BASE_IMG_SRC}/intro/intro_1.png`,
+  getImageUrl('intro/intro_1.png'),
+  getImageUrl('intro/intro_1.png'),
+  getImageUrl('intro/intro_1.png'),
+  getImageUrl('intro/intro_1.png'),
+  getImageUrl('intro/intro_1.png'),
 ];
 
 function ImageSection() {

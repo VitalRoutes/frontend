@@ -1,8 +1,8 @@
 import { twMerge } from 'tailwind-merge';
-import { BASE_IMG_SRC } from '@/constants/src';
 import Comment from './Commet';
 import SpotSlide from './SpotSlide';
 import MoreButton from '@/components/units/MoreButton';
+import { getImageUrl } from '@/utils/getImageUrl';
 
 const TMP_DATA = [
   {
@@ -10,11 +10,11 @@ const TMP_DATA = [
     nickname: 'nick',
     content: '내용입니다.',
     images: [
-      `${BASE_IMG_SRC}/intro/intro_1.png`,
-      `${BASE_IMG_SRC}/intro/intro_2.png`,
-      `${BASE_IMG_SRC}/intro/intro_3.png`,
-      `${BASE_IMG_SRC}/intro/intro_1.png`,
-      `${BASE_IMG_SRC}/intro/intro_2.png`,
+      getImageUrl('intro/intro_1.png'),
+      getImageUrl('intro/intro_2.png'),
+      getImageUrl('intro/intro_3.png'),
+      getImageUrl('intro/intro_1.png'),
+      getImageUrl('intro/intro_2.png'),
     ],
     date: '10',
   },
@@ -23,11 +23,11 @@ const TMP_DATA = [
     nickname: 'nick',
     content: '내용입니다.',
     images: [
-      `${BASE_IMG_SRC}/intro/intro_1.png`,
-      `${BASE_IMG_SRC}/intro/intro_2.png`,
-      `${BASE_IMG_SRC}/intro/intro_3.png`,
-      `${BASE_IMG_SRC}/intro/intro_1.png`,
-      `${BASE_IMG_SRC}/intro/intro_2.png`,
+      getImageUrl('intro/intro_1.png'),
+      getImageUrl('intro/intro_2.png'),
+      getImageUrl('intro/intro_3.png'),
+      getImageUrl('intro/intro_1.png'),
+      getImageUrl('intro/intro_2.png'),
     ],
     date: '10',
   },

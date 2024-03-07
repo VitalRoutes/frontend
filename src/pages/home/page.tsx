@@ -3,7 +3,7 @@ import HealthCareSection from './components/HealthCareSection';
 import IntroSection from './components/IntroSection';
 import RegisterSection from './components/RegisterSection';
 import SlideSection from './components/SlideSection';
-import { BASE_IMG_SRC } from '@/constants/src';
+import { getImageUrl } from '@/utils/getImageUrl';
 
 function HomePage() {
   return (
@@ -11,7 +11,7 @@ function HomePage() {
       <Banner
         title={`Move,\nConnect,\nThrive`}
         subTitle="With VitalRoutes"
-        imgSrc={`${BASE_IMG_SRC}/banner/running.png`}
+        imgSrc={getImageUrl('banner/running.png')}
       />
       <IntroSection />
       <SlideSection />

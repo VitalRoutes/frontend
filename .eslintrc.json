@@ -3,7 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "@tanstack/query"],
   "env": {
     "browser": true,
     "es6": true,
@@ -13,7 +13,8 @@
     "airbnb",
     "airbnb-typescript",
     "prettier",
-    "eslint-config-prettier"
+    "eslint-config-prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",

@@ -1,27 +1,19 @@
-import {
-  ForwardedRef,
-  InputHTMLAttributes,
-  ReactNode,
-  forwardRef,
-  useId,
-} from 'react';
+import { ForwardedRef, InputHTMLAttributes, forwardRef, useId } from 'react';
 import InputStyle from '@/utils/InputStyle';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   errorMessage?: string;
-  button?: ReactNode;
 }
 
 function Input(
   {
-    id,
+    placeholder,
     label,
+    type,
     errorMessage,
     disabled = false,
     className = '',
-    button,
-    ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
@@ -29,7 +21,7 @@ function Input(
   const hasError = !disabled && !!errorMessage;
 
   return (
-    <div id={id} className="w-full">
+    <div className="w-full">
       {label && (
         <label className="text-2xl font-semibold" htmlFor={uniqueId}>
           {label}
@@ -43,14 +35,12 @@ function Input(
               ${InputStyle.focus({ disabled, hasError })}
               ${className}
             `}
+          type={type}
           id={uniqueId}
           ref={ref}
+          placeholder={placeholder}
           disabled={disabled}
-          {...props}
         />
-        <div className="absolute right-[16px] top-1/2 -translate-y-1/2">
-          {button}
-        </div>
       </div>
       {hasError && (
         <span className="mt-2 text-sm text-alert">{errorMessage}</span>

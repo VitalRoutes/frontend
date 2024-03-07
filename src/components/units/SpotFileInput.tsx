@@ -1,7 +1,6 @@
 import { ForwardedRef, InputHTMLAttributes, forwardRef, useId } from 'react';
 import Spot from '@/components/common/Spot';
 import Icon from '@/components/icons';
-import { SpotKey } from '@/types/posts';
 
 interface FileInputProps extends InputHTMLAttributes<HTMLInputElement> {
   spotKey: string;

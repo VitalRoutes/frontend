@@ -37,7 +37,7 @@ function Header() {
                 <NavButton href={href}>{title}</NavButton>
               ))}
             </nav>
-            <Button variant="third-a">Login</Button>
+            <Link to="login"><Button variant="third-a">Login</Button></Link>
           </>
         ) : (
           <Button

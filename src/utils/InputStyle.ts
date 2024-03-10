@@ -16,7 +16,7 @@ const InputStyle = {
   },
   default: ({ hasError }: Props) => {
     const defaultStyle =
-      'w-full rounded-xl border-2 px-6 py-[1.875rem] text-lg outline-none';
+      'w-full rounded-xl border-2 px-6 py-[1.875rem] mt-4 text-lg outline-none';
 
     if (hasError)
       return `${defaultStyle} border-alert focus:border-alert hover:shadow-none text-alert`;

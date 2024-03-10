@@ -5,6 +5,7 @@ import ChallengeListSection from './components/ChallengeListSection';
 import { BASE_IMG_SCR } from '@/constants/src';
 import MoreButton from './components/MoreButton';
 
+
 function ChallengeListPage() {
   return (
     <>

@@ -14,16 +14,17 @@ function Input(
     errorMessage,
     disabled = false,
     className = '',
+    ...rest
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
+
   const uniqueId = useId();
   const hasError = !disabled && !!errorMessage;
-
   return (
     <div className="w-full">
       {label && (
-        <label className="text-2xl font-semibold" htmlFor={uniqueId}>
+        <label className="text-base font-semibold" htmlFor={uniqueId}>
           {label}
         </label>
       )}
@@ -40,6 +41,7 @@ function Input(
           ref={ref}
           placeholder={placeholder}
           disabled={disabled}
+          {...rest}
         />
       </div>
       {hasError && (

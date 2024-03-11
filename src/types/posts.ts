@@ -21,4 +21,5 @@ export interface ChallengeRegisterationForm {
   transportation: 0 | 1;
   titleImg: FileList;
   spots: Array<Spot | undefined>;
+  tag: boolean[];
 }

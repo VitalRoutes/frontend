@@ -1,43 +1,20 @@
 import { twMerge } from 'tailwind-merge';
+import { useParams } from 'react-router-dom';
 import Comment from './Commet';
 import SpotSlide from './SpotSlide';
 import MoreButton from '@/components/units/MoreButton';
-import { getImageUrl } from '@/utils/getImageUrl';
-
-const TMP_DATA = [
-  {
-    profileImgSrc: '',
-    nickname: 'nick',
-    content: '내용입니다.',
-    images: [
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-      getImageUrl('intro/intro_3.png'),
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-    ],
-    date: '10',
-  },
-  {
-    profileImgSrc: '',
-    nickname: 'nick',
-    content: '내용입니다.',
-    images: [
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-      getImageUrl('intro/intro_3.png'),
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-    ],
-    date: '10',
-  },
-];
+import useComment from '@/hooks/challenge/useComment';
 
 interface Props {
   className?: string;
 }
 
 function CommentSection({ className }: Props) {
+  const { id } = useParams<{ id: string }>();
+  const { data, isLoading } = useComment(id || '0');
+
+  if (isLoading || !data) return <>loading</>;
+
   return (
     <section
       className={twMerge(
@@ -45,17 +22,31 @@ function CommentSection({ className }: Props) {
         className,
       )}
     >
-      {TMP_DATA.map(({ profileImgSrc, nickname, content, images, date }) => (
-        <div key={nickname} className="flex w-full flex-col gap-[42px]">
-          <Comment
-            profileImgSrc={profileImgSrc}
-            nickname={nickname}
-            content={content}
-            date={date}
-          />
-          <SpotSlide images={images} />
-        </div>
-      ))}
+      {data.comments.map(
+        ({
+          memberProfile,
+          nickname,
+          content,
+          participationImages,
+          timeString,
+        }) => {
+          const images = participationImages.map(({ fileName }) => fileName);
+          return (
+            <div
+              key={`${nickname}${timeString}`}
+              className="flex w-full flex-col gap-[42px]"
+            >
+              <Comment
+                profileImgSrc={memberProfile}
+                nickname={nickname}
+                content={content}
+                date={timeString}
+              />
+              <SpotSlide images={images} />
+            </div>
+          );
+        },
+      )}
       <MoreButton />
     </section>
   );

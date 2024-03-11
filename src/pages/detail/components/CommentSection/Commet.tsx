@@ -12,14 +12,14 @@ function Comment({ profileImgSrc, nickname, content, date }: Props) {
     <div>
       <div className="flex justify-between gap-2">
         <img
-          className="h-[53px] w-[53px] rounded-full bg-gray-5"
+          className="h-[53px] w-[53px] rounded-full bg-gray-5 object-cover"
           src={profileImgSrc}
           alt="profile"
         />
         <div className="flex flex-1 flex-col gap-2">
           <div className="flex items-center gap-4">
             <span className="font-bold">{nickname}</span>
-            <span className="text-[13px] text-gray-2">{date}시간 전</span>
+            <span className="text-[13px] text-gray-2">{date}</span>
             <Icon.Kebab
               className="ml-auto mr-0 fill-gray-1"
               height={32}

@@ -6,7 +6,6 @@ import useChallengeList from '@/hooks/challenge/useChallengeList';
 function ChallengeListSection() {
   const { data } = useChallengeList();
   const navigate = useNavigate();
-
   if (!data)
     return (
       <img src={getImageUrl('picture/none_contents.png')} alt="none-contents" />

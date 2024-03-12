@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useFilePreview(fileList: FileList) {
+export default function useFilePreview(fileList: FileList | null) {
   const [imgSrc, setImgSrc] = useState<string>();
 
   useEffect(() => {

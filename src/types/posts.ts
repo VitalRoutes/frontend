@@ -18,8 +18,8 @@ export interface ChallengeRegisterationForm {
   title: string;
   writer: string;
   contents: string;
-  transportation: 0 | 1;
-  titleImg: FileList;
+  transportation: '0' | '1';
+  titleImage: FileList;
   spots: Array<Spot | undefined>;
   tag: boolean[];
 }

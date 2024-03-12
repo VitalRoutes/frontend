@@ -30,7 +30,8 @@ function KaKaoMap({ spots }: Props) {
     <Map className="h-full w-full" center={center}>
       {spots?.map(({ lat, lng }, idx) => (
         <CustomMarker
-          key={`${lat}_${lng}`}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${lat}_${lng}_${idx}`}
           label={`Spot ${idx + 1}`}
           lat={lat}
           lng={lng}

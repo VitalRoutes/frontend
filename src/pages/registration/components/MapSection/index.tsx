@@ -37,6 +37,7 @@ function MapSection() {
             const spot = watch('spots')[index];
             const file = spot?.files?.item(0);
             const previewImgSrc = file ? URL.createObjectURL(file) : undefined;
+            const required = index === 0 || index === 1;
 
             const spotRegister = register(`spots.${index}.files`, {
               onChange: async (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,6 +48,7 @@ function MapSection() {
                 setValue(`spots.${index}.lat`, lat);
                 setValue(`spots.${index}.lng`, lng);
               },
+              required,
             });
 
             return (

@@ -15,10 +15,10 @@ export interface ChallengeRegistrationRequest {
   challengeWriter: string;
   challengeTitle: string;
   challengeContents: string;
-  challengeTransportation: 0 | 1;
-  titleImage: File | null;
-  startingPositionImage: File | null;
-  destinationImage: File | null;
+  challengeTransportation: '0' | '1';
+  titleImage: File;
+  startingPositionImage: File;
+  destinationImage: File;
   stopOverImage1: File | null;
   stopOverImage2: File | null;
   stopOverImage3: File | null;

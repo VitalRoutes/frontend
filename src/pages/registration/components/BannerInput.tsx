@@ -1,15 +1,17 @@
 import { useId, useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import Banner from '@/components/common/Banner';
 import Button from '@/components/common/Button';
 import useFilePreview from '@/hooks/useFilePreview';
 import { getImageUrl } from '@/utils/getImageUrl';
+import { ChallengeRegisterationForm } from '@/types/posts';
 
 function BannerInput() {
   const fileInputId = useId();
   const fileInputRef = useRef<HTMLLabelElement>(null);
-  const { register, watch } = useForm();
-  const { previewSrc } = useFilePreview(watch('thumbnail'));
+  const { register, watch } = useFormContext<ChallengeRegisterationForm>();
+  const titleImage = watch('titleImage');
+  const { previewSrc } = useFilePreview(titleImage);
 
   const uploadFile = () => {
     fileInputRef.current?.click();
@@ -29,10 +31,10 @@ function BannerInput() {
         </Button>
         <label ref={fileInputRef} htmlFor={fileInputId} aria-label="label">
           <input
-            {...register('thumbnail')}
+            {...register('titleImage', { required: true })}
             id={fileInputId}
             type="file"
-            hidden
+            className="h-0 w-0"
           />
         </label>
       </div>

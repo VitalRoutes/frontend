@@ -4,16 +4,17 @@ import { useId } from 'react';
 import { BUTTONS_CLASSES } from '@/components/common/Button';
 import Icon from '@/components/icons';
 import TRANSPORTATION from '@/constants/transportation';
+import { ChallengeRegisterationForm } from '@/types/posts';
 
 function TransportSection() {
   const ACTIVE_COLOR = 'bg-green-1';
 
   const bicycleInputId = useId();
   const walkInputId = useId();
-  const { register, watch } = useFormContext();
+  const { register, watch } = useFormContext<ChallengeRegisterationForm>();
 
-  const transportationRegister = register('transportation');
-  const selected = Number(watch('transportation'));
+  const transportationRegister = register('transportation', { required: true });
+  const selected = watch('transportation');
 
   return (
     <div>
@@ -34,7 +35,7 @@ function TransportSection() {
             type="radio"
             value={TRANSPORTATION.walk}
             {...transportationRegister}
-            hidden
+            className="h-0 w-0"
           />
           <Icon.Walk />
           도보
@@ -52,7 +53,7 @@ function TransportSection() {
             type="radio"
             value={TRANSPORTATION.bicycle}
             {...transportationRegister}
-            hidden
+            className="h-0 w-0"
           />
           <Icon.Bicycle />
           자전거

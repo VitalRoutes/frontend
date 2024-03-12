@@ -4,13 +4,8 @@ import SectionTitle from '@/components/common/SectionTitle';
 import ChallengeListSection from './components/ChallengeListSection';
 import MoreButton from '../../components/units/MoreButton';
 import { getImageUrl } from '@/utils/getImageUrl';
-import useChallengeList from '@/hooks/challenge/useChallengeList';
 
 function ChallengeListPage() {
-  const { data } = useChallengeList();
-
-  console.log(data);
-
   return (
     <>
       <Banner

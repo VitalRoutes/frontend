@@ -29,9 +29,9 @@ export default function useChallengeWriteMutation() {
     formData.append('titleImage', titleImage);
     formData.append('startingPositionImage', startingPositionImage);
     formData.append('destinationImage', destinationImage);
-    formData.append('stopOverImage1', stopOverImage1);
-    formData.append('stopOverImage2', stopOverImage2);
-    formData.append('stopOverImage3', stopOverImage3);
+    if (stopOverImage1) formData.append('stopOverImage1', stopOverImage1);
+    if (stopOverImage2) formData.append('stopOverImage2', stopOverImage2);
+    if (stopOverImage3) formData.append('stopOverImage3', stopOverImage3);
 
     formData.append('challengeContents', challengeContents);
     formData.append('challengeTransportation', challengeTransportation);

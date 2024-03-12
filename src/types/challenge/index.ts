@@ -55,6 +55,7 @@ export interface Comment {
 }
 
 export interface Challenge {
+  boardId: number;
   boardParty: number;
   challengeTitle: string;
   storedTitleImageName: string;

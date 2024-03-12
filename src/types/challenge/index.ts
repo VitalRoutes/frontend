@@ -35,6 +35,9 @@ export interface ChallengeDetail {
   stopOverImage2: string;
   stopOverImage3: string;
   titleImage: string;
+  boardHits: number;
+  existingMode: number;
+  totalComments: number;
 }
 
 export interface Comment {

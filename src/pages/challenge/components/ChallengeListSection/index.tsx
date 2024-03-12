@@ -19,20 +19,18 @@ function ChallengeListSection() {
   }
 
   return (
-    <div>
-      <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
-        {data.map(
-          ({ boardId, storedTitleImageName, challengeTitle, boardParty }) => (
-            <ChallengeCard
-              key={boardId}
-              imgSrc={storedTitleImageName}
-              title={challengeTitle}
-              people={boardParty}
-              onClick={() => navigate(`/challenge/${boardId}`)}
-            />
-          ),
-        )}
-      </div>
+    <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
+      {data.map(
+        ({ boardId, storedTitleImageName, challengeTitle, boardParty }) => (
+          <ChallengeCard
+            key={boardId}
+            imgSrc={storedTitleImageName}
+            title={challengeTitle}
+            people={boardParty}
+            onClick={() => navigate(`/challenge/${String(boardId)}`)}
+          />
+        ),
+      )}
     </div>
   );
 }

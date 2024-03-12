@@ -8,28 +8,32 @@ import CommentSection from './components/CommentSection';
 import JoinButton from './components/JoinButton';
 import CommentEditor from './components/CommentEditor';
 import useChallengeDetail from '@/hooks/challenge/useChallengeDetail';
+import BearLoading from '@/components/common/Loading/BearLoading';
 
 function ChallengeDetailPage() {
   const isLogin = true;
   const { id } = useParams<{ id: string }>();
-  const { data: challenge } = useChallengeDetail(id || '0');
+  const { data: challenge, isLoading } = useChallengeDetail(id || '0');
 
   const SPOTS = [
     { lat: 33.450701, lng: 126.570667 },
     { lat: 33.450901, lng: 126.570967 },
   ];
 
+  if (isLoading) return <BearLoading />;
+  if (!challenge) return <>데이터가 없다1</>;
+
   return (
     <>
       <Banner
-        title={challenge?.challengeTitle}
-        subTitle="subtitle"
-        imgSrc={challenge?.titleImage}
+        title={challenge.challengeTitle}
+        subTitle={`${challenge.boardHits}명이 참가중`}
+        imgSrc={challenge.titleImage}
         moreInfo={{
           profileImge: 'test',
-          nickname: challenge?.challengeWriter || '',
-          view: 0,
-          comment: 0,
+          nickname: challenge.challengeWriter || '',
+          view: challenge.boardHits,
+          comment: challenge.totalComments,
           like: 0,
         }}
       />

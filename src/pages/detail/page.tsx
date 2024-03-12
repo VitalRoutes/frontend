@@ -28,8 +28,6 @@ function ChallengeDetailPage() {
     );
   if (!challenge) return <>데이터가 없다1</>;
 
-  console.log(challenge);
-
   return (
     <>
       <Banner

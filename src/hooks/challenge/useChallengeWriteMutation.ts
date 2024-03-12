@@ -1,18 +1,12 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ChallengeRegistrationRequest } from '@/types/challenge';
-
-// //
-// titleImage: File | null;
-//   startingPositionImage: File | null;
-//   destinationImage: File | null;
-//   stopOverImage1: File | null;
-//   stopOverImage2: File | null;
-//   stopOverImage3: File | null;
+import QUERY_KEY from '@/constants/queryKey';
 
 export default function useChallengeWriteMutation() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const mutationFn = async ({
     titleImage,
     startingPositionImage,
@@ -38,11 +32,13 @@ export default function useChallengeWriteMutation() {
     formData.append('challengeWriter', challengeWriter);
     formData.append('challengeTitle', challengeTitle);
 
-    axios.postForm('/board/save', formData);
+    const res = await axios.postForm('/board/save', formData);
+    return res;
   };
 
   const onSuccess = () => {
     navigate('/challenge');
+    queryClient.invalidateQueries({ queryKey: [QUERY_KEY.challengeList] });
   };
 
   return useMutation({ mutationFn, onSuccess });

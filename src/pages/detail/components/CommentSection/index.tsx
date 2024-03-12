@@ -14,7 +14,6 @@ function CommentSection({ className }: Props) {
   const { data, isLoading } = useComment(id || '0');
 
   if (isLoading || !data) return <>loading</>;
-  console.log(data);
 
   return (
     <section

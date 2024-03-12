@@ -27,7 +27,9 @@ function ChallengeListSection() {
             imgSrc={storedTitleImageName}
             title={challengeTitle}
             people={boardParty}
-            onClick={() => navigate(`/challenge/${String(boardId)}`)}
+            onClick={() => {
+              navigate(`/challenge/${String(boardId)}`);
+            }}
           />
         ),
       )}

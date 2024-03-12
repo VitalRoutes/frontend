@@ -20,20 +20,27 @@ function ChallengeDetailPage() {
     { lat: 33.450901, lng: 126.570967 },
   ];
 
-  if (isLoading) return <BearLoading />;
+  if (isLoading)
+    return (
+      <div className="flex h-screen w-screen items-center justify-center">
+        <BearLoading />;
+      </div>
+    );
   if (!challenge) return <>데이터가 없다1</>;
+
+  console.log(challenge);
 
   return (
     <>
       <Banner
-        title={challenge.challengeTitle}
-        subTitle={`${challenge.boardHits}명이 참가중`}
-        imgSrc={challenge.titleImage}
+        title={challenge?.challengeTitle}
+        subTitle="?명이 참가중"
+        imgSrc={challenge?.storedTitleImageName}
         moreInfo={{
-          profileImge: 'test',
-          nickname: challenge.challengeWriter || '',
-          view: challenge.boardHits,
-          comment: challenge.totalComments,
+          profileImge: challenge.storedTitleImageName,
+          nickname: challenge?.challengeWriter || '',
+          view: challenge?.boardHits || 0,
+          comment: challenge?.totalComments || 0,
           like: 0,
         }}
       />

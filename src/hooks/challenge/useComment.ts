@@ -4,7 +4,7 @@ import { Comment } from '@/types/challenge';
 import QUERY_KEY from '@/constants/queryKey';
 
 export default function useComment(challengeId: string) {
-  const queryKey = [QUERY_KEY, challengeId];
+  const queryKey = [QUERY_KEY.comment, challengeId];
 
   const queryFn = async () => {
     const { data } = await axios.get<{ data: Comment }>(

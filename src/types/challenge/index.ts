@@ -29,11 +29,12 @@ export interface ChallengeDetail {
   challengeTitle: string;
   challengeTransportation: string;
   challengeWriter: string;
-  destinationImage: string;
-  startingPositionImage: string;
-  stopOverImage1: string;
-  stopOverImage2: string;
-  stopOverImage3: string;
+  storedDestinationImageName: string;
+  storedStartingPositionImageName: string;
+  storedStopOverImage1Name: string;
+  storedStopOverImage2Name: string;
+  storedStopOverImage3Name: string;
+  storedTitleImageName: string;
   titleImage: string;
   boardHits: number;
   existingMode: number;

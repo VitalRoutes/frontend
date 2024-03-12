@@ -27,7 +27,6 @@ function RegistrationPage() {
   });
 
   const { handleSubmit } = methods;
-
   const { mutate, isPending } = useChallengeWriteMutation();
 
   const onValid: SubmitHandler<ChallengeRegisterationForm> = (data) => {

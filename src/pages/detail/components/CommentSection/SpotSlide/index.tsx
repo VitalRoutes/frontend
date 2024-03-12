@@ -25,7 +25,7 @@ function SpotSlide({ images }: Props) {
         onSlideChange={onSlideChange}
       >
         {images.map((imgSrc) => (
-          <SwiperSlide>
+          <SwiperSlide key={imgSrc}>
             <img
               className="h-[377px] w-[940px] rounded-[30px] object-cover"
               key={imgSrc}

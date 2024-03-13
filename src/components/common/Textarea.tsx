@@ -14,6 +14,7 @@ function Textarea(
     disabled = false,
     className = '',
     rows = 10,
+    ...props
   }: Props,
   ref: ForwardedRef<HTMLTextAreaElement>,
 ) {
@@ -41,6 +42,7 @@ function Textarea(
           placeholder={placeholder}
           disabled={disabled}
           rows={rows}
+          {...props}
         />
       </div>
 

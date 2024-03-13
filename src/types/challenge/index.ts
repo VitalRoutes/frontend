@@ -1,0 +1,66 @@
+export interface CommentWriteRequest {
+  boardId: string;
+  content: string;
+  files: File[];
+}
+
+export interface ChallengeRegistrationResponse {
+  boardId: number;
+  memberId: number;
+  content: string;
+  files: File[];
+}
+
+export interface ChallengeRegistrationRequest {
+  challengeWriter: string;
+  challengeTitle: string;
+  challengeContents: string;
+  challengeTransportation: '0' | '1';
+  titleImage: File;
+  startingPositionImage: File;
+  destinationImage: File;
+  stopOverImage1: File | null;
+  stopOverImage2: File | null;
+  stopOverImage3: File | null;
+}
+
+export interface ChallengeDetail {
+  challengeContents: string;
+  challengeTitle: string;
+  challengeTransportation: string;
+  challengeWriter: string;
+  storedDestinationImageName: string;
+  storedStartingPositionImageName: string;
+  storedStopOverImage1Name: string;
+  storedStopOverImage2Name: string;
+  storedStopOverImage3Name: string;
+  storedTitleImageName: string;
+  titleImage: string;
+  boardHits: number;
+  existingMode: number;
+  totalComments: number;
+}
+
+export interface Comment {
+  comments: [
+    {
+      participationId: number;
+      memberProfile: string;
+      nickname: string;
+      content: string;
+      timeString: string;
+      totalImages: number;
+      participationImages: { sequence: number; fileName: string }[];
+      totalComments: number;
+    },
+  ];
+  remainFlag: boolean;
+  totalCount: number;
+}
+
+export interface Challenge {
+  boardId: number;
+  boardParty: number;
+  challengeTitle: string;
+  storedTitleImageName: string;
+}

@@ -1,21 +1,28 @@
+import { useParams } from 'react-router-dom';
 import Spot from '@/components/common/Spot';
-import { getImageUrl } from '@/utils/getImageUrl';
-
-const TEMP_DATA = [
-  getImageUrl('intro/intro_1.png'),
-  getImageUrl('intro/intro_1.png'),
-  getImageUrl('intro/intro_1.png'),
-  getImageUrl('intro/intro_1.png'),
-  getImageUrl('intro/intro_1.png'),
-];
+import useChallengeDetail from '@/hooks/challenge/useChallengeDetail';
 
 function ImageSection() {
+  const { id } = useParams<{ id: string }>();
+  const { data } = useChallengeDetail(id || '0');
+  const images = [
+    data?.storedStartingPositionImageName,
+    data?.storedStopOverImage1Name,
+    data?.storedStopOverImage2Name,
+    data?.storedStopOverImage3Name,
+    data?.storedDestinationImageName,
+  ].filter((image): image is string => image !== undefined);
+
   return (
-    <section className="flex gap-4">
-      {TEMP_DATA.map((src, index) => (
-        <div key={src} className="flex flex-col items-center gap-4">
+    <section className="flex w-full justify-between gap-4">
+      {images.map((src, index) => (
+        <div key={src} className="flex flex-col items-center gap-4 ">
           <Spot label={`Spot ${index + 1}`} />
-          <img src={src} alt="spot" />
+          <img
+            src={src}
+            className="h-[121px] w-[175px] rounded-[16px]  object-cover "
+            alt="spot"
+          />
         </div>
       ))}
     </section>

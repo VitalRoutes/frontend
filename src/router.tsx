@@ -6,6 +6,7 @@ import ChallengeListPage from './pages/challenge/page';
 import ChallengeDetailPage from './pages/detail/page';
 import RegistrationPage from './pages/registration/page';
 import ProfilePage from './pages/profile/page';
+import WellnessPage from './pages/wellness/page';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
         path: 'profile',
         element: <ProfilePage />,
       },
+      { path: '/wellness', element: <WellnessPage /> },
     ],
   },
 ]);

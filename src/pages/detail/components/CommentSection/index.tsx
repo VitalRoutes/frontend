@@ -1,43 +1,33 @@
 import { twMerge } from 'tailwind-merge';
-import Comment from './Commet';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import Comment from './Comment';
 import SpotSlide from './SpotSlide';
-import MoreButton from '@/components/units/MoreButton';
-import { getImageUrl } from '@/utils/getImageUrl';
-
-const TMP_DATA = [
-  {
-    profileImgSrc: '',
-    nickname: 'nick',
-    content: '내용입니다.',
-    images: [
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-      getImageUrl('intro/intro_3.png'),
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-    ],
-    date: '10',
-  },
-  {
-    profileImgSrc: '',
-    nickname: 'nick',
-    content: '내용입니다.',
-    images: [
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-      getImageUrl('intro/intro_3.png'),
-      getImageUrl('intro/intro_1.png'),
-      getImageUrl('intro/intro_2.png'),
-    ],
-    date: '10',
-  },
-];
+import useComment from '@/hooks/challenge/useComment';
+import { Comment as CommentType } from '@/types/challenge';
 
 interface Props {
   className?: string;
 }
 
 function CommentSection({ className }: Props) {
+  const { id } = useParams<{ id: string }>();
+  const { data, isLoading, fetchNextPage, hasNextPage } = useComment(id || '0');
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (hasNextPage && inView) fetchNextPage();
+  }, [inView, hasNextPage]);
+
+  if (isLoading || !data) return <>loading</>;
+
+  const allPages = data.pages.flat();
+  const allComments = allPages.map((page) => page?.data.comments).flat();
+  const filterdComments = allComments.filter(
+    (comment): comment is CommentType['comments'][0] => comment !== undefined,
+  );
+
   return (
     <section
       className={twMerge(
@@ -45,18 +35,41 @@ function CommentSection({ className }: Props) {
         className,
       )}
     >
-      {TMP_DATA.map(({ profileImgSrc, nickname, content, images, date }) => (
-        <div key={nickname} className="flex w-full flex-col gap-[42px]">
-          <Comment
-            profileImgSrc={profileImgSrc}
-            nickname={nickname}
-            content={content}
-            date={date}
-          />
-          <SpotSlide images={images} />
+      {filterdComments.map(
+        ({
+          participationId,
+          memberProfile,
+          nickname,
+          participationImages,
+          content,
+          timeString,
+        }) => {
+          const images = participationImages.map(({ fileName }) => fileName);
+          return (
+            <div
+              key={participationId}
+              className="flex w-full flex-col gap-[42px]"
+            >
+              <Comment
+                profileImgSrc={memberProfile}
+                nickname={nickname}
+                content={content}
+                date={timeString}
+              />
+              <SpotSlide images={images} />
+            </div>
+          );
+        },
+      )}
+
+      {hasNextPage && (
+        <div ref={ref} className="flex w-full flex-col gap-[42px]">
+          <Comment.Skeleton />
+          <SpotSlide.Skeleton />
+          <Comment.Skeleton />
+          <SpotSlide.Skeleton />
         </div>
-      ))}
-      <MoreButton />
+      )}
     </section>
   );
 }

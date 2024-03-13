@@ -1,29 +1,38 @@
 import { useNavigate } from 'react-router-dom';
 import { getImageUrl } from '@/utils/getImageUrl';
 import ChallengeCard from '@/components/units/ChallengeCard';
+import useChallengeList from '@/hooks/challenge/useChallengeList';
+import BearLoading from '@/components/common/Loading/BearLoading';
 
 function ChallengeListSection() {
-  const TEMP_DATA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const { data, isLoading } = useChallengeList();
   const navigate = useNavigate();
 
-  if (!TEMP_DATA)
+  if (isLoading) {
+    return <BearLoading />;
+  }
+
+  if (!data) {
     return (
       <img src={getImageUrl('picture/none_contents.png')} alt="none-contents" />
     );
+  }
 
   return (
-    <div>
-      <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
-        {TEMP_DATA.map((val) => (
+    <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
+      {data.map(
+        ({ boardId, storedTitleImageName, challengeTitle, boardParty }) => (
           <ChallengeCard
-            key={val}
-            imgSrc={getImageUrl('intro/intro_1.png')}
-            title="봄의 전령, 튤립 거리 탐방 챌린지 참여하고 봄맞이 하세요!"
-            people={10}
-            onClick={() => navigate(`/challenge/${val}`)}
+            key={boardId}
+            imgSrc={storedTitleImageName}
+            title={challengeTitle}
+            people={boardParty}
+            onClick={() => {
+              navigate(`/challenge/${String(boardId)}`);
+            }}
           />
-        ))}
-      </div>
+        ),
+      )}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { twMerge } from 'tailwind-merge';
 import SectionTitle from '../../../../components/common/SectionTitle';
 import HealthCareCard from './HealthCareCard';
 import { getImageUrl } from '@/utils/getImageUrl';
+import { NAVIGATION_NEW } from '@/constants/navigation';
 
 const MOCK_DATA = [
   {
@@ -34,9 +35,9 @@ function HealthCareSection({ className = '' }: Props) {
   return (
     <section className={twMerge('flex flex-col items-center ', className)}>
       <SectionTitle
-        subTitle="wellness"
+        subTitle={NAVIGATION_NEW.wellness.title}
         title="건강 관리에 관심이 많으신가요?"
-        href="/"
+        href={NAVIGATION_NEW.wellness.href}
         className="mb-[32px] xl:mb-[62px]"
       />
       <div className="grid w-fit grid-cols-1 gap-4 sm:grid-cols-2">

@@ -2,6 +2,7 @@ import { twMerge } from 'tailwind-merge';
 import SlideCard from './SlideCard';
 import SectionTitle from '../../../../components/common/SectionTitle';
 import { getImageUrl } from '@/utils/getImageUrl';
+import { NAVIGATION_NEW } from '@/constants/navigation';
 
 interface Props {
   className?: string;
@@ -34,8 +35,8 @@ function SlideSection({ className }: Props) {
     >
       <SectionTitle
         title="챌린지에 참여해보세요."
-        subTitle="challenge"
-        href="/"
+        subTitle={NAVIGATION_NEW.challenge.title}
+        href={NAVIGATION_NEW.challenge.href}
         className="mb-[32px] xl:mb-[62px]"
       />
       <div className="relative flex w-screen flex-nowrap gap-6">

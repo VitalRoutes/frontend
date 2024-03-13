@@ -1,6 +1,7 @@
 import { getImageUrl } from '@/utils/getImageUrl';
 import SectionTitle from '../../../../components/common/SectionTitle';
 import Card from './Card';
+import { NAVIGATION_NEW } from '@/constants/navigation';
 
 interface Props {
   className?: string;
@@ -29,8 +30,8 @@ function RegisterSection({ className = '' }: Props) {
     <section className={className}>
       <SectionTitle
         title="신규 챌린지를 등록해보세요."
-        subTitle="register route"
-        href="/"
+        subTitle={NAVIGATION_NEW.registration.title}
+        href={NAVIGATION_NEW.registration.href}
         className="mb-[32px] xl:mb-[62px]"
       />
 

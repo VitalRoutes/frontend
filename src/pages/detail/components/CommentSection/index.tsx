@@ -6,6 +6,7 @@ import Comment from './Comment';
 import SpotSlide from './SpotSlide';
 import useComment from '@/hooks/challenge/useComment';
 import { Comment as CommentType } from '@/types/challenge';
+import MoreButton from '@/components/units/MoreButton';
 
 interface Props {
   className?: string;
@@ -57,6 +58,7 @@ function CommentSection({ className }: Props) {
                 date={timeString}
               />
               <SpotSlide images={images} />
+              <MoreButton title="대댓글 보기" />
             </div>
           );
         },

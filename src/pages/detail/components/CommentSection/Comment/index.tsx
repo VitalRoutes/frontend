@@ -1,14 +1,31 @@
-import Icon from '@/components/icons';
+import { MouseEventHandler } from 'react';
 import CommentSkeleton from './CommentSkeleton';
+import useSelectionPopup from '@/hooks/useSelectionPopup';
+import SelectButton from '@/components/units/Select';
+import CommentSelectPopup from './CommentSelectPopup';
 
 interface Props {
   profileImgSrc: string;
   nickname: string;
   content: string;
   date: string;
+  id: number;
 }
 
-function Comment({ profileImgSrc, nickname, content, date }: Props) {
+function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
+  const { openSelectionPopup } = useSelectionPopup();
+
+  const showMoreOption: MouseEventHandler<HTMLButtonElement> = ({
+    clientX,
+    clientY,
+  }) => {
+    openSelectionPopup({
+      selectionPopup: <CommentSelectPopup id={id} />,
+      x: clientX,
+      y: clientY,
+    });
+  };
+
   return (
     <div>
       <div className="flex justify-between gap-2">
@@ -21,11 +38,8 @@ function Comment({ profileImgSrc, nickname, content, date }: Props) {
           <div className="flex items-center gap-4">
             <span className="font-bold">{nickname}</span>
             <span className="text-[13px] text-gray-2">{date}</span>
-            <Icon.Kebab
-              className="ml-auto mr-0 fill-gray-1"
-              height={32}
-              width={32}
-            />
+
+            <SelectButton onClick={showMoreOption} />
           </div>
           <p className="text-sm">{content}</p>
         </div>

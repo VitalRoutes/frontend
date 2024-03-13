@@ -7,5 +7,5 @@ interface FilterState {
 
 export const useFilterStore = create<FilterState>((set) => ({
   filter: 'myChallenge',
-  setFilter: (filter) => set(() => ({ filter })),
+  setFilter: (filter) => set({ filter }),
 }));

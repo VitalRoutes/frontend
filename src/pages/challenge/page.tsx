@@ -17,7 +17,7 @@ function ChallengeListPage() {
         <TagSection />
         <SectionTitle title="신규 챌린지" subTitle="New Chanllenge" />
         <ChallengeListSection />
-        <MoreButton />
+        <MoreButton title="SEE MORE" />
       </div>
     </>
   );

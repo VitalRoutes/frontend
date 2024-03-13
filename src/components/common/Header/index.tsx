@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useWindowSize from '@/hooks/useWindowSize';
-import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
+import { TABLET_BOUND_WIDTH } from '@/constants/responsive';
 import { NAVIGATION } from '@/constants/navigation';
 import Button from '../Button';
 import HambergerNavigation from './HambergerNavigation';
@@ -12,7 +12,7 @@ function Header() {
   const { width } = useWindowSize();
   const [hambergerNavigationVisible, setHambergerNavigationVisible] =
     useState(false);
-  const isDesktop = width ? width > MOBILE_BOUND_WIDTH : false;
+  const isDesktop = width ? width > TABLET_BOUND_WIDTH : false;
 
   const location = useLocation();
   useEffect(() => {

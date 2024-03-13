@@ -7,7 +7,7 @@ function ChallengeSection() {
   console.log(filter);
 
   return (
-    <div className="grid grid-cols-4 gap-[24px]">
+    <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
       <ChallengeCard
         imgSrc={getImageUrl('intro/intro_1.png')}
         title="test"

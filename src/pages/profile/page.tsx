@@ -5,10 +5,10 @@ import ProfileSection from './components/ProfileSection';
 function ProfilePage() {
   return (
     <div>
-      <div className="mx-auto my-[120px] w-[1352px]">
-        <ProfileSection />
+      <ProfileSection />
+      <div className="flex flex-col flex-nowrap items-center gap-[32px] px-[21px] pb-[62px] xl:gap-[62px] xl:pb-[120px] xl:pt-[100px]">
         <FilterSection />
-        <hr className="my-[62px]" />
+        <hr className="w-full" />
         <ChallengeSection />
       </div>
     </div>

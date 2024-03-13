@@ -1,6 +1,6 @@
 import Button from '../Button';
 import useWindowSize from '@/hooks/useWindowSize';
-import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
+import { TABLET_BOUND_WIDTH } from '@/constants/responsive';
 import Icon from '@/components/icons';
 import { getImageUrl } from '@/utils/getImageUrl';
 
@@ -8,7 +8,7 @@ function Footer() {
   const SPAN_CLASS = 'text-gray-1 text-sm hover:cursor-pointer hover:underline';
 
   const { width } = useWindowSize();
-  const isDesktop = width > MOBILE_BOUND_WIDTH;
+  const isDesktop = width > TABLET_BOUND_WIDTH;
 
   return (
     <footer className=" bg-gray-6 px-[21px] pb-16 pt-8">

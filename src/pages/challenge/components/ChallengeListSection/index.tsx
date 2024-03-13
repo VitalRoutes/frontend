@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import ChallengeCard from './ChallengeCard';
 import { getImageUrl } from '@/utils/getImageUrl';
+import ChallengeCard from '@/components/units/ChallengeCard';
 
 function ChallengeListSection() {
   const TEMP_DATA = [1, 2, 3, 4, 5, 6, 7, 8, 9];

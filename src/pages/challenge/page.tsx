@@ -13,7 +13,7 @@ function ChallengeListPage() {
         subTitle="With VitalRoutes"
         imgSrc={getImageUrl('banner/cycling.png')}
       />
-      <div className="my-[62px] flex flex-col items-center gap-[62px] xl:my-[120px]">
+      <div className="my-[62px] flex flex-col items-center gap-[62px] px-[21px] xl:my-[120px]">
         <TagSection />
         <SectionTitle title="신규 챌린지" subTitle="New Chanllenge" />
         <ChallengeListSection />

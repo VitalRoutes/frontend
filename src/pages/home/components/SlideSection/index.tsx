@@ -21,8 +21,8 @@ function SlideSection({ className }: Props) {
     />
   ));
   const ANIMATE_CLASS = {
-    left: `animate-[slide-left_40s_linear_infinite]`,
-    right: `animate-[slide-right_40s_linear_infinite]`,
+    left: `animate-[slide-right_40s_linear_infinite]`,
+    right: `animate-[slide-left_40s_linear_infinite]`,
   };
 
   return (

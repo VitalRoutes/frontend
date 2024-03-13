@@ -1,9 +1,11 @@
 import { twMerge } from 'tailwind-merge';
 import { useParams } from 'react-router-dom';
-import Comment from './Commet';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import Comment from './Comment';
 import SpotSlide from './SpotSlide';
-import MoreButton from '@/components/units/MoreButton';
 import useComment from '@/hooks/challenge/useComment';
+import { Comment as CommentType } from '@/types/challenge';
 
 interface Props {
   className?: string;
@@ -11,9 +13,20 @@ interface Props {
 
 function CommentSection({ className }: Props) {
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading } = useComment(id || '0');
+  const { data, isLoading, fetchNextPage, hasNextPage } = useComment(id || '0');
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (hasNextPage && inView) fetchNextPage();
+  }, [inView, hasNextPage]);
 
   if (isLoading || !data) return <>loading</>;
+
+  const allPages = data.pages.flat();
+  const allComments = allPages.map((page) => page?.data.comments).flat();
+  const filterdComments = allComments.filter(
+    (comment): comment is CommentType['comments'][0] => comment !== undefined,
+  );
 
   return (
     <section
@@ -22,18 +35,19 @@ function CommentSection({ className }: Props) {
         className,
       )}
     >
-      {data.comments.map(
+      {filterdComments.map(
         ({
+          participationId,
           memberProfile,
           nickname,
-          content,
           participationImages,
+          content,
           timeString,
         }) => {
           const images = participationImages.map(({ fileName }) => fileName);
           return (
             <div
-              key={`${nickname}${timeString}`}
+              key={participationId}
               className="flex w-full flex-col gap-[42px]"
             >
               <Comment
@@ -47,7 +61,15 @@ function CommentSection({ className }: Props) {
           );
         },
       )}
-      <MoreButton />
+
+      {hasNextPage && (
+        <div ref={ref} className="flex w-full flex-col gap-[42px]">
+          <Comment.Skeleton />
+          <SpotSlide.Skeleton />
+          <Comment.Skeleton />
+          <SpotSlide.Skeleton />
+        </div>
+      )}
     </section>
   );
 }

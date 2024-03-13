@@ -1,5 +1,5 @@
 import Lottie from 'react-lottie';
-import BearLottie from '@/assets/lottie/location_loading.json';
+import BearLottie from '@/assets/lottie/animation.json';
 
 function BearLoading() {
   const defaultOptions = {

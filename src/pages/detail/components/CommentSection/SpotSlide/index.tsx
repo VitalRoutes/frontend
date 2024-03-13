@@ -3,6 +3,7 @@ import 'swiper/css';
 import { useState } from 'react';
 import 'swiper/css/pagination';
 import PageBar from './PageBar';
+import SpotSlideSkeleton from './SpotSlideSkeleton';
 
 interface Props {
   images: string[];
@@ -17,7 +18,7 @@ function SpotSlide({ images }: Props) {
   };
 
   return (
-    <div className="relative flex h-full w-full flex-col gap-[32px]">
+    <div className="relative flex flex-col gap-[32px] rounded-[30px]">
       <Swiper
         className="relative h-full w-full"
         spaceBetween={10}
@@ -43,5 +44,7 @@ function SpotSlide({ images }: Props) {
     </div>
   );
 }
+
+SpotSlide.Skeleton = SpotSlideSkeleton;
 
 export default SpotSlide;

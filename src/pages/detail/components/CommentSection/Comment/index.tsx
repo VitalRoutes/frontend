@@ -1,4 +1,5 @@
 import Icon from '@/components/icons';
+import CommentSkeleton from './CommentSkeleton';
 
 interface Props {
   profileImgSrc: string;
@@ -32,5 +33,7 @@ function Comment({ profileImgSrc, nickname, content, date }: Props) {
     </div>
   );
 }
+
+Comment.Skeleton = CommentSkeleton;
 
 export default Comment;

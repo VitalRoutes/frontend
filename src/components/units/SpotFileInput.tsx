@@ -1,10 +1,4 @@
-import {
-  ForwardedRef,
-  InputHTMLAttributes,
-  forwardRef,
-  useId,
-  useRef,
-} from 'react';
+import { ForwardedRef, InputHTMLAttributes, forwardRef, useId } from 'react';
 import Spot from '@/components/common/Spot';
 import Icon from '@/components/icons';
 

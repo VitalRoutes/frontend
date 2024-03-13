@@ -5,6 +5,7 @@ import HomePage from './pages/home/page';
 import ChallengeListPage from './pages/challenge/page';
 import ChallengeDetailPage from './pages/detail/page';
 import RegistrationPage from './pages/registration/page';
+import WellnessPage from './pages/wellness/page';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
         path: 'test',
         element: <TestPage />,
       },
+      { path: '/wellness', element: <WellnessPage /> },
     ],
   },
 ]);

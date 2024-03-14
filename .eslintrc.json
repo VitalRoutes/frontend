@@ -3,7 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "@tanstack/query"],
   "env": {
     "browser": true,
     "es6": true,
@@ -11,16 +11,24 @@
   },
   "extends": [
     "airbnb",
+    "airbnb-typescript",
     "prettier",
-    "airbnb-typescript/base",
-    "eslint-config-prettier"
+    "eslint-config-prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
   "rules": {
-    "react/jsx-filename-extension": [
-      2,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": ["off"],
+    "react/jsx-props-no-spreading": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   "ignorePatterns": ["node_modules/", "*.config.ts", "*.config.js", "dev-dist/"]
 }

@@ -5,14 +5,28 @@ import NameInput from './components/NameInput';
 import NicknameInput from './components/NicknameInput';
 import EmailInput from './components/EmailInput';
 import ProfileImageInput from './components/ProfileImageInput';
+import useProfile from '@/hooks/user/useProfile';
+import { ProfileUpdateForm } from '@/types/user';
 
 // interface Props {}
 
 function ProfileUpdatePage() {
-  const methods = useForm();
+  const { data } = useProfile();
+  const methods = useForm<ProfileUpdateForm>({
+    defaultValues: {
+      name: data?.name || '',
+      memberId: data?.memberId || 0,
+      profile: data?.profile || '',
+      nickname: data?.nickname || '',
+      email: data?.email || '',
+      prePassword: data?.prePassword || '',
+      newPassword: data?.newPassword || '',
+    },
+  });
   const { handleSubmit } = methods;
-
   const onValid = () => {};
+
+  console.log(data);
 
   return (
     <div className="mt-[136px] px-[21px]">

@@ -39,6 +39,16 @@ export interface ChallengeDetail {
   boardHits: number;
   existingMode: number;
   totalComments: number;
+  startingPosLat: number;
+  startingPosLon: number;
+  destinationLat: number;
+  destinationLon: number;
+  stopOver1Lat: number;
+  stopOver1Lon: number;
+  stopOver2Lat: number;
+  stopOver2Lon: number;
+  stopOver3Lat: number;
+  stopOver3Lon: number;
 }
 
 export interface Comment {

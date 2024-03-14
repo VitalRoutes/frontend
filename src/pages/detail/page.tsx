@@ -15,11 +15,6 @@ function ChallengeDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { data: challenge, isLoading } = useChallengeDetail(id || '0');
 
-  const SPOTS = [
-    { lat: 33.450701, lng: 126.570667 },
-    { lat: 33.450901, lng: 126.570967 },
-  ];
-
   if (isLoading)
     return (
       <div className="flex h-screen w-screen items-center justify-center">
@@ -27,6 +22,29 @@ function ChallengeDetailPage() {
       </div>
     );
   if (!challenge) return <>데이터가 없다1</>;
+
+  const spots = [
+    {
+      lat: challenge.startingPosLat,
+      lng: challenge.startingPosLon,
+    },
+    {
+      lat: challenge.stopOver1Lat,
+      lng: challenge.stopOver1Lon,
+    },
+    {
+      lat: challenge.stopOver2Lat,
+      lng: challenge.stopOver2Lon,
+    },
+    {
+      lat: challenge.stopOver3Lat,
+      lng: challenge.stopOver3Lon,
+    },
+    {
+      lat: challenge.destinationLat,
+      lng: challenge.destinationLon,
+    },
+  ];
 
   return (
     <>
@@ -45,7 +63,7 @@ function ChallengeDetailPage() {
       <div className="mx-auto flex w-[940px] flex-col items-center">
         <div className="my-[120px] flex w-full flex-col items-center  gap-[52px]">
           <div className="h-[360px] w-full overflow-hidden rounded-[30px]">
-            <KaKaoMap spots={SPOTS} />
+            <KaKaoMap spots={spots} />
           </div>
           <ImageSection />
           <DescSection />

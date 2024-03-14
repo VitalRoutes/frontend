@@ -1,4 +1,10 @@
-import { ForwardedRef, InputHTMLAttributes, ReactNode, forwardRef, useId } from 'react';
+import {
+  ForwardedRef,
+  InputHTMLAttributes,
+  ReactNode,
+  forwardRef,
+  useId,
+} from 'react';
 import InputStyle from '@/utils/InputStyle';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
@@ -15,7 +21,6 @@ function Input(
     disabled = false,
     className = '',
     button,
-    onBlur,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,

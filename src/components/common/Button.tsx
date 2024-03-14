@@ -19,7 +19,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const CLASSES = {
+export const BUTTONS_CLASSES = {
   primary:
     'w-full rounded-xl text-xl font-bold bg-gray-1 py-3 text-gray-11 hover:bg-green-1 hover:text-black disabled:bg-gray-2 disabled:text-gray-4',
   'secondary-a':
@@ -55,7 +55,7 @@ function Button({
   return (
     <button
       type={type === 'button' ? 'button' : 'submit'}
-      className={twMerge(CLASSES[variant], className)}
+      className={twMerge(BUTTONS_CLASSES[variant], className)}
       disabled={disabled}
       onClick={onClick}
     >

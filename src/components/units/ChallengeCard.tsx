@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import Icon from '@/components/icons';
 
 interface Props {
@@ -10,6 +10,24 @@ interface Props {
 
 function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
   const [isHover, setIsHover] = useState(false);
+
+  const bookMark: MouseEventHandler<HTMLButtonElement> = (e) => {
+    // eslint-disable-next-line no-alert
+    alert('기능 개발 중입니다.'); // 임시 처리
+    e.stopPropagation();
+  };
+
+  const like: MouseEventHandler<HTMLButtonElement> = (e) => {
+    // eslint-disable-next-line no-alert
+    alert('기능 개발 중입니다.'); // 임시 처리
+    e.stopPropagation();
+  };
+
+  const lookMoreOption: MouseEventHandler<HTMLButtonElement> = (e) => {
+    // eslint-disable-next-line no-alert
+    alert('기능 개발 중입니다.'); // 임시 처리
+    e.stopPropagation();
+  };
 
   return (
     <div
@@ -32,7 +50,9 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
         <h1 className=" line-clamp-2 w-[228px] break-keep text-[24px] font-bold  leading-[160%] text-white">
           {title}
         </h1>
-        <Icon.Kebab className="fill-gray-11" width={40} height={40} />
+        <button aria-label="more-option" type="button" onClick={lookMoreOption}>
+          <Icon.Kebab className="fill-gray-11" width={40} height={40} />
+        </button>
       </div>
       {isHover && (
         <div className="flex items-center justify-between self-stretch p-[24px]">
@@ -43,7 +63,8 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
             <button
               className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
               type="button"
-              aria-label="like"
+              aria-label="book mark"
+              onClick={bookMark}
             >
               <Icon.Bookmark
                 className="fill-gray-50 group-hover:fill-gray-1"
@@ -54,7 +75,8 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
             <button
               className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
               type="button"
-              aria-label="book mark"
+              aria-label="like"
+              onClick={like}
             >
               <Icon.Like
                 className="fill-gray-50  group-hover:fill-gray-1"

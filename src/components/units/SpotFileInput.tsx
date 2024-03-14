@@ -17,7 +17,7 @@ function SpotFileInput(
     <div key={spotKey} className="flex flex-col items-center gap-[16px]">
       <Spot label={spotKey} />
       <label
-        className="flex h-[121px] w-[175px] items-center justify-center overflow-hidden rounded-[16px] bg-gray-3"
+        className="flex h-[121px] w-[175px] cursor-pointer items-center justify-center overflow-hidden rounded-[16px] bg-gray-3"
         htmlFor={id}
       >
         {previewImgSrc ? (
@@ -34,7 +34,7 @@ function SpotFileInput(
           type="file"
           aria-label="file input"
           id={id}
-          hidden
+          className="h-0 w-0"
           {...props}
         />
       </label>

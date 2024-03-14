@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useWindowSize from '@/hooks/useWindowSize';
-import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
-import { NAVIGATION } from '@/constants/navigation';
+import { TABLET_BOUND_WIDTH } from '@/constants/responsive';
+import { NAVIGATION_NEW } from '@/constants/navigation';
 import Button from '../Button';
 import HambergerNavigation from './HambergerNavigation';
 import NavButton from './common/NavButton';
 import { getImageUrl } from '@/utils/getImageUrl';
 
 function Header() {
+  const navigationList = Object.values(NAVIGATION_NEW);
   const { width } = useWindowSize();
   const [hambergerNavigationVisible, setHambergerNavigationVisible] =
     useState(false);
-  const isDesktop = width ? width > MOBILE_BOUND_WIDTH : false;
+  const isDesktop = width ? width > TABLET_BOUND_WIDTH : false;
 
   const location = useLocation();
   useEffect(() => {
@@ -33,7 +34,7 @@ function Header() {
         {isDesktop ? (
           <>
             <nav className="flex gap-5">
-              {NAVIGATION.map(({ href, title }) => (
+              {navigationList.map(({ href, title }) => (
                 <NavButton key={title} href={href}>
                   {title}
                 </NavButton>

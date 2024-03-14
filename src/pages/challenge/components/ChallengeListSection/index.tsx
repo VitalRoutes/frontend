@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import ChallengeCard from './ChallengeCard';
 import { getImageUrl } from '@/utils/getImageUrl';
+import ChallengeCard from '@/components/units/ChallengeCard';
 import useChallengeList from '@/hooks/challenge/useChallengeList';
 import BearLoading from '@/components/common/Loading/BearLoading';
 

@@ -11,6 +11,7 @@ import LoginPage from './pages/login/page';
 import SignUp from './pages/login/signUp';
 import FindPw from './pages/login/findpassword';
 import KakaoLogin from './pages/login/components/kakaoLogin';
+import ProfileUpdatePage from './pages/profile-update/page';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <ProfilePage />,
+      },
+      {
+        path: 'profile/update',
+        element: <ProfileUpdatePage />,
       },
       { path: '/wellness', element: <WellnessPage /> },
       {

@@ -4,11 +4,15 @@ import { useFormContext } from 'react-hook-form';
 import SpotFileInput from '@/components/units/SpotFileInput';
 import { ChallengeRegisterationForm } from '@/types/posts';
 import { getGpsFromImg } from '@/utils/ExifReader';
+import usePopup from '@/hooks/usePopup';
+import Popup from '@/components/common/Popup';
+import Button from '@/components/common/Button';
 
 function SpotInputList() {
   const constraintsRef = useRef(null);
-  const { register, watch, setValue } =
+  const { register, watch, setValue, resetField } =
     useFormContext<ChallengeRegisterationForm>();
+  const { openPopup, closePopup } = usePopup();
 
   return (
     <div className="w-full" ref={constraintsRef}>
@@ -29,9 +33,27 @@ function SpotInputList() {
               const { files } = e.target;
               const targetFile = files?.item(0);
               if (!targetFile) return;
-              const { lat, lng } = await getGpsFromImg(targetFile);
-              setValue(`spots.${index}.lat`, lat);
-              setValue(`spots.${index}.lng`, lng);
+
+              try {
+                const { lat, lng } = await getGpsFromImg(targetFile);
+                setValue(`spots.${index}.lat`, lat);
+                setValue(`spots.${index}.lng`, lng);
+              } catch (error) {
+                if (!(error instanceof Error)) {
+                  return;
+                }
+                resetField(`spots.${index}.files`);
+                openPopup(
+                  <Popup
+                    content={error.message}
+                    buttons={
+                      <Button variant="popup-point" onClick={closePopup}>
+                        확인
+                      </Button>
+                    }
+                  />,
+                );
+              }
             },
             required,
           });

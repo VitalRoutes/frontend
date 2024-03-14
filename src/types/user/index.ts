@@ -1,10 +1,11 @@
 export interface ProfileUpdateForm {
-  profileImage: File;
+  memberId: number;
+  profile: string;
   name: string;
   nickname: string;
   email: string;
-  password: string;
-  passwordConfirm: string;
+  prePassword: string;
+  newPassword: string;
 }
 
 export interface SignUpForm {

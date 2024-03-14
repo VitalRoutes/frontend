@@ -1,8 +1,10 @@
+import useProfile from '@/hooks/user/useProfile';
 import ChallengeSection from './components/ChallengeSection';
 import FilterSection from './components/FilterSection';
 import ProfileSection from './components/ProfileSection';
 
 function ProfilePage() {
+  const { data } = useProfile();
   return (
     <div>
       <ProfileSection />

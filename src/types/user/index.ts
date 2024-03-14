@@ -27,3 +27,13 @@ export interface LoginResponse {
   accessToken: string | null;
   refreshToken: string | null;
 }
+
+export interface PropfileResponse {
+  email: string;
+  memberId: number;
+  name: string;
+  newPassword: string | null;
+  nickname: string;
+  prePassword: string | null;
+  profile: string;
+}

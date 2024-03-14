@@ -1,5 +1,4 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
 import CommentSkeleton from './CommentSkeleton';
 import SelectButton from '@/components/units/Select';
 import CommentSelectPopup from './CommentSelectPopup';

@@ -1,6 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { userInfoStore } from '../../store/user/userInfoStore';
-import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
 import { getImageUrl } from '@/utils/getImageUrl';
 import { useNicknameValidStore } from '@/store/user/signupStore';

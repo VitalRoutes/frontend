@@ -1,4 +1,4 @@
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@/components/common/Button';
 import PasswordInput from './components/PasswordInput';
 import NameInput from './components/NameInput';
@@ -7,8 +7,7 @@ import EmailInput from './components/EmailInput';
 import ProfileImageInput from './components/ProfileImageInput';
 import useProfile from '@/hooks/user/useProfile';
 import { ProfileUpdateForm } from '@/types/user';
-
-// interface Props {}
+import useProfileUpdateMutation from '@/hooks/user/useProfileUpdateMutation';
 
 function ProfileUpdatePage() {
   const { data } = useProfile();
@@ -24,9 +23,11 @@ function ProfileUpdatePage() {
     },
   });
   const { handleSubmit } = methods;
-  const onValid = () => {};
+  const { mutate } = useProfileUpdateMutation();
 
-  console.log(data);
+  const onValid: SubmitHandler<ProfileUpdateForm> = (formData) => {
+    mutate(formData);
+  };
 
   return (
     <div className="mt-[136px] px-[21px]">

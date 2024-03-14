@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '@/components/common/Button';
 
 function ProfileSection() {
@@ -11,9 +12,11 @@ function ProfileSection() {
       <div className="flex flex-col items-center justify-center gap-2 xl:items-start ">
         <div className=" font-bold leading-[120%] xl:text-[32px]">nickname</div>
         <div className=" text-sm leading-[160%] xl:text-[24px]">region</div>
-        <Button className="xl:mt-[38px]" variant="third-d">
-          프로필 수정
-        </Button>
+        <Link to="/profile/update">
+          <Button className="xl:mt-[38px]" variant="third-d">
+            프로필 수정
+          </Button>
+        </Link>
       </div>
     </div>
   );

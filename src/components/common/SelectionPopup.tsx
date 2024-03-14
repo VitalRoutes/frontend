@@ -11,7 +11,7 @@ function SelectionPopup({ children }: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="selection-popup flex w-[286px] flex-col gap-[12px] rounded-[30px] bg-gray-11 px-[23px] py-[29px] shadow-2xl"
+      className="selection-popup flex w-[286px] flex-col gap-[12px] rounded-[30px] bg-gray-11 py-[29px] shadow-2xl"
     >
       {children}
     </motion.div>

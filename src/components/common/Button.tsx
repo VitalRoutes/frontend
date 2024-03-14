@@ -12,7 +12,9 @@ type ButtonVariants =
   | 'third-e'
   | 'tab-a'
   | 'tag-a'
-  | 'tag-b';
+  | 'tag-b'
+  | 'popup'
+  | 'popup-point';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariants;
@@ -42,6 +44,10 @@ export const BUTTONS_CLASSES = {
     'rounded-full font-bold px-[12px] py-[12] inline-flex h-[40px] justify-center items-center shrink-0 bg-gray-6 hover:bg-green-1 disabled:bg-gray-5 disabled:text-gray-3 text-[14px]',
   'tag-b':
     'rounded-full font-bold px-[12px] py-[8px] inline-flex h-[40px] justify-center items-center shrink-0 bg-gray-6 hover:bg-gray-1 hover:text-green-1 disabled:bg-gray-5 disabled:text-gray-3 text-[14px]',
+  'popup-point':
+    'font-bold text-[20px] bg-green-1 h-[60px] w-full p-[32px] flex justify-center items-center',
+  popup:
+    'font-bold bg-gray-6 text-[20px] h-[60px] w-full p-[32px] flex justify-center items-center',
 };
 
 function Button({

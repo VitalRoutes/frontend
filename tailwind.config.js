@@ -25,7 +25,8 @@ export default {
       },
       zIndex: {
         'selection-popup': '8000',
-        header: '9999',
+        header: '9998',
+        dimmed: '9999',
       },
 
       keyframes: {

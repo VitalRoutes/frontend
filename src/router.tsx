@@ -6,6 +6,10 @@ import LoginPage from './login/page';
 import SignUp from './login/signUp';
 import TestPage from './pages/test/page';
 import FindPw from './login/findpassword';
+import ChallengeDetailPage from './pages/detail/page';
+import RegistrationPage from './pages/registration/page';
+import KakaoLogin from './login/components/kakaoLogin';
+
 
 const router = createBrowserRouter([
   {
@@ -21,13 +25,21 @@ const router = createBrowserRouter([
         element: <ChallengeListPage />,
       },
       {
+        path: 'challenge/:id',
+        element: <ChallengeDetailPage />,
+      },
+      {
+        path: 'registration',
+        element: <RegistrationPage />,
+      },
+      {
         path: 'test',
         element: <TestPage />,
       }
     ],
   }, {
     path: 'login',
-    element: <LoginPage/>,
+    element: <LoginPage />,
 
   }, {
     path: "/login/signUp",
@@ -35,6 +47,9 @@ const router = createBrowserRouter([
   }, {
     path: "/login/findpassword",
     element: <FindPw />,
+  }, {
+    path: "/login/kakaoLogin",
+    element: <KakaoLogin />,
   }
 ]);
 

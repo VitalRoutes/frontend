@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { userInfoStore } from './hook/userInfoStore';
 import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
-import { BASE_IMG_SCR } from '@/constants/src';
+import { getImageUrl } from '@/utils/getImageUrl';
+import Modal from './components/Modal';
+
 
 interface FormValues {
   email: string;
@@ -11,20 +15,35 @@ interface FormValues {
 
 function LoginPage() {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>();
+  const [socialLoginModalOpen, setSocialLoginModalOpen] = useState<boolean>(false);
+  const setUserValues = userInfoStore(state => state.setuserValues);
+
+  const socialLoginToggle = () => {
+    setSocialLoginModalOpen(!socialLoginModalOpen);
+  }
+
 
   const onSubmit = (data: FormValues) => {
-    console.log('data', data)
+    setUserValues(data);
+    // console.log('data', data) /* 로그인 연결예정 */
   }
+
 
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="w-1/3 h-screen xl:flex hidden">
-        <img src={`${BASE_IMG_SCR}/login/login_img.jpg`} alt='login_img' className="w-full h-full object-cover" />
+        <img src={getImageUrl('login/login_img.jpg')} alt='login_img' className="w-full h-full object-cover" />
       </div>
 
       <form className="xl:w-[580px] sm:w-[580px] w-3/4 mx-auto sm:space-y-12 space-y-8" onSubmit={handleSubmit(onSubmit)}>
-        <span className="text-xl font-bold text-gray-1 leading-8">Vitalroutes에 로그인</span>
-        <Button className="border-2" variant="secondary-b" type="submit">소셜 로그인</Button>
+        <span className="text-xl font-bold text-gray-1 leading-8"><Link to='/'>Vitalroutes</Link>에 로그인</span>
+
+        <Button className="border-2" variant="secondary-b" onClick={socialLoginToggle} type="button">소셜 로그인</Button>
+        <Modal isOpen={socialLoginModalOpen} onClose={socialLoginToggle} title="소셜로그인">
+          <a href="http://vital-routes.kro.kr:8080/login/kakaoLogin">
+            <img src={getImageUrl('login/kakao_login_medium_wide.png')} alt="kakaoLogin" />
+          </a>
+        </Modal>
 
         <div>
           <Input
@@ -36,7 +55,7 @@ function LoginPage() {
             {...register("email", {
               required: "※ 이메일 입력란이 비어있습니다.",
               pattern: {
-                value: /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
                 message: "※ 올바른 이메일 형식에 맞게 작성해주세요."
               }
             })}
@@ -73,9 +92,10 @@ function LoginPage() {
         <div className="flex items-center justify-center">
           <span className='text-[14px] text-gray-2'>계정이 없으신가요?</span>
           <Link to="signUp" className='ml-[16px] text-[14px] text-gray-2 underline'>가입하기</Link>
+
         </div>
       </form>
-    </div>
+    </div >
   )
 }
 

@@ -1,4 +1,4 @@
-import { BASE_IMG_SCR } from '@/constants/src';
+import { getImageUrl } from '@/utils/getImageUrl';
 import SectionTitle from '../../../../components/common/SectionTitle';
 import Card from './Card';
 
@@ -8,17 +8,17 @@ interface Props {
 
 const CARDS_INFO = [
   {
-    imgSrc: `${BASE_IMG_SCR}/registration/registration_1.png`,
+    imgSrc: getImageUrl('registration/registration_1.png'),
     title: '산책하기',
     desc: '원하는 산책경로로 이동해보세요',
   },
   {
-    imgSrc: `${BASE_IMG_SCR}/registration/registration_2.png`,
+    imgSrc: getImageUrl('registration/registration_2.png'),
     title: '인증사진 찰칵!',
     desc: '인증이 필요한 지점에서 사진을 찍어주세요.',
   },
   {
-    imgSrc: `${BASE_IMG_SCR}/registration/registration_3.png`,
+    imgSrc: getImageUrl('registration/registration_3.png'),
     title: '챌린지 글 남기기',
     desc: '챌린지할 내용을 상세하게 적어주세요.',
   },

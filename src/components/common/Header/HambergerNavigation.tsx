@@ -6,11 +6,15 @@ function HambergerNavigation() {
     <div className="fixed left-0 top-0 z-header flex h-screen w-screen items-center justify-center bg-gray-1 xl:hidden">
       <nav className="flex flex-col items-center gap-[16px]">
         {NAVIGATION.map(({ href, title }) => (
-          <NavButton className="text-[32px] leading-[120%]" href={href}>
+          <NavButton
+            key={title}
+            className="text-[32px] leading-[120%]"
+            href={href}
+          >
             {title}
           </NavButton>
         ))}
-        <NavButton className="mt-[46px] text-base" href="/login">
+        <NavButton className="mt-[46px] text-base" href="login">
           LOGIN
         </NavButton>
       </nav>

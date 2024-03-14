@@ -6,7 +6,7 @@ import { NAVIGATION } from '@/constants/navigation';
 import Button from '../Button';
 import HambergerNavigation from './HambergerNavigation';
 import NavButton from './common/NavButton';
-import { BASE_IMG_SCR } from '@/constants/src';
+import { getImageUrl } from '@/utils/getImageUrl';
 
 function Header() {
   const { width } = useWindowSize();
@@ -26,7 +26,7 @@ function Header() {
         <Link to="/">
           <img
             width={isDesktop ? 'auto' : 141}
-            src={`${BASE_IMG_SCR}/logo/main_logo_white.png`}
+            src={getImageUrl('logo/main_logo_white.png')}
             alt="logo"
           />
         </Link>
@@ -34,7 +34,9 @@ function Header() {
           <>
             <nav className="flex gap-5">
               {NAVIGATION.map(({ href, title }) => (
-                <NavButton href={href}>{title}</NavButton>
+                <NavButton key={title} href={href}>
+                  {title}
+                </NavButton>
               ))}
             </nav>
             <Link to="login"><Button variant="third-a">Login</Button></Link>

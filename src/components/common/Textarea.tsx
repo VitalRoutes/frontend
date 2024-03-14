@@ -21,9 +21,9 @@ function Textarea(
   const hasError = !disabled && !!errorMessage;
 
   return (
-    <div className="w-full">
+    <div className="flex w-full flex-col gap-[16px]">
       {label && (
-        <label className="text-2xl font-semibold" htmlFor={uniqueId}>
+        <label className="font-bold" htmlFor={uniqueId}>
           {label}
         </label>
       )}

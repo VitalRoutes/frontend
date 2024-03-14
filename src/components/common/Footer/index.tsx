@@ -1,8 +1,8 @@
 import Button from '../Button';
-import { BASE_IMG_SCR } from '@/constants/src';
 import useWindowSize from '@/hooks/useWindowSize';
 import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
 import Icon from '@/components/icons';
+import { getImageUrl } from '@/utils/getImageUrl';
 
 function Footer() {
   const SPAN_CLASS = 'text-gray-1 text-sm hover:cursor-pointer hover:underline';
@@ -17,7 +17,7 @@ function Footer() {
           <div className="flex flex-col items-start justify-between gap-[20px] xl:flex-row xl:items-end xl:gap-[40.5px]">
             <img
               width={155}
-              src={`${BASE_IMG_SCR}/main_logo_black.png`}
+              src={getImageUrl('logo/main_logo_black.png')}
               alt="logo"
             />
             <div className="flex flex-col gap-2 text-[14px] xl:flex-row xl:items-center xl:justify-between xl:gap-4">

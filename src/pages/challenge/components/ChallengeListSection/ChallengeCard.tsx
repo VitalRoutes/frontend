@@ -32,7 +32,7 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
         <h1 className=" line-clamp-2 w-[228px] break-keep text-[24px] font-bold  leading-[160%] text-white">
           {title}
         </h1>
-        <Icon.Kebab />
+        <Icon.Kebab className="fill-gray-11" width={40} height={40} />
       </div>
       {isHover && (
         <div className="flex items-center justify-between self-stretch p-[24px]">
@@ -41,18 +41,26 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
           </span>
           <div className="flex gap-[8px]">
             <button
-              className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-gray-900/30 backdrop-blur"
+              className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
               type="button"
               aria-label="like"
             >
-              <Icon.Bookmark />
+              <Icon.Bookmark
+                className="fill-gray-50 group-hover:fill-gray-1"
+                width={32}
+                height={32}
+              />
             </button>
             <button
-              className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-gray-900/30 backdrop-blur"
+              className="group rounded-full bg-gray-1/30 p-[16px] backdrop-blur hover:bg-green-1"
               type="button"
               aria-label="book mark"
             >
-              <Icon.Heart />
+              <Icon.Like
+                className="fill-gray-50  group-hover:fill-gray-1"
+                width={32}
+                height={32}
+              />
             </button>
           </div>
         </div>

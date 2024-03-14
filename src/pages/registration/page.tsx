@@ -12,7 +12,6 @@ import TransportSection from './components/TransportSection';
 import { ChallengeRegisterationForm } from '@/types/posts';
 import Button from '@/components/common/Button';
 import useChallengeWriteMutation from '@/hooks/challenge/useChallengeWriteMutation';
-import usePopup from '@/hooks/usePopup';
 
 function RegistrationPage() {
   const methods = useForm<ChallengeRegisterationForm>({
@@ -29,7 +28,6 @@ function RegistrationPage() {
 
   const { handleSubmit } = methods;
   const { mutate, isPending } = useChallengeWriteMutation();
-  const {} = usePopup();
 
   const onValid: SubmitHandler<ChallengeRegisterationForm> = (data) => {
     const {

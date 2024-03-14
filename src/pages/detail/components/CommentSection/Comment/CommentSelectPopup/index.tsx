@@ -12,13 +12,16 @@ function CommentSelectPopup({ id }: Props) {
   const useCommentModeStore = storeFamilyCommentMode(id);
   const { mutate: mutateDeletion } = useCommentDeleteMutation(id);
   const { setMode } = useCommentModeStore();
-
   const { openPopup, closePopup } = usePopup();
+
   const deleteComment = () => {
     openPopup(
       <DeletePopup
         onCancleClick={closePopup}
-        onConfirmClick={mutateDeletion}
+        onConfirmClick={() => {
+          mutateDeletion();
+          closePopup();
+        }}
       />,
     );
   };

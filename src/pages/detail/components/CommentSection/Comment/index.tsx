@@ -1,5 +1,5 @@
-import { MouseEventHandler } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import CommentSkeleton from './CommentSkeleton';
 import SelectButton from '@/components/units/Select';
 import CommentSelectPopup from './CommentSelectPopup';
@@ -13,9 +13,17 @@ interface Props {
   content: string;
   date: string;
   id: number;
+  participationImages: { sequence: number; fileName: string }[];
 }
 
-function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
+function Comment({
+  id,
+  profileImgSrc,
+  nickname,
+  content,
+  date,
+  participationImages,
+}: Props) {
   const useCommentModeStore = storeFamilyCommentMode(id);
   const { mode, setMode } = useCommentModeStore();
   const { mutate: mutateModify } = useCommentModifyMutation(id);
@@ -27,7 +35,8 @@ function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
 
   const confirmModify = () => {
     const comment = methods.getValues('comment');
-    mutateModify({ comment });
+    mutateModify({ content: comment, uploadedFiles: participationImages });
+    setMode('view');
   };
 
   const cancelModify = () => {

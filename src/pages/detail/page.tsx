@@ -12,10 +12,9 @@ import BearLoading from '@/components/common/Loading/BearLoading';
 import { useLoginStore } from '@/store/user/loginInfoStore';
 
 function ChallengeDetailPage() {
-  const { isLogin, ...s } = useLoginStore();
+  const { isLogin } = useLoginStore();
   const { id } = useParams<{ id: string }>();
   const { data: challenge, isLoading } = useChallengeDetail(id || '0');
-  console.log(isLogin, s);
 
   if (isLoading)
     return (

@@ -1,8 +1,12 @@
 import { MouseEventHandler } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import CommentSkeleton from './CommentSkeleton';
 import useSelectionPopup from '@/hooks/useSelectionPopup';
 import SelectButton from '@/components/units/Select';
 import CommentSelectPopup from './CommentSelectPopup';
+import { useCommentModeStore } from '@/store/challenge/commentStore';
+import ModifyInput from './ModifyInput';
+import useCommentModifyMutation from '@/hooks/challenge/useCommentModifyMutation';
 
 interface Props {
   profileImgSrc: string;
@@ -14,6 +18,13 @@ interface Props {
 
 function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
   const { openSelectionPopup } = useSelectionPopup();
+  const { mode, setMode } = useCommentModeStore();
+  const { mutate: mutateModify } = useCommentModifyMutation(id);
+  const methods = useForm({
+    defaultValues: {
+      comment: content,
+    },
+  });
 
   const showMoreOption: MouseEventHandler<HTMLButtonElement> = ({
     clientX,
@@ -26,8 +37,17 @@ function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
     });
   };
 
+  const confirmModify = () => {
+    const comment = methods.getValues('comment');
+    mutateModify({ comment });
+  };
+
+  const cancelModify = () => {
+    setMode('view');
+  };
+
   return (
-    <div>
+    <FormProvider {...methods}>
       <div className="flex justify-between gap-2">
         <img
           className="h-[53px] w-[53px] rounded-full bg-gray-5 object-cover"
@@ -42,9 +62,15 @@ function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
             <SelectButton onClick={showMoreOption} />
           </div>
           <p className="text-sm">{content}</p>
+          {mode === 'modify' && (
+            <ModifyInput
+              onCancelClick={cancelModify}
+              onConfirmClick={confirmModify}
+            />
+          )}
         </div>
       </div>
-    </div>
+    </FormProvider>
   );
 }
 

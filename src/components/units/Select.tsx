@@ -2,7 +2,7 @@ import { MouseEventHandler, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Icon from '../icons';
 import useSelectionPopup from '@/hooks/useSelectionPopup';
-import { selectionPopupStore } from '@/store/selectionPopupStore';
+import { useSelectionPopupStore } from '@/store/selectionPopupStore';
 
 interface Props {
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -11,7 +11,7 @@ interface Props {
 function SelectButton({ onClick }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { closeSelectionPopup } = useSelectionPopup();
-  const { selectionPopup, position } = selectionPopupStore();
+  const { selectionPopup, position } = useSelectionPopupStore();
 
   useEffect(() => {
     const closeWhenClickOutside = ({ target }: MouseEvent) => {
@@ -35,7 +35,7 @@ function SelectButton({ onClick }: Props) {
       <AnimatePresence>
         {selectionPopup && (
           <div
-            className="z-selection-popup absolute"
+            className="absolute z-selection-popup"
             style={{ top: position.y, left: position.x }}
           >
             {selectionPopup}

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import { selectionPopupStore } from '@/store/selectionPopupStore';
+import { useSelectionPopupStore } from '@/store/selectionPopupStore';
 
 function useSelectionPopup() {
-  const { setSelectionPopup, setPosition } = selectionPopupStore();
+  const { setSelectionPopup, setPosition } = useSelectionPopupStore();
 
   const openSelectionPopup = ({
     selectionPopup,

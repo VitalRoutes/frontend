@@ -10,7 +10,7 @@ interface SelectionPopupState {
   setPosition: (position: Position) => void;
 }
 
-export const selectionPopupStore = create<SelectionPopupState>((set) => ({
+export const useSelectionPopupStore = create<SelectionPopupState>((set) => ({
   selectionPopup: null,
   position: { x: 0, y: 0 },
   setSelectionPopup: (selectionPopup) => set({ selectionPopup }),

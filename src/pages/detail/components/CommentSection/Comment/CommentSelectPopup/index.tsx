@@ -3,14 +3,15 @@ import useCommentDeleteMutation from '@/hooks/challenge/useCommentDeleteMutation
 import useCommentModifyMutation from '@/hooks/challenge/useCommentModifyMutation';
 import usePopup from '@/hooks/usePopup';
 import DeletePopup from './DeletePopup';
+import { useCommentModeStore } from '@/store/challenge/commentStore';
 
 interface Props {
   id: number;
 }
 
 function CommentSelectPopup({ id }: Props) {
-  const { mutate: mutateModification } = useCommentModifyMutation(id);
   const { mutate: mutateDeletion } = useCommentDeleteMutation(id);
+  const { mode, setMode } = useCommentModeStore();
 
   const { openPopup, closePopup } = usePopup();
   const deleteComment = () => {
@@ -23,7 +24,7 @@ function CommentSelectPopup({ id }: Props) {
   };
 
   const modifyComment = () => {
-    mutateModification();
+    setMode('modify');
   };
 
   return (

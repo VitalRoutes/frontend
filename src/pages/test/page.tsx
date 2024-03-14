@@ -1,7 +1,6 @@
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import Textarea from '@/components/common/Textarea';
-import Comment from '../detail/components/CommentSection/Comment';
 
 function TestPage() {
   return (
@@ -10,7 +9,6 @@ function TestPage() {
       <div>a</div>
       <div>a</div>
       <div>a</div>
-      <Comment id={0} profileImgSrc="" nickname="" content="" date="" />
       <Button variant="primary">primary Button</Button>
       <Button variant="secondary-a">secondary-a Button</Button>
       <Button variant="secondary-b">secondary-b Button</Button>

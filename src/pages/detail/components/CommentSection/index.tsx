@@ -52,6 +52,7 @@ function CommentSection({ className }: Props) {
               className="flex w-full flex-col gap-[42px]"
             >
               <Comment
+                id={participationId}
                 profileImgSrc={memberProfile}
                 nickname={nickname}
                 content={content}

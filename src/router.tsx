@@ -12,6 +12,7 @@ import FindPw from './pages/login/findpassword';
 import KakaoLogin from './pages/login/components/kakaoLogin';
 import ProfileUpdatePage from './pages/profile-update/page';
 import SignUpPage from './pages/signup/page';
+import WithAuthorization from './app/WithAuthorization';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'registration',
-        element: <RegistrationPage />,
+        element: (
+          <WithAuthorization>
+            <RegistrationPage />
+          </WithAuthorization>
+        ),
       },
       {
         path: 'test',
@@ -40,11 +45,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'profile',
-        element: <ProfilePage />,
+        element: (
+          <WithAuthorization>
+            <ProfilePage />
+          </WithAuthorization>
+        ),
       },
       {
         path: 'profile/update',
-        element: <ProfileUpdatePage />,
+        element: (
+          <WithAuthorization>
+            <ProfileUpdatePage />
+          </WithAuthorization>
+        ),
       },
       { path: '/wellness', element: <WellnessPage /> },
       {

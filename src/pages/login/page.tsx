@@ -7,8 +7,9 @@ import Button from '@/components/common/Button';
 import { getImageUrl } from '@/utils/getImageUrl';
 import Modal from './components/Modal';
 import { API_URL } from '@/constants/api';
+import useLoginMutation from '@/hooks/user/useLoginMutation';
 
-interface FormValues {
+interface LoginForm {
   email: string;
   password: string;
 }
@@ -18,18 +19,20 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>();
+  } = useForm<LoginForm>();
   const [socialLoginModalOpen, setSocialLoginModalOpen] =
     useState<boolean>(false);
   const setUserValues = userInfoStore((state) => state.setuserValues);
+  const { mutate } = useLoginMutation();
 
   const socialLoginToggle = () => {
     setSocialLoginModalOpen(!socialLoginModalOpen);
   };
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: LoginForm) => {
     setUserValues(data);
-    // console.log('data', data) /* 로그인 연결예정 */
+    console.log('data', data); /* 로그인 연결예정 */
+    mutate(data);
   };
 
   return (

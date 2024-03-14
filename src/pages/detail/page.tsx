@@ -31,14 +31,14 @@ function ChallengeDetailPage() {
   return (
     <>
       <Banner
-        title={challenge?.challengeTitle}
-        subTitle="?명이 참가중"
-        imgSrc={challenge?.storedTitleImageName}
+        title={challenge.challengeTitle}
+        subTitle={`${challenge.totalComments}명이 참가중`}
+        imgSrc={challenge.storedTitleImageName}
         moreInfo={{
           profileImge: challenge.storedTitleImageName,
-          nickname: challenge?.challengeWriter || '',
-          view: challenge?.boardHits || 0,
-          comment: challenge?.totalComments || 0,
+          nickname: challenge.challengeWriter || '',
+          view: challenge.boardHits || 0,
+          comment: challenge.totalComments || 0,
           like: 0,
         }}
       />

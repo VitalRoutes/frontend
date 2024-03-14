@@ -1,16 +1,53 @@
-import Icon from '@/components/icons';
+import { MouseEventHandler } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import CommentSkeleton from './CommentSkeleton';
+import useSelectionPopup from '@/hooks/useSelectionPopup';
+import SelectButton from '@/components/units/Select';
+import CommentSelectPopup from './CommentSelectPopup';
+import { useCommentModeStore } from '@/store/challenge/commentStore';
+import ModifyInput from './ModifyInput';
+import useCommentModifyMutation from '@/hooks/challenge/useCommentModifyMutation';
 
 interface Props {
   profileImgSrc: string;
   nickname: string;
   content: string;
   date: string;
+  id: number;
 }
 
-function Comment({ profileImgSrc, nickname, content, date }: Props) {
+function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
+  const { openSelectionPopup } = useSelectionPopup();
+  const { mode, setMode } = useCommentModeStore();
+  const { mutate: mutateModify } = useCommentModifyMutation(id);
+  const methods = useForm({
+    defaultValues: {
+      comment: content,
+    },
+  });
+
+  const showMoreOption: MouseEventHandler<HTMLButtonElement> = ({
+    clientX,
+    clientY,
+  }) => {
+    openSelectionPopup({
+      selectionPopup: <CommentSelectPopup id={id} />,
+      x: clientX,
+      y: clientY,
+    });
+  };
+
+  const confirmModify = () => {
+    const comment = methods.getValues('comment');
+    mutateModify({ comment });
+  };
+
+  const cancelModify = () => {
+    setMode('view');
+  };
+
   return (
-    <div>
+    <FormProvider {...methods}>
       <div className="flex justify-between gap-2">
         <img
           className="h-[53px] w-[53px] rounded-full bg-gray-5 object-cover"
@@ -21,16 +58,18 @@ function Comment({ profileImgSrc, nickname, content, date }: Props) {
           <div className="flex items-center gap-4">
             <span className="font-bold">{nickname}</span>
             <span className="text-[13px] text-gray-2">{date}</span>
-            <Icon.Kebab
-              className="ml-auto mr-0 fill-gray-1"
-              height={32}
-              width={32}
-            />
+            <SelectButton onClick={showMoreOption} />
           </div>
-          <p className="text-sm">{content}</p>
+          {mode === 'view' && <p className="text-sm">{content}</p>}
+          {mode === 'modify' && (
+            <ModifyInput
+              onCancelClick={cancelModify}
+              onConfirmClick={confirmModify}
+            />
+          )}
         </div>
       </div>
-    </div>
+    </FormProvider>
   );
 }
 

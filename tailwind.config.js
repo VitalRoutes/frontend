@@ -24,7 +24,9 @@ export default {
         'gray-1': '#111111',
       },
       zIndex: {
-        header: '9999',
+        'selection-popup': '8000',
+        header: '9998',
+        dimmed: '9999',
       },
 
       keyframes: {

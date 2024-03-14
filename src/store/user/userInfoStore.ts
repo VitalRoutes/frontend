@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 interface UserInfoType {
   name: string;
@@ -25,5 +25,6 @@ const initialState: UserInfoType = {
 
 export const userInfoStore = create<UserStore>((set) => ({
   userValues: initialState,
-  setuserValues: (values) => set((state) => ({ userValues: { ...state.userValues, ...values } })),
+  setuserValues: (values) =>
+    set((state) => ({ userValues: { ...state.userValues, ...values } })),
 }));

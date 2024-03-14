@@ -7,10 +7,10 @@ import RegistrationPage from './pages/registration/page';
 import ProfilePage from './pages/profile/page';
 import WellnessPage from './pages/wellness/page';
 import TestPage from './pages/test/page';
-import LoginPage from './login/page';
-import SignUp from './login/signUp';
-import FindPw from './login/findpassword';
-import KakaoLogin from './login/components/kakaoLogin';
+import LoginPage from './pages/login/page';
+import SignUp from './pages/login/signUp';
+import FindPw from './pages/login/findpassword';
+import KakaoLogin from './pages/login/components/kakaoLogin';
 
 const router = createBrowserRouter([
   {
@@ -42,21 +42,24 @@ const router = createBrowserRouter([
         element: <ProfilePage />,
       },
       { path: '/wellness', element: <WellnessPage /> },
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: '/login/signUp',
+        element: <SignUp />,
+      },
+      {
+        path: '/login/findpassword',
+        element: <FindPw />,
+      },
+      {
+        path: '/login/kakaoLogin',
+        element: <KakaoLogin />,
+      },
     ],
-  }, {
-    path: 'login',
-    element: <LoginPage />,
-
-  }, {
-    path: "/login/signUp",
-    element: <SignUp />,
-  }, {
-    path: "/login/findpassword",
-    element: <FindPw />,
-  }, {
-    path: "/login/kakaoLogin",
-    element: <KakaoLogin />,
-  }
+  },
 ]);
 
 export default router;

@@ -1,6 +1,5 @@
 import SelectionPopup from '@/components/common/SelectionPopup';
 import useCommentDeleteMutation from '@/hooks/challenge/useCommentDeleteMutation';
-import useCommentModifyMutation from '@/hooks/challenge/useCommentModifyMutation';
 import usePopup from '@/hooks/usePopup';
 import DeletePopup from './DeletePopup';
 import { useCommentModeStore } from '@/store/challenge/commentStore';
@@ -11,7 +10,7 @@ interface Props {
 
 function CommentSelectPopup({ id }: Props) {
   const { mutate: mutateDeletion } = useCommentDeleteMutation(id);
-  const { mode, setMode } = useCommentModeStore();
+  const { setMode } = useCommentModeStore();
 
   const { openPopup, closePopup } = usePopup();
   const deleteComment = () => {

@@ -1,9 +1,9 @@
-import SpotFileInput from '@/components/units/SpotFileInput';
-import { ChallengeRegisterationForm } from '@/types/posts';
-import { getGpsFromImg } from '@/utils/ExifReader';
 import { motion } from 'framer-motion';
 import { ChangeEvent, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
+import SpotFileInput from '@/components/units/SpotFileInput';
+import { ChallengeRegisterationForm } from '@/types/posts';
+import { getGpsFromImg } from '@/utils/ExifReader';
 
 function SpotInputList() {
   const constraintsRef = useRef(null);

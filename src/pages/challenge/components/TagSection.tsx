@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
-import Button from '@/components/common/Button';
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import Button from '@/components/common/Button';
 
 interface Props {
   className?: string;

@@ -1,9 +1,9 @@
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import Button from '@/components/common/Button';
 import { MOBILE_BOUND_WIDTH } from '@/constants/responsive';
 import useWindowSize from '@/hooks/useWindowSize';
 import { useFilterStore } from '@/store/profileStore';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
 
 function FilterSection() {
   const ACTIVE_COLOR = 'bg-gray-1 text-gray-8';

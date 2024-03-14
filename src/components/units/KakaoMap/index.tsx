@@ -11,8 +11,8 @@ interface Props {
 
 function KaKaoMap({ spots }: Props) {
   const [center, setCenter] = useState({
-    lat: 33.450701,
-    lng: 126.570667,
+    lat: 33.45070199999999,
+    lng: 126.5706679999999,
   });
 
   useEffect(() => {

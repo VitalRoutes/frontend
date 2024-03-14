@@ -57,6 +57,7 @@ function CommentSection({ className }: Props) {
                 nickname={nickname}
                 content={content}
                 date={timeString}
+                participationImages={participationImages}
               />
               <SpotSlide images={images} />
               <MoreButton title="대댓글 보기" />

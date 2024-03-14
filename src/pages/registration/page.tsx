@@ -48,8 +48,8 @@ function RegistrationPage() {
       spots.at(4)?.files?.item(0),
     ].filter((file): file is File => file !== null);
 
-    const startingPositionImage = spotFiles.at(0);
-    const destinationImage = spotFiles.at(-1);
+    const startingPositionImage = spotFiles.shift();
+    const destinationImage = spotFiles.pop();
 
     if (!startingPositionImage || !destinationImage || !titleImage) return;
     mutate({
@@ -60,13 +60,13 @@ function RegistrationPage() {
       titleImage,
       startingPositionImage,
       destinationImage,
-      stopOverImage1: spots.at(1)?.files?.item(0) || null,
-      stopOverImage2: spots.at(2)?.files?.item(0) || null,
-      stopOverImage3: spots.at(3)?.files?.item(0) || null,
+      stopOverImage1: spotFiles[0] || null,
+      stopOverImage2: spotFiles[1] || null,
+      stopOverImage3: spotFiles[2] || null,
     });
   };
 
-  const onInvalid: SubmitErrorHandler<ChallengeRegisterationForm> = () => { };
+  const onInvalid: SubmitErrorHandler<ChallengeRegisterationForm> = () => {};
 
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>

@@ -66,9 +66,7 @@ function RegistrationPage() {
     });
   };
 
-  const onInvalid: SubmitErrorHandler<ChallengeRegisterationForm> = (e) => {
-    console.log(e);
-  };
+  const onInvalid: SubmitErrorHandler<ChallengeRegisterationForm> = () => {};
 
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>

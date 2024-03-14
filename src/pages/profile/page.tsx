@@ -4,7 +4,6 @@ import FilterSection from './components/FilterSection';
 import ProfileSection from './components/ProfileSection';
 
 function ProfilePage() {
-  const { data } = useProfile();
   return (
     <div>
       <ProfileSection />

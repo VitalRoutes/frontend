@@ -8,10 +8,10 @@ import ProfilePage from './pages/profile/page';
 import WellnessPage from './pages/wellness/page';
 import TestPage from './pages/test/page';
 import LoginPage from './pages/login/page';
-import SignUp from './pages/login/signUp';
 import FindPw from './pages/login/findpassword';
 import KakaoLogin from './pages/login/components/kakaoLogin';
 import ProfileUpdatePage from './pages/profile-update/page';
+import SignUpPage from './pages/signup/page';
 
 const router = createBrowserRouter([
   {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/login/signUp',
-        element: <SignUp />,
+        element: <SignUpPage />,
       },
       {
         path: '/login/findpassword',

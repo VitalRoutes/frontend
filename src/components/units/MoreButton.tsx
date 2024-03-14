@@ -9,7 +9,7 @@ function MoreButton({ onClick, title }: Props) {
   return (
     <button
       type="button"
-      className="flex gap-[8px] font-bold leading-[150%] text-gray-3"
+      className="mx-auto flex gap-[8px] font-bold leading-[150%] text-gray-3"
       onClick={onClick}
     >
       {title}

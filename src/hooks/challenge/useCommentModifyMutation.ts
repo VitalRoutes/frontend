@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function useCommentModifyMutation(challengeId: number) {
   const mutationFn = (data: { comment: string }) =>
-    axios.patch(`/participation/view/${challengeId}`, data);
+    axios.patch(`/participation/${challengeId}`, data);
   const onSuccess = () => {};
 
   return useMutation({ mutationFn, onSuccess });

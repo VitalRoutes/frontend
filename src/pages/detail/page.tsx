@@ -9,11 +9,13 @@ import JoinButton from './components/JoinButton';
 import CommentEditor from './components/CommentEditor';
 import useChallengeDetail from '@/hooks/challenge/useChallengeDetail';
 import BearLoading from '@/components/common/Loading/BearLoading';
+import { useLoginStore } from '@/store/user/loginInfoStore';
 
 function ChallengeDetailPage() {
-  const isLogin = true;
+  const { isLogin, ...s } = useLoginStore();
   const { id } = useParams<{ id: string }>();
   const { data: challenge, isLoading } = useChallengeDetail(id || '0');
+  console.log(isLogin, s);
 
   if (isLoading)
     return (
@@ -68,14 +70,20 @@ function ChallengeDetailPage() {
           <ImageSection />
           <DescSection />
           <TagSection />
+          <div className="flex w-full flex-col items-end gap-[56px]">
+            <button type="button" className="text-gray-3 hover:underline">
+              게시글 신고하기
+            </button>
+            {isLogin ? (
+              <>
+                <CommentEditor />
+                <CommentSection className="my-[120px]" />
+              </>
+            ) : (
+              <JoinButton />
+            )}
+          </div>
         </div>
-        <div className="flex w-full flex-col items-end gap-[56px]">
-          <button type="button" className="text-gray-3 hover:underline">
-            게시글 신고하기
-          </button>
-          {isLogin ? <CommentEditor /> : <JoinButton />}
-        </div>
-        <CommentSection className="my-[120px]" />
       </div>
     </>
   );

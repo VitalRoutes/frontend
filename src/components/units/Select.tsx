@@ -1,30 +1,31 @@
-import { MouseEventHandler, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Icon from '../icons';
-import useSelectionPopup from '@/hooks/useSelectionPopup';
-import { useSelectionPopupStore } from '@/store/selectionPopupStore';
 
 interface Props {
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  selectPopup: ReactNode;
 }
 
-function SelectButton({ onClick }: Props) {
+function SelectButton({ selectPopup }: Props) {
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const { closeSelectionPopup } = useSelectionPopup();
-  const { selectionPopup, position } = useSelectionPopupStore();
 
   useEffect(() => {
     const closeWhenClickOutside = ({ target }: MouseEvent) => {
       if (!ref.current) return;
       if (target instanceof Element && ref.current.contains(target)) return;
-      closeSelectionPopup();
+      setIsSelectOpen(false);
     };
     window.addEventListener('click', closeWhenClickOutside);
     return () => window.removeEventListener('click', closeWhenClickOutside);
   });
 
+  const onClick = () => {
+    setIsSelectOpen((cur) => !cur);
+  };
+
   return (
-    <div ref={ref}>
+    <div className="relative" ref={ref}>
       <button type="button" aria-label="selecct" onClick={onClick}>
         <Icon.Kebab
           className="ml-auto mr-0 fill-gray-1"
@@ -33,12 +34,9 @@ function SelectButton({ onClick }: Props) {
         />
       </button>
       <AnimatePresence>
-        {selectionPopup && (
-          <div
-            className="absolute z-selection-popup"
-            style={{ top: position.y, left: position.x }}
-          >
-            {selectionPopup}
+        {selectPopup && (
+          <div className="absolute z-selection-popup">
+            {isSelectOpen && selectPopup}
           </div>
         )}
       </AnimatePresence>

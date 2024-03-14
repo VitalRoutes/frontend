@@ -1,10 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { CommentWriteRequest } from '@/types/challenge';
 import QUERY_KEY from '@/constants/queryKey';
+import usePopup from '../usePopup';
+import Popup from '@/components/common/Popup';
 
 export default function useCommentWriteMutation(boardId: string) {
   const queryClient = useQueryClient();
+  const { openPopup } = usePopup();
 
   const mutationFn = ({
     files,
@@ -24,8 +27,16 @@ export default function useCommentWriteMutation(boardId: string) {
     queryClient.invalidateQueries({ queryKey: [QUERY_KEY.comment, boardId] });
   };
 
+  const onError = (error: AxiosError<{ message: string }>) => {
+    const message = error.response?.data.message || error.message;
+    openPopup(
+      <Popup content="댓글 작성을 실패했습니다." subContent={message} />,
+    );
+  };
+
   return useMutation({
     mutationFn,
     onSuccess,
+    onError,
   });
 }

@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { StoreApi, UseBoundStore, create } from 'zustand';
 
 type Mode = 'modify' | 'view';
 
@@ -7,7 +7,19 @@ interface CommentModeStore {
   setMode: (mode: Mode) => void;
 }
 
-export const useCommentModeStore = create<CommentModeStore>((set) => ({
-  mode: 'view',
-  setMode: (mode) => set({ mode }),
-}));
+const commentModeStoreCache = new Map<
+  number,
+  UseBoundStore<StoreApi<CommentModeStore>>
+>();
+
+export const storeFamilyCommentMode = (id: number) => {
+  let store = commentModeStoreCache.get(id);
+  if (!store) {
+    store = create<CommentModeStore>((set) => ({
+      mode: 'view',
+      setMode: (mode) => set({ mode }),
+    }));
+    commentModeStoreCache.set(id, store);
+  }
+  return store;
+};

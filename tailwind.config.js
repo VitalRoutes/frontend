@@ -5,7 +5,7 @@ export default {
     extend: {
       screens: {
         sm: '700px',
-        xl: '1280px',
+        xl: '1280px'
       },
       colors: {
         'green-1': '#D7FF00',

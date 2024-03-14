@@ -58,10 +58,9 @@ function Comment({ id, profileImgSrc, nickname, content, date }: Props) {
           <div className="flex items-center gap-4">
             <span className="font-bold">{nickname}</span>
             <span className="text-[13px] text-gray-2">{date}</span>
-
             <SelectButton onClick={showMoreOption} />
           </div>
-          <p className="text-sm">{content}</p>
+          {mode === 'view' && <p className="text-sm">{content}</p>}
           {mode === 'modify' && (
             <ModifyInput
               onCancelClick={cancelModify}

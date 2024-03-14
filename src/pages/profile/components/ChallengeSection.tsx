@@ -3,8 +3,7 @@ import { useFilterStore } from '@/store/profileStore';
 import { getImageUrl } from '@/utils/getImageUrl';
 
 function ChallengeSection() {
-  const { filter } = useFilterStore();
-  console.log(filter);
+  useFilterStore();
 
   return (
     <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 xl:grid-cols-4">

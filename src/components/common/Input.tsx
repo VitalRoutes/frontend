@@ -25,17 +25,17 @@ function Input(
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
+
   const uniqueId = useId();
   const hasError = !disabled && !!errorMessage;
-
   return (
-    <div id={id} className="flex w-full flex-col gap-[16px]">
+    <div id={id} className="flex w-full flex-col">
       {label && (
         <label className="font-bold" htmlFor={uniqueId}>
           {label}
         </label>
       )}
-      <div className="relative">
+      <div className="relative mt-[16px]">
         <input
           className={`
               ${InputStyle.default({ hasError })}
@@ -53,7 +53,7 @@ function Input(
         </div>
       </div>
       {hasError && (
-        <span className="mt-2 text-sm text-alert">{errorMessage}</span>
+        <span className="w-max mt-2 text-sm text-alert">{errorMessage}</span>
       )}
     </div>
   );

@@ -40,7 +40,7 @@ function Header() {
                 </NavButton>
               ))}
             </nav>
-            <Button variant="third-a">Login</Button>
+            <Link to="login"><Button variant="third-a">Login</Button></Link>
           </>
         ) : (
           <Button

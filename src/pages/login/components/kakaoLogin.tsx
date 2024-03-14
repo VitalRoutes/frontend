@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import axios from 'axios';
-import { API_URL } from '@/constants/api';
 
 function KakaoLogin() {
   useEffect(() => {
@@ -9,7 +8,7 @@ function KakaoLogin() {
     const getAuthorizationCode = () => {
       axios({
         method: 'GET',
-        url: `${API_URL}/oauth2/kakao/login?code=${getCode}`,
+        url: `/oauth2/kakao/login?code=${getCode}`,
       });
     };
     if (getCode) {

@@ -38,7 +38,7 @@ function SignUp() {
     }
 
     try {
-      const res = await axios.post(`${API_URL}/member/duplicateCheck`, {
+      const res = await axios.post('/member/duplicateCheck', {
         nickname,
       });
 

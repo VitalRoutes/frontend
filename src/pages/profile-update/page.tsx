@@ -15,7 +15,7 @@ function ProfileUpdatePage() {
   const onValid = () => {};
 
   return (
-    <div className="mt-[136px]">
+    <div className="mt-[136px] px-[21px]">
       <FormProvider {...methods}>
         <form
           onSubmit={handleSubmit(onValid)}

@@ -72,7 +72,7 @@ function RegistrationPage() {
     <form onSubmit={handleSubmit(onValid, onInvalid)}>
       <FormProvider {...methods}>
         <BannerInput />
-        <div className="mx-auto my-[120px] flex w-[940px] flex-col gap-[62px]">
+        <div className="mx-auto my-[120px] flex max-w-[940px] flex-col gap-[62px] px-[21px]">
           <EditorSection />
           <TransportSection />
           <TagSection />

@@ -31,7 +31,7 @@ function Banner({ className = '', title, subTitle, imgSrc, moreInfo }: Props) {
 
       <div className="relative mx-auto h-full xl:w-[1000px]">
         {title && subTitle && (
-          <div className="absolute xl:top-[420px]">
+          <div className="absolute left-[21px] top-[175px] xl:left-0 xl:top-[420px]">
             <h1 className={TITLE_CLASS.h1}>{title}</h1>
             <h2 className={twMerge(TITLE_CLASS.h2, 'mt-[16px]')}>{subTitle}</h2>
           </div>

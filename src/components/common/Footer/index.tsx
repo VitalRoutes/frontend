@@ -9,6 +9,9 @@ function Footer() {
 
   const { width } = useWindowSize();
   const isDesktop = width > TABLET_BOUND_WIDTH;
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className=" bg-gray-6 px-[21px] pb-16 pt-8">
@@ -36,6 +39,7 @@ function Footer() {
         <Button
           variant="third-e"
           className="flex h-10 w-10 items-center justify-center p-0 xl:p-0"
+          onClick={scrollToTop}
         >
           <Icon.UpArrow />
         </Button>

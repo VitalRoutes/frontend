@@ -1,12 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import TestPage from './pages/test/page';
 import HomePage from './pages/home/page';
 import ChallengeListPage from './pages/challenge/page';
 import ChallengeDetailPage from './pages/detail/page';
 import RegistrationPage from './pages/registration/page';
 import ProfilePage from './pages/profile/page';
 import WellnessPage from './pages/wellness/page';
+import TestPage from './pages/test/page';
+import LoginPage from './login/page';
+import SignUp from './login/signUp';
+import FindPw from './login/findpassword';
+import KakaoLogin from './login/components/kakaoLogin';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +43,20 @@ const router = createBrowserRouter([
       },
       { path: '/wellness', element: <WellnessPage /> },
     ],
-  },
+  }, {
+    path: 'login',
+    element: <LoginPage />,
+
+  }, {
+    path: "/login/signUp",
+    element: <SignUp />,
+  }, {
+    path: "/login/findpassword",
+    element: <FindPw />,
+  }, {
+    path: "/login/kakaoLogin",
+    element: <KakaoLogin />,
+  }
 ]);
 
 export default router;

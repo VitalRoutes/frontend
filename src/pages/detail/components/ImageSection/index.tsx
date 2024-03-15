@@ -1,8 +1,11 @@
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import Spot from '@/components/common/Spot';
 import useChallengeDetail from '@/hooks/challenge/useChallengeDetail';
 
 function ImageSection() {
+  const constraintsRef = useRef<HTMLDivElement>(null);
   const { id } = useParams<{ id: string }>();
   const { data } = useChallengeDetail(id || '0');
   const images = [
@@ -14,18 +17,24 @@ function ImageSection() {
   ].filter((image): image is string => image !== undefined);
 
   return (
-    <section className="flex w-full justify-between gap-4">
-      {images.map((src, index) => (
-        <div key={src} className="flex flex-col items-center gap-4 ">
-          <Spot label={`Spot ${index + 1}`} />
-          <img
-            src={src}
-            className="h-[121px] w-[175px] rounded-[16px]  object-cover "
-            alt="spot"
-          />
-        </div>
-      ))}
-    </section>
+    <motion.div className="w-full" ref={constraintsRef}>
+      <motion.div
+        dragConstraints={constraintsRef}
+        drag="x"
+        className="flex w-max justify-between gap-4"
+      >
+        {images.map((src, index) => (
+          <div key={src} className="flex flex-col items-center gap-4 ">
+            <Spot label={`Spot ${index + 1}`} />
+            <img
+              src={src}
+              className="h-[121px] w-[175px] rounded-[16px]  object-cover "
+              alt="spot"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </motion.div>
   );
 }
 

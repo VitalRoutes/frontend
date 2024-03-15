@@ -12,11 +12,13 @@ function ChallengeListSection() {
     return <BearLoading />;
   }
 
-  if (!data) {
+  if (!data || data.length === 0) {
     return (
       <img src={getImageUrl('picture/none_contents.png')} alt="none-contents" />
     );
   }
+
+  console.log(data);
 
   return (
     <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">

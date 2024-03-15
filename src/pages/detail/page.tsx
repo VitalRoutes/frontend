@@ -61,7 +61,7 @@ function ChallengeDetailPage() {
           like: 0,
         }}
       />
-      <div className="mx-auto flex w-[940px] flex-col items-center">
+      <div className="mx-auto flex max-w-[940px] flex-col items-center p-[21px] xl:p-0">
         <div className="my-[120px] flex w-full flex-col items-center  gap-[52px]">
           <div className="h-[360px] w-full overflow-hidden rounded-[30px]">
             <KaKaoMap spots={spots} />
@@ -70,7 +70,10 @@ function ChallengeDetailPage() {
           <DescSection />
           <TagSection />
           <div className="flex w-full flex-col items-end gap-[56px]">
-            <button type="button" className="text-gray-3 hover:underline">
+            <button
+              type="button"
+              className="text-sm text-gray-3 hover:underline xl:text-base"
+            >
               게시글 신고하기
             </button>
             {isLogin ? (

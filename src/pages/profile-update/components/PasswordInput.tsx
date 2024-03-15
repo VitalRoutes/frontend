@@ -13,12 +13,14 @@ function PasswordInput() {
       <Input
         type="password"
         label="이전 비밀번호"
+        autoComplete="off"
         placeholder="비밀번호를 입력해주세요."
         {...prePasswordRegister}
       />
       <div>
         <Input
           type="password"
+          autoComplete="off"
           label="새 비밀번호"
           placeholder="비밀번호를 입력해주세요."
           {...newPasswordRegister}

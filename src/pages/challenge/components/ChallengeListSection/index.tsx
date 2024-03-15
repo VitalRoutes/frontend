@@ -18,8 +18,6 @@ function ChallengeListSection() {
     );
   }
 
-  console.log(data);
-
   return (
     <div className="grid gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
       {data.map(

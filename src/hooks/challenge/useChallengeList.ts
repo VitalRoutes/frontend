@@ -5,7 +5,9 @@ import { Challenge } from '@/types/challenge';
 
 export default function useChallengeList() {
   const queryFn = async () => {
-    const { data } = await axios.get<{ data: Challenge[] }>('/board/list');
+    const { data } = await axios.get<{ data: Challenge[] }>(
+      `/board/scroll?lastBoardId=${0}`,
+    );
     return data.data;
   };
 

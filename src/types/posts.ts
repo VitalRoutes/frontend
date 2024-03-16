@@ -16,10 +16,9 @@ interface Spot {
 
 export interface ChallengeRegisterationForm {
   title: string;
-  writer: string;
   contents: string;
   transportation: '0' | '1';
   titleImage: FileList;
   spots: Array<Spot | undefined>;
-  tag: boolean[];
+  tags: Array<string | false>;
 }

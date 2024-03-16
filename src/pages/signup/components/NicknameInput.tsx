@@ -3,6 +3,7 @@ import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import useNicknameCheckMutation from '@/hooks/user/useNicknameCheckMutation';
 import { SignUpForm } from '@/types/user';
+import REGEXP from '@/constants/regexp';
 
 function NicknameInput() {
   const { mutate } = useNicknameCheckMutation();
@@ -26,6 +27,10 @@ function NicknameInput() {
     maxLength: {
       value: 16,
       message: '※ 닉네임은 최대 16글자까지만 허용됩니다.',
+    },
+    pattern: {
+      value: REGEXP.nickname,
+      message: '특수문자 없이 최소 3자에서 최대 16자까지 입력 가능합니다.',
     },
   });
 

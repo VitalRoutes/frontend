@@ -2,11 +2,17 @@ import { useFormContext } from 'react-hook-form';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import { ProfileUpdateForm } from '@/types/user';
+import REGEXP from '@/constants/regexp';
 
 function NicknameInput() {
   const { register } = useFormContext<ProfileUpdateForm>();
 
-  const nicknameRegister = register('nickname');
+  const nicknameRegister = register('nickname', {
+    pattern: {
+      value: REGEXP.nickname,
+      message: '특수문자 없이 최소 3자에서 최대 16자까지 입력 가능합니다.',
+    },
+  });
 
   return (
     <div>

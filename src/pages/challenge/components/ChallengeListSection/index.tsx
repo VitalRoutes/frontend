@@ -12,7 +12,7 @@ function ChallengeListSection() {
     return <BearLoading />;
   }
 
-  if (!data) {
+  if (!data || data.length === 0) {
     return (
       <img src={getImageUrl('picture/none_contents.png')} alt="none-contents" />
     );

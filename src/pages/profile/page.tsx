@@ -10,7 +10,10 @@ function ProfilePage() {
         <FilterSection />
         <hr className="w-full" />
         {/* <ChallengeSection /> */}
-        <img src={getImageUrl('picture/none_contents.png')} />
+        <img
+          src={getImageUrl('picture/none_contents.png')}
+          alt="기능 개발 중"
+        />
         <div className="text-[28px] font-bold">기능 구현 중입니다.</div>
       </div>
     </div>

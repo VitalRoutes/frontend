@@ -34,7 +34,7 @@ function BannerInput() {
             {...register('titleImage', { required: true })}
             id={fileInputId}
             type="file"
-            className="h-0 w-0"
+            hidden
           />
         </label>
       </div>

@@ -28,7 +28,7 @@ function SignUp() {
 
   return (
     <div>
-      <div className="flex items-center  justify-center xl:ml-[432px]">
+      <div className="flex items-center justify-center xl:ml-[432px]">
         <img
           src={getImageUrl('login/login_img.jpg')}
           alt="login_img"

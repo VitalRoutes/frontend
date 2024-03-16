@@ -5,6 +5,7 @@ interface LoginState extends LoginResponse {
   isLogin: boolean;
   setLoginInfo: (data: LoginResponse) => void;
   setIsLogin: (isLogin: boolean) => void;
+  setExpiredTime: (expiredTime: string) => void;
 }
 
 export const useLoginStore = create<LoginState>((set) => ({
@@ -19,7 +20,9 @@ export const useLoginStore = create<LoginState>((set) => ({
   socialType: null,
   accessToken: null,
   refreshToken: null,
+  expiredTime: null,
 
   setLoginInfo: (data: LoginResponse) => set({ ...data }),
   setIsLogin: (isLogin: boolean) => set({ isLogin }),
+  setExpiredTime: (expiredTime: string) => set({ expiredTime }),
 }));

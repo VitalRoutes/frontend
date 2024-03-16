@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
+import useSocialNicknameCheckMutation from '@/hooks/user/socialLogin/useSocialNicknameCheckMutation';
 import { SignUpForm } from '@/types/user';
 import { socialLoginTempStore } from '@/store/user/socialLoginTempStore';
-import useNicknameCheckMutation from '@/hooks/user/useNicknameCheckMutation';
 import { useNicknameValidStore } from '@/store/user/signupStore';
 
-function NicknameInput() {
-  const { mutate } = useNicknameCheckMutation();
-  const { setSocialLoginInfo } = socialLoginTempStore();
+interface NicknameInputProps {
+  label?: string;
+}
+
+function SocialNicknameInput({ label }: NicknameInputProps) {
+  const { mutate } = useSocialNicknameCheckMutation();
   const { isValid, setIsValid } = useNicknameValidStore();
+  const { setSocialLoginInfo } = socialLoginTempStore();
   const [error, setError] = useState<string | null>(null);
 
   const {
@@ -20,12 +24,12 @@ function NicknameInput() {
   } = useFormContext<SignUpForm>();
 
   const checkNicknameValidation = () => {
-    console.log(isValid)
     const { nickname } = getValues();
+    const nicknameValue = nickname.trim();
 
-    if (nickname.trim().length < 3 || nickname.trim().length > 16) {
+    if (nicknameValue.length < 3 || nicknameValue.length > 16) {
       setIsValid(false);
-      setError('※ 닉네임은 글자수를 확인해주세요.');
+      setError('※ 닉네임은 3글자 이상 16글자 이하이어야 합니다.');
     } else {
       setIsValid(true);
       setError(null);
@@ -33,10 +37,6 @@ function NicknameInput() {
       mutate({ nickname });
     }
   };
-
-  useEffect(() => {
-    setIsValid(false);
-  }, [])
 
   const nicknameRegister = register('nickname', {
     required: '※ 닉네임을 입력해주세요.',
@@ -53,7 +53,7 @@ function NicknameInput() {
   return (
     <div>
       <Input
-        label="닉네임"
+        label={label}
         type="nickname"
         id="signUp_nickname"
         placeholder="닉네임을 입력해 주세요."
@@ -72,4 +72,4 @@ function NicknameInput() {
   );
 }
 
-export default NicknameInput;
+export default SocialNicknameInput;

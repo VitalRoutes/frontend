@@ -16,6 +16,19 @@ export interface SignUpForm {
   isChecked: boolean;
 }
 
+export interface SocialSignUp {
+  name: string;
+  nickname: string;
+  socialId: string;
+  socialType: string;
+  isChecked: boolean;
+}
+
+export interface SocialSignUpNickname {
+  nickname: string;
+}
+
+
 export interface LoginResponse {
   memberId: number | null;
   profile: string | null;
@@ -26,4 +39,5 @@ export interface LoginResponse {
   socialType: string | null;
   accessToken: string | null;
   refreshToken: string | null;
+  expiredTime: string | null,
 }

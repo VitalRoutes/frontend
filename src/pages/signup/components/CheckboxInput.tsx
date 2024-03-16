@@ -7,7 +7,7 @@ function CheckboxInput() {
   const checkboxId = useId();
 
   return (
-    <label htmlFor={checkboxId} className="flex items-center gap-[8px]">
+    <label htmlFor={checkboxId} className="flex items-center gap-[8px] tracking-tight">
       <input
         type="checkbox"
         id={checkboxId}

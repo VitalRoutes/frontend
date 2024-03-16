@@ -31,7 +31,6 @@ function LoginPage() {
 
   const onSubmit = (data: LoginForm) => {
     setUserValues(data);
-    console.log('data', data); /* 로그인 연결예정 */
     mutate(data);
   };
 

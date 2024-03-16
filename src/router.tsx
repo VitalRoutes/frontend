@@ -12,6 +12,7 @@ import FindPw from './pages/login/findpassword';
 import KakaoLogin from './pages/login/components/kakaoLogin';
 import ProfileUpdatePage from './pages/profile-update/page';
 import SignUpPage from './pages/signup/page';
+import Logout from './components/common/Header/Logout';
 
 const router = createBrowserRouter([
   {
@@ -63,8 +64,11 @@ const router = createBrowserRouter([
         path: '/login/kakaoLogin',
         element: <KakaoLogin />,
       },
+      {
+        path: '/logout',
+        element: <Logout />,
+      },
     ],
   },
 ]);
-
 export default router;

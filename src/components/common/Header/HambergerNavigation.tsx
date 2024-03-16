@@ -1,8 +1,10 @@
 import { NAVIGATION_NEW } from '@/constants/navigation';
 import NavButton from './common/NavButton';
+import { useLoginStore } from '@/store/user/loginInfoStore';
 
 function HambergerNavigation() {
   const navigationList = Object.values(NAVIGATION_NEW);
+  const { isLogin } = useLoginStore();
 
   return (
     <div className="fixed left-0 top-0 z-header flex h-screen w-screen items-center justify-center bg-gray-1 xl:hidden">
@@ -16,9 +18,17 @@ function HambergerNavigation() {
             {title}
           </NavButton>
         ))}
-        <NavButton className="mt-[46px] text-base" href="login">
-          LOGIN
-        </NavButton>
+
+        {isLogin ? (
+          <NavButton className="mt-[46px] text-base" href="logout">
+            LOGOUT
+          </NavButton>
+        ) : (
+          <NavButton className="mt-[46px] text-base" href="login">
+            LOGIN
+          </NavButton>
+        )}
+
       </nav>
     </div>
   );

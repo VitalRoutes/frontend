@@ -7,10 +7,12 @@ import Button from '../Button';
 import HambergerNavigation from './HambergerNavigation';
 import NavButton from './common/NavButton';
 import { getImageUrl } from '@/utils/getImageUrl';
+import { useLoginStore } from '@/store/user/loginInfoStore';
 
 function Header() {
   const navigationList = Object.values(NAVIGATION_NEW);
   const { width } = useWindowSize();
+  const { isLogin } = useLoginStore();
   const [hambergerNavigationVisible, setHambergerNavigationVisible] =
     useState(false);
   const isDesktop = width ? width > TABLET_BOUND_WIDTH : false;
@@ -40,7 +42,13 @@ function Header() {
                 </NavButton>
               ))}
             </nav>
-            <Link to="login"><Button variant="third-a">Login</Button></Link>
+
+            {isLogin ? (
+              <Link to="logout"> <Button variant="third-a" >Logout</Button></Link>
+            ) : (
+              <Link to="login"><Button variant="third-a">Login</Button></Link>
+            )}
+
           </>
         ) : (
           <Button

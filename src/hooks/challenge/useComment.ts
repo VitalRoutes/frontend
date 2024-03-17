@@ -11,7 +11,7 @@ export default function useComment(challengeId: string) {
       `/participation/view/${challengeId}?page=${page}`,
     );
 
-    return data;
+    return data.data;
   };
 
   return useInfiniteQuery({
@@ -19,7 +19,7 @@ export default function useComment(challengeId: string) {
     queryFn: async ({ pageParam }) => queryFn(pageParam),
     initialPageParam: 0,
     getNextPageParam: (lastPage, pages) => {
-      if (!lastPage.data.remainFlag) return undefined;
+      if (!lastPage.remainFlag) return undefined;
       return pages.length;
     },
   });

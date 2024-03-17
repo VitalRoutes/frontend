@@ -26,7 +26,10 @@ function SpotInputList() {
           const spot = watch('spots')[index];
           const file = spot?.files?.item(0);
           const previewImgSrc = file ? URL.createObjectURL(file) : undefined;
-          const required = index === 0 || index === 1;
+          const required =
+            index === 0 || index === 1
+              ? '최소 두장의 사진을 등록해주세요.'
+              : false;
 
           const spotRegister = register(`spots.${index}.files`, {
             onChange: async (e: ChangeEvent<HTMLInputElement>) => {

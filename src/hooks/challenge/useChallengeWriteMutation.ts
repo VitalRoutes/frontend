@@ -17,7 +17,7 @@ export default function useChallengeWriteMutation() {
     challengeContents,
     challengeTitle,
     challengeTransportation,
-    challengeWriter,
+    tags,
   }: ChallengeRegistrationRequest) => {
     const formData = new FormData();
     formData.append('titleImage', titleImage);
@@ -26,10 +26,10 @@ export default function useChallengeWriteMutation() {
     if (stopOverImage1) formData.append('stopOverImage1', stopOverImage1);
     if (stopOverImage2) formData.append('stopOverImage2', stopOverImage2);
     if (stopOverImage3) formData.append('stopOverImage3', stopOverImage3);
+    if (tags) formData.append('tags', `[${tags.toString()}]`);
 
     formData.append('challengeContents', challengeContents);
     formData.append('challengeTransportation', challengeTransportation);
-    formData.append('challengeWriter', challengeWriter);
     formData.append('challengeTitle', challengeTitle);
 
     const res = await axios.postForm('/board/save', formData);

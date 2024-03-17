@@ -36,6 +36,7 @@ function TestPage() {
       />
       <Input
         type="password"
+        autoComplete="off"
         placeholder="제목은 24자 이내로 작성해주세요."
         label="비밀번호를 입력해주세요."
       />

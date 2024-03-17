@@ -2,7 +2,6 @@ import Banner from '@/components/common/Banner';
 import TagSection from './components/TagSection';
 import SectionTitle from '@/components/common/SectionTitle';
 import ChallengeListSection from './components/ChallengeListSection';
-import MoreButton from '../../components/units/MoreButton';
 import { getImageUrl } from '@/utils/getImageUrl';
 
 function ChallengeListPage() {
@@ -17,7 +16,7 @@ function ChallengeListPage() {
         <TagSection />
         <SectionTitle title="신규 챌린지" subTitle="New Chanllenge" />
         <ChallengeListSection />
-        <MoreButton title="SEE MORE" />
+        {/* <MoreButton title="SEE MORE" /> */}
       </div>
     </>
   );

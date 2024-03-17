@@ -8,7 +8,9 @@ function AxiosSetting() {
 
   useEffect(() => {
     axios.defaults.baseURL = API_URL;
-    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+    if (accessToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+    }
   }, [accessToken]);
 
   return null;

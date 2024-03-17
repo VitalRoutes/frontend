@@ -53,7 +53,7 @@ export const BUTTONS_CLASSES = {
 function Button({
   variant = 'primary',
   children,
-  type,
+  type = 'button',
   className,
   disabled,
   onClick,

@@ -8,6 +8,7 @@ import { getImageUrl } from '@/utils/getImageUrl';
 import Modal from './components/Modal';
 import { API_URL } from '@/constants/api';
 import useLoginMutation from '@/hooks/user/useLoginMutation';
+import REGEXP from '@/constants/regexp';
 
 interface LoginForm {
   email: string;
@@ -102,8 +103,7 @@ function LoginPage() {
             {...register('password', {
               required: '※ 비밀번호 입력란이 비어있습니다.',
               pattern: {
-                value:
-                  /^(?=(?:.*[a-z])(?:.*[A-Z])|(?:(?=.*\d)(?=.*[a-z]))|(?:(?=.*\d)(?=.*[A-Z])))[a-zA-Z\d]{8,16}$/,
+                value: REGEXP.password,
                 message: '※ 올바른 비밀번호 형식에 맞게 작성해주세요.',
               },
             })}

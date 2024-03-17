@@ -31,7 +31,9 @@ function BannerInput() {
         </Button>
         <label ref={fileInputRef} htmlFor={fileInputId} aria-label="label">
           <input
-            {...register('titleImage', { required: true })}
+            {...register('titleImage', {
+              required: '대표 사진을 등록해주세요.',
+            })}
             id={fileInputId}
             type="file"
             hidden

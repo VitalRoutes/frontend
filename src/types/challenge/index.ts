@@ -12,7 +12,6 @@ export interface ChallengeRegistrationResponse {
 }
 
 export interface ChallengeRegistrationRequest {
-  challengeWriter: string;
   challengeTitle: string;
   challengeContents: string;
   challengeTransportation: '0' | '1';
@@ -22,6 +21,7 @@ export interface ChallengeRegistrationRequest {
   stopOverImage1: File | null;
   stopOverImage2: File | null;
   stopOverImage3: File | null;
+  tags: string[];
 }
 
 export interface ChallengeDetail {

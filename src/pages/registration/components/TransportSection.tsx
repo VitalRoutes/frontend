@@ -13,7 +13,9 @@ function TransportSection() {
   const walkInputId = useId();
   const { register, watch } = useFormContext<ChallengeRegisterationForm>();
 
-  const transportationRegister = register('transportation', { required: true });
+  const transportationRegister = register('transportation', {
+    required: '이동 방법을 선택해주세요.',
+  });
   const selected = watch('transportation');
 
   return (

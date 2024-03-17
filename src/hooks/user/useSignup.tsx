@@ -48,7 +48,7 @@ function useSignupMutation() {
         content={content}
         subContent={subContent}
         buttons={
-          <Button variant="popup" onClick={onClick}>
+          <Button variant="popup-point" onClick={onClick}>
             확인
           </Button>
         }

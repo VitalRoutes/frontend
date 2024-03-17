@@ -32,9 +32,9 @@ function TagSection() {
       <div className="flex gap-0">
         <div className="flex flex-wrap gap-2">
           {TAGS.map((tag, idx) => {
-            const watchedTag = watch('tag');
+            const watchedTag = watch('tags');
 
-            const isActive = watchedTag && watchedTag[idx];
+            const selectedTag = watchedTag && watchedTag[idx];
 
             return (
               <label
@@ -43,13 +43,14 @@ function TagSection() {
                 className={twMerge(
                   BUTTONS_CLASSES['tag-a'],
                   'cursor-pointer',
-                  isActive && ACTIVE_COLOR,
+                  selectedTag === tag && ACTIVE_COLOR,
                 )}
               >
                 {tag}
                 <input
                   id={tag}
-                  {...register(`tag.${idx}`)}
+                  {...register(`tags.${idx}`)}
+                  value={tag}
                   type="checkbox"
                   hidden
                 />

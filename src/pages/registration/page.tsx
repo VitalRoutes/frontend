@@ -1,9 +1,4 @@
-import {
-  FormProvider,
-  SubmitErrorHandler,
-  SubmitHandler,
-  useForm,
-} from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import BannerInput from './components/BannerInput';
 import EditorSection from './components/EditorSection';
 import MapSection from './components/MapSection';
@@ -12,8 +7,10 @@ import TransportSection from './components/TransportSection';
 import { ChallengeRegisterationForm } from '@/types/posts';
 import Button from '@/components/common/Button';
 import useChallengeWriteMutation from '@/hooks/challenge/useChallengeWriteMutation';
+import useOnInvalid from './components/model/useOnInvalid';
 
 function RegistrationPage() {
+  const onInvalid = useOnInvalid();
   const methods = useForm<ChallengeRegisterationForm>({
     defaultValues: {
       spots: [
@@ -36,6 +33,7 @@ function RegistrationPage() {
       spots,
       contents,
       transportation,
+      tags,
     } = data;
 
     const titleImage = titleImageList.item(0);
@@ -50,10 +48,10 @@ function RegistrationPage() {
 
     const startingPositionImage = spotFiles.shift();
     const destinationImage = spotFiles.pop();
+    const transformedTags = tags.filter((tag): tag is string => tag !== false);
 
     if (!startingPositionImage || !destinationImage || !titleImage) return;
     mutate({
-      challengeWriter: 'test nickname',
       challengeTitle: title,
       challengeContents: contents,
       challengeTransportation: transportation,
@@ -63,10 +61,9 @@ function RegistrationPage() {
       stopOverImage1: spotFiles[0] || null,
       stopOverImage2: spotFiles[1] || null,
       stopOverImage3: spotFiles[2] || null,
+      tags: transformedTags,
     });
   };
-
-  const onInvalid: SubmitErrorHandler<ChallengeRegisterationForm> = () => {};
 
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>
@@ -77,7 +74,9 @@ function RegistrationPage() {
           <TransportSection />
           <TagSection />
           <MapSection />
-          <Button disabled={isPending}>등록하기</Button>
+          <Button type="submit" disabled={isPending}>
+            등록하기
+          </Button>
         </div>
       </FormProvider>
     </form>

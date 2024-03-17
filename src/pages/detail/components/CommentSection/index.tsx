@@ -7,6 +7,7 @@ import SpotSlide from './SpotSlide';
 import useComment from '@/hooks/challenge/useComment';
 import { Comment as CommentType } from '@/types/challenge';
 import MoreButton from '@/components/units/MoreButton';
+import BearLoading from '@/components/common/Loading/BearLoading';
 
 interface Props {
   className?: string;
@@ -21,13 +22,16 @@ function CommentSection({ className }: Props) {
     if (hasNextPage && inView) fetchNextPage();
   }, [inView, hasNextPage]);
 
-  if (isLoading || !data) return <>loading</>;
+  if (isLoading) return <BearLoading />;
+  if (!data) return null;
 
   const allPages = data.pages.flat();
-  const allComments = allPages.map((page) => page?.data.comments).flat();
+  const allComments = allPages.map((page) => page.comments).flat();
   const filterdComments = allComments.filter(
     (comment): comment is CommentType['comments'][0] => comment !== undefined,
   );
+
+  if (filterdComments.length === 0) return null;
 
   return (
     <section

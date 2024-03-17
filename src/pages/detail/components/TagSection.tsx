@@ -12,7 +12,7 @@ function TagSection() {
   return (
     <section className="flex w-full flex-col gap-[32px]">
       <h1 className="text-2xl font-semibold leading-[150%]">산책길 태그</h1>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {TMP_DATA.map((tag) => (
           <Button key={tag} variant="tag-a">
             {tag}

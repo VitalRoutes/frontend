@@ -13,7 +13,7 @@ function ChallengeListSection() {
     return <BearLoading />;
   }
 
-  if (!data) {
+  if (!data || data.length === 0) {
     return (
       <div className="flex flex-col items-center gap-[62px]">
         <div className="flex flex-col items-center gap-[16px]">

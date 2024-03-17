@@ -22,6 +22,7 @@ function NameInput() {
       <Input
         label="비밀번호"
         type="password"
+        autoComplete="off"
         id="signUp_password"
         placeholder="비밀번호 8~16자리를 입력해주세요"
         className="h-[58px]"

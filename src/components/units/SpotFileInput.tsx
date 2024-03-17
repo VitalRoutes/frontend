@@ -34,8 +34,8 @@ function SpotFileInput(
           type="file"
           aria-label="file input"
           id={id}
-          className="h-0 w-0"
           {...props}
+          hidden
         />
       </label>
     </div>

@@ -23,7 +23,7 @@ function ProfileUpdatePage() {
     },
   });
   const { handleSubmit } = methods;
-  const { mutate } = useProfileUpdateMutation();
+  const { mutate, isPending } = useProfileUpdateMutation();
 
   const onValid: SubmitHandler<ProfileUpdateForm> = (formData) => {
     mutate(formData);
@@ -44,7 +44,9 @@ function ProfileUpdatePage() {
             <PasswordInput />
           </div>
           <div className="flex w-full flex-col items-end gap-[16px]">
-            <Button type="submit">수정하기</Button>
+            <Button disabled={isPending} type="submit">
+              수정하기
+            </Button>
             <button type="button">탈퇴하기</button>
           </div>
         </form>

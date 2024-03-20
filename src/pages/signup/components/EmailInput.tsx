@@ -10,12 +10,6 @@ function EmailInput() {
 
   const emailRegister = register('email', {
     required: '※ 이메일 입력란이 비어있습니다.',
-    pattern: {
-      value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-      message: '※ 올바른 이메일 형식에 맞게 작성해주세요.',
-    },
-    minLength: 8,
-    maxLength: 16,
   });
 
   return (

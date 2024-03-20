@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import Spot from '@/components/common/Spot';
@@ -6,8 +5,7 @@ import useChallengeDetail from '@/hooks/challenge/useChallengeDetail';
 
 function ImageSection() {
   const constraintsRef = useRef<HTMLDivElement>(null);
-  const { id } = useParams<{ id: string }>();
-  const { data } = useChallengeDetail(id || '0');
+  const { data } = useChallengeDetail();
   const images = [
     data?.storedStartingPositionImageName,
     data?.storedStopOverImage1Name,

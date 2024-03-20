@@ -49,6 +49,7 @@ export interface ChallengeDetail {
   stopOver2Lon: number;
   stopOver3Lat: number;
   stopOver3Lon: number;
+  tags: string[];
 }
 
 export interface Comment {

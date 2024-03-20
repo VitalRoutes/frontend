@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import Banner from '@/components/common/Banner';
 import KaKaoMap from '../../components/units/KakaoMap';
 import ImageSection from './components/ImageSection';
@@ -13,8 +12,7 @@ import { useLoginStore } from '@/store/user/loginInfoStore';
 
 function ChallengeDetailPage() {
   const { isLogin } = useLoginStore();
-  const { id } = useParams<{ id: string }>();
-  const { data: challenge, isLoading } = useChallengeDetail(id || '0');
+  const { data: challenge, isLoading } = useChallengeDetail();
 
   if (isLoading)
     return (
@@ -22,7 +20,7 @@ function ChallengeDetailPage() {
         <BearLoading />;
       </div>
     );
-  if (!challenge) return <>데이터가 없다1</>;
+  if (!challenge) return <>데이터가 없습니다.</>;
 
   const spots = [
     {

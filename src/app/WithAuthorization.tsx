@@ -9,7 +9,9 @@ interface Props {
 function WithAuthorization({ children }: Props) {
   const { isLogin } = useLoginStore();
 
-  if (!isLogin) return <Navigate to="/login" />;
+  if (!isLogin) {
+    return <Navigate to="/login" replace />;
+  }
 
   return children;
 }

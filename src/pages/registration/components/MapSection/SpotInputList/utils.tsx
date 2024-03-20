@@ -33,6 +33,7 @@ function useSpotRegister() {
         }
         navigator.geolocation.getCurrentPosition(
           (position) => {
+            console.log('est');
             const { longitude, latitude } = position.coords;
             setValue(`spots.${index}.lat`, latitude);
             setValue(`spots.${index}.lng`, longitude);

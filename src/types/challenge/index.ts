@@ -16,11 +16,23 @@ export interface ChallengeRegistrationRequest {
   challengeContents: string;
   challengeTransportation: '0' | '1';
   titleImage: File;
+
   startingPositionImage: File;
   destinationImage: File;
+  startingPosLat: number;
+  startingPosLon: number;
+  destinationLat: number;
+  destinationLon: number;
+
   stopOverImage1: File | null;
   stopOverImage2: File | null;
   stopOverImage3: File | null;
+  stopOver1Lat: number | null;
+  stopOver1Lon: number | null;
+  stopOver2Lat: number | null;
+  stopOver2Lon: number | null;
+  stopOver3Lat: number | null;
+  stopOver3Lon: number | null;
   tags: string[];
 }
 

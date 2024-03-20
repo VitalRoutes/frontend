@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChangeEvent, useRef } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import SpotFileInput from '@/components/units/SpotFileInput';
 import { ChallengeRegisterationForm } from '@/types/posts';
@@ -9,6 +9,7 @@ import Popup from '@/components/common/Popup';
 import Button from '@/components/common/Button';
 
 function SpotInputList() {
+  const [isNoticed, setIsNoticed] = useState(false);
   const constraintsRef = useRef(null);
   const { register, watch, setValue, resetField } =
     useFormContext<ChallengeRegisterationForm>();
@@ -42,19 +43,39 @@ function SpotInputList() {
                 setValue(`spots.${index}.lat`, lat);
                 setValue(`spots.${index}.lng`, lng);
               } catch (error) {
-                if (!(error instanceof Error)) {
-                  return;
+                if (!isNoticed) {
+                  openPopup(
+                    <Popup
+                      content="사진에 GPS 정보가 없습니다."
+                      subContent="GPS 정보가 없다면 현재 위치를 사용합니다."
+                      buttons={
+                        <Button variant="popup-point" onClick={closePopup}>
+                          확인
+                        </Button>
+                      }
+                    />,
+                  );
+                  setIsNoticed(true);
                 }
-                resetField(`spots.${index}.files`);
-                openPopup(
-                  <Popup
-                    content={error.message}
-                    buttons={
-                      <Button variant="popup-point" onClick={closePopup}>
-                        확인
-                      </Button>
-                    }
-                  />,
+                navigator.geolocation.getCurrentPosition(
+                  (position) => {
+                    const { longitude, latitude } = position.coords;
+                    setValue(`spots.${index}.lat`, latitude);
+                    setValue(`spots.${index}.lng`, longitude);
+                  },
+                  (geolocationError) => {
+                    resetField(`spots.${index}.files`);
+                    openPopup(
+                      <Popup
+                        content={geolocationError.message}
+                        buttons={
+                          <Button variant="popup-point" onClick={closePopup}>
+                            확인
+                          </Button>
+                        }
+                      />,
+                    );
+                  },
                 );
               }
             },

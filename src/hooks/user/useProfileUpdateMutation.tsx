@@ -11,18 +11,23 @@ function useProfileUpdateMutation() {
   const { openPopup, closePopup } = usePopup();
   const navigate = useNavigate();
   const { memberId } = useLoginStore();
-  const mutationFn = (data: ProfileUpdateForm) => {
-    const formData = new FormData();
-
-    formData.append('profile', data.profile);
-    formData.append('memberId', String(data.memberId));
-    formData.append('name', data.name);
-    formData.append('nickname', data.nickname);
-    formData.append('prePassword', data.prePassword);
-    formData.append('newPassword', data.newPassword);
-
-    return axios.patch(`/member/profile/${memberId}`, formData);
-  };
+  const mutationFn = ({
+    profile,
+    name,
+    nickname,
+    prePassword,
+    newPassword,
+    email,
+  }: ProfileUpdateForm) =>
+    axios.patch(`/member/profile/${memberId}`, {
+      profile,
+      memberId: String(memberId),
+      name,
+      nickname,
+      email,
+      prePassword,
+      newPassword,
+    });
   const onSuccess = () => {
     openPopup(
       <Popup

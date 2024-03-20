@@ -1,19 +1,14 @@
 import { motion } from 'framer-motion';
-import { ChangeEvent, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import SpotFileInput from '@/components/units/SpotFileInput';
+import useSpotRegister from './utils';
 import { ChallengeRegisterationForm } from '@/types/posts';
-import { getGpsFromImg } from '@/utils/ExifReader';
-import usePopup from '@/hooks/usePopup';
-import Popup from '@/components/common/Popup';
-import Button from '@/components/common/Button';
 
 function SpotInputList() {
-  const [isNoticed, setIsNoticed] = useState(false);
   const constraintsRef = useRef(null);
-  const { register, watch, setValue, resetField } =
-    useFormContext<ChallengeRegisterationForm>();
-  const { openPopup, closePopup } = usePopup();
+  const { watch } = useFormContext<ChallengeRegisterationForm>();
+  const { getSpotRegister } = useSpotRegister();
 
   return (
     <div className="w-full" ref={constraintsRef}>
@@ -27,60 +22,7 @@ function SpotInputList() {
           const spot = watch('spots')[index];
           const file = spot?.files?.item(0);
           const previewImgSrc = file ? URL.createObjectURL(file) : undefined;
-          const required =
-            index === 0 || index === 1
-              ? '최소 두장의 사진을 등록해주세요.'
-              : false;
-
-          const spotRegister = register(`spots.${index}.files`, {
-            onChange: async (e: ChangeEvent<HTMLInputElement>) => {
-              const { files } = e.target;
-              const targetFile = files?.item(0);
-              if (!targetFile) return;
-
-              try {
-                const { lat, lng } = await getGpsFromImg(targetFile);
-                setValue(`spots.${index}.lat`, lat);
-                setValue(`spots.${index}.lng`, lng);
-              } catch (error) {
-                if (!isNoticed) {
-                  openPopup(
-                    <Popup
-                      content="사진에 GPS 정보가 없습니다."
-                      subContent="GPS 정보가 없다면 현재 위치를 사용합니다."
-                      buttons={
-                        <Button variant="popup-point" onClick={closePopup}>
-                          확인
-                        </Button>
-                      }
-                    />,
-                  );
-                  setIsNoticed(true);
-                }
-                navigator.geolocation.getCurrentPosition(
-                  (position) => {
-                    const { longitude, latitude } = position.coords;
-                    setValue(`spots.${index}.lat`, latitude);
-                    setValue(`spots.${index}.lng`, longitude);
-                  },
-                  (geolocationError) => {
-                    resetField(`spots.${index}.files`);
-                    openPopup(
-                      <Popup
-                        content={geolocationError.message}
-                        buttons={
-                          <Button variant="popup-point" onClick={closePopup}>
-                            확인
-                          </Button>
-                        }
-                      />,
-                    );
-                  },
-                );
-              }
-            },
-            required,
-          });
+          const spotRegister = getSpotRegister(index);
 
           return (
             <SpotFileInput

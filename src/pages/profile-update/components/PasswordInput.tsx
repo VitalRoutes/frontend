@@ -1,12 +1,28 @@
 import { useFormContext } from 'react-hook-form';
 import Input from '@/components/common/Input';
 import { ProfileUpdateForm } from '@/types/user';
+import REGEXP from '@/constants/regexp';
 
 function PasswordInput() {
-  const { register } = useFormContext<ProfileUpdateForm>();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<ProfileUpdateForm>();
 
-  const prePasswordRegister = register('prePassword');
-  const newPasswordRegister = register('newPassword');
+  const prePasswordRegister = register('prePassword', {
+    required: '※ 비밀번호 입력란이 비어있습니다.',
+    pattern: {
+      value: REGEXP.password,
+      message: '※ 올바른 비밀번호 형식에 맞게 작성해주세요.',
+    },
+  });
+  const newPasswordRegister = register('newPassword', {
+    required: '※ 비밀번호 입력란이 비어있습니다.',
+    pattern: {
+      value: REGEXP.password,
+      message: '※ 올바른 비밀번호 형식에 맞게 작성해주세요.',
+    },
+  });
 
   return (
     <>
@@ -15,6 +31,7 @@ function PasswordInput() {
         label="이전 비밀번호"
         autoComplete="off"
         placeholder="비밀번호를 입력해주세요."
+        errorMessage={errors.newPassword?.message}
         {...prePasswordRegister}
       />
       <div>
@@ -23,6 +40,7 @@ function PasswordInput() {
           autoComplete="off"
           label="새 비밀번호"
           placeholder="비밀번호를 입력해주세요."
+          errorMessage={errors.newPassword?.message}
           {...newPasswordRegister}
         />
         <div className="mt-[16px] text-[13px] text-gray-2">

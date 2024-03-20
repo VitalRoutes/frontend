@@ -10,7 +10,7 @@ import { getImageUrl } from '@/utils/getImageUrl';
 import { useLoginStore } from '@/store/user/loginInfoStore';
 
 function Header() {
-  const { isLogin } = useLoginStore();
+  const { isLogin, logout } = useLoginStore();
   const navigationList = Object.values(NAVIGATION_NEW);
   const { width } = useWindowSize();
   const [hambergerNavigationVisible, setHambergerNavigationVisible] =
@@ -43,7 +43,9 @@ function Header() {
               ))}
             </nav>
             {isLogin ? (
-              <Button variant="third-a">Logout</Button>
+              <Button onClick={logout} variant="third-a">
+                Logout
+              </Button>
             ) : (
               <Link to="login">
                 <Button variant="third-a">Login</Button>

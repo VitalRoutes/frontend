@@ -13,7 +13,7 @@ function Popup({ contents, buttons, content, subContent }: Props) {
       <div className="flex flex-col gap-[12px] p-[40px]">
         {contents}
         <div className="text-center text-[20px] font-bold">{content}</div>
-        <div className="text-center ">{subContent}</div>
+        <div className="whitespace-pre-wrap text-center">{subContent}</div>
       </div>
       <div className="flex">{buttons}</div>
     </div>

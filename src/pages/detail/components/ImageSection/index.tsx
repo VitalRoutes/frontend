@@ -12,7 +12,7 @@ function ImageSection() {
     data?.storedStopOverImage2Name,
     data?.storedStopOverImage3Name,
     data?.storedDestinationImageName,
-  ].filter((image): image is string => image !== undefined);
+  ].filter((image): image is string => image !== null);
 
   return (
     <motion.div className="w-full" ref={constraintsRef}>

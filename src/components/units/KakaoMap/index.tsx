@@ -17,8 +17,10 @@ function KaKaoMap({ spots }: Props) {
 
   useEffect(() => {
     if (!spots || spots?.length === 0) return;
+
     const latValues = spots.map((spot) => spot.lat);
     const lngValues = spots.map((spot) => spot.lng);
+
     const sumOfLng = lngValues.reduce((sum, lng) => sum + lng, 0);
     const sumOfLat = latValues.reduce((sum, lat) => sum + lat, 0);
     const averageLat = sumOfLat / spots.length;

@@ -8,7 +8,7 @@ export interface CommentForm {
   comment: string;
 }
 
-interface Spot {
+export interface Spot {
   files: FileList | undefined;
   lat: number;
   lng: number;

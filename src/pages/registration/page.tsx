@@ -4,7 +4,7 @@ import EditorSection from './components/EditorSection';
 import MapSection from './components/MapSection';
 import TagSection from './components/TagSection';
 import TransportSection from './components/TransportSection';
-import { ChallengeRegisterationForm } from '@/types/posts';
+import { ChallengeRegisterationForm, Spot } from '@/types/posts';
 import Button from '@/components/common/Button';
 import useChallengeWriteMutation from '@/hooks/challenge/useChallengeWriteMutation';
 import useOnInvalid from './components/model/useOnInvalid';
@@ -38,19 +38,29 @@ function RegistrationPage() {
 
     const titleImage = titleImageList.item(0);
 
-    const spotFiles = [
-      spots.at(0)?.files?.item(0),
-      spots.at(1)?.files?.item(0),
-      spots.at(2)?.files?.item(0),
-      spots.at(3)?.files?.item(0),
-      spots.at(4)?.files?.item(0),
-    ].filter((file): file is File => file !== null);
+    const filteredSpots = [
+      spots.at(0),
+      spots.at(1),
+      spots.at(2),
+      spots.at(3),
+      spots.at(4),
+    ].filter((spot): spot is Spot => spot?.files?.item(0) !== null);
 
-    const startingPositionImage = spotFiles.shift();
-    const destinationImage = spotFiles.pop();
+    const startSpot = filteredSpots.shift();
+    const destSpot = filteredSpots.pop();
+    const startingPositionImage = startSpot?.files?.item(0);
+    const destinationImage = destSpot?.files?.item(0);
     const transformedTags = tags.filter((tag): tag is string => tag !== false);
 
-    if (!startingPositionImage || !destinationImage || !titleImage) return;
+    if (
+      !startingPositionImage ||
+      !destinationImage ||
+      !titleImage ||
+      !startSpot ||
+      !destSpot
+    ) {
+      return;
+    }
     mutate({
       challengeTitle: title,
       challengeContents: contents,
@@ -58,10 +68,20 @@ function RegistrationPage() {
       titleImage,
       startingPositionImage,
       destinationImage,
-      stopOverImage1: spotFiles[0] || null,
-      stopOverImage2: spotFiles[1] || null,
-      stopOverImage3: spotFiles[2] || null,
+      stopOverImage1: filteredSpots.at(0)?.files?.item(0) || null,
+      stopOverImage2: filteredSpots.at(1)?.files?.item(0) || null,
+      stopOverImage3: filteredSpots.at(2)?.files?.item(0) || null,
       tags: transformedTags,
+      startingPosLat: startSpot.lat,
+      startingPosLon: startSpot.lng,
+      destinationLat: destSpot.lat,
+      destinationLon: destSpot.lng,
+      stopOver1Lat: filteredSpots.at(0)?.lat || null,
+      stopOver1Lon: filteredSpots.at(0)?.lng || null,
+      stopOver2Lat: filteredSpots.at(0)?.lat || null,
+      stopOver2Lon: filteredSpots.at(0)?.lng || null,
+      stopOver3Lat: filteredSpots.at(0)?.lat || null,
+      stopOver3Lon: filteredSpots.at(0)?.lng || null,
     });
   };
 

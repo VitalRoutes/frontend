@@ -1,5 +1,6 @@
 import { MouseEventHandler, useState } from 'react';
 import Icon from '@/components/icons';
+import ChallengeCardSkeleton from './ChallengeCardSkeleton';
 
 interface Props {
   imgSrc: string;
@@ -91,4 +92,5 @@ function ChallengeCard({ onClick, imgSrc, title, people }: Props) {
   );
 }
 
+ChallengeCard.Skeleton = ChallengeCardSkeleton;
 export default ChallengeCard;
